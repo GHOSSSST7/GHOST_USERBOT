@@ -26,7 +26,7 @@ class Config(object):
     TZ = os.environ.get("TZ", "Africa/Cairo")
     # رابط الريبو
     UPSTREAM_REPO = os.environ.get(
-        "UPSTREAM_REPO", "https://github.com/sa3ed266it/jmuserbot"
+        "UPSTREAM_REPO", "https://github.com/sa3ed266it/ITALIA_USERBOT"
     )
     # ملفات خارجيه اضافيه
     EXTERNAL_REPO = os.environ.get("EXTERNAL_REPO", None)
