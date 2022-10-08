@@ -71,7 +71,7 @@ class Config(object):
     # هنا ايدي قناتك الي بيها ملفات اضافيه اذا تحب تضيف
     PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL") or 0)
     # لامر التلجراف فقط حط اسم
-    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "jmthon")
+    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "italia")
     # هنا خلفيه مال تلجراف او بعض الاوامر
     THUMB_IMAGE = os.environ.get(
         "THUMB_IMAGE", "https://telegra.ph/file/524d0431f17854870e678.jpg"
