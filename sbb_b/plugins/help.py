@@ -1114,25 +1114,25 @@ async def _(event):
 @check_owner
 async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
-    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
+    await event.edit(GADMIN, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"TADMIN")))
 @check_owner
 async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
-    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
+    await event.edit(TADMIN, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"GADMIN1")))
 @check_owner
 async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
-    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
+    await event.edit(GADMIN1, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"TADMIN1")))
 @check_owner
 async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
-    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
+    await event.edit(TADMIN1, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"admi3")))
 @check_owner
