@@ -125,8 +125,8 @@ async def bot_start(event):
                 Button.url("• المطور •", "https://t.me/SA3ED_IT"),
             ],
             [
-                Button.inline("• اوامر البوت •", data="CMDBOT"),
-                Button.inline("• اوامر المشغل •", data="MSHKLMSIC"),
+                Button.inline("", data=""),
+                Button.inline("• اوامر الميوزك •", data="MSHKLMSIC"),
             ],
         ]
     try:
