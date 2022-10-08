@@ -8,7 +8,7 @@ from . import edit_or_reply, sbb_b
 async def _(event):
     event = await edit_or_reply(event, "افكر")
     deq = deque(list("🤔🧐🤔🧐🤔🧐"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -18,17 +18,17 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "متت")
     deq = deque(list("😹🤣😂😹🤣😂"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
 
 
-@sbb_b.ar_cmd(pattern="ضايج$")
+@sbb_b.ar_cmd(pattern="مضايق$")
 async def _(event):
-    event = await edit_or_reply(event, "ضايج")
+    event = await edit_or_reply(event, "مضايق")
     deq = deque(list("😕😞🙁☹️😕😞🙁"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -37,8 +37,8 @@ async def _(event):
 @sbb_b.ar_cmd(pattern="ساعه$")
 async def _(event):
     event = await edit_or_reply(event, "ساعه")
-    deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐🕛"))
-    for _ in range(48):
+    deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐"))
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -48,7 +48,7 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "مح")
     deq = deque(list("😗😙😚😚😘"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -58,7 +58,7 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "قلب")
     deq = deque(list("❤️🧡💛💚💙💜🖤"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -68,7 +68,7 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "جيم")
     deq = deque(list("🏃‍🏋‍🤸‍🏃‍🏋‍🤸‍🏃‍🏋‍🤸‍"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -78,7 +78,7 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "الارض")
     deq = deque(list("🌏🌍🌎🌎🌍🌏🌍🌎"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -88,7 +88,7 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "قمر")
     deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
-    for _ in range(48):
+    for _ in range(30):
         await asyncio.sleep(0.2)
         await event.edit("".join(deq))
         deq.rotate(1)
@@ -98,7 +98,7 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "اقمار")
     animation_interval = 0.2
-    animation_ttl = range(101)
+    animation_ttl = range(61)
     await event.edit("اقمار..")
     animation_chars = [
         "🌗🌗🌗🌗🌗\n🌓🌓🌓🌓🌓\n🌗🌗🌗🌗🌗\n🌓🌓🌓🌓🌓\n🌗🌗🌗🌗🌗",
