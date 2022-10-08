@@ -256,6 +256,7 @@ async def _(event):
     animation_interval = 0.3
     animation_ttl = range(12)
     event = await edit_or_reply(event, "شرطه")
+    user = await get_user_from_event(event)
     animation_chars = [
         "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
         "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
