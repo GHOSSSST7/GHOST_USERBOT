@@ -100,7 +100,6 @@ async def catgban(event):  # sourcery no-metrics
             await event.client.send_message(
                 BOTLOG_CHATID,
                 f"#حظر_عام\
-                \nGlobal Unban\
                 \nالمستخدم : [{user.first_name}](tg://user?id={user.id})\
                 \nالايدي : {user.id}\
                 \nالسبب : {reason}\
@@ -111,7 +110,6 @@ async def catgban(event):  # sourcery no-metrics
             await event.client.send_message(
                 BOTLOG_CHATID,
                 f"#حظر_عام\
-                \nGlobal Unban\
                 \nالمستخدم : [{user.first_name}](tg://user?id={user.id})\
                 \nالايدي : {user.id}\
                 \nتم حظره من {count} مجموعات\
@@ -181,7 +179,6 @@ async def catgban(event):
             await event.client.send_message(
                 BOTLOG_CHATID,
                 f"#الغاء_حظر_عام\
-                \nGlobal Unban\
                 \nالمستخدم : [{user.first_name}](tg://user?id={user.id})\
                 \nالايدي : {user.id}\
                 \nالسبب : {reason}\
@@ -192,7 +189,6 @@ async def catgban(event):
             await event.client.send_message(
                 BOTLOG_CHATID,
                 f"#الغاء_حظر_عام\
-                \nGlobal Unban\
                 \nالمستخدم : [{user.first_name}](tg://user?id={user.id})\
                 \nالايدي : {user.id}\
                 \nتم الغاء حظره من {count} مجموعات\
@@ -312,7 +308,7 @@ async def endgmute(event):
         if not user:
             return
         if user.id == sbb_b.uid:
-            return await edit_or_reply(event, "`Sorry, I can't gmute myself`")
+            return await edit_or_reply(event, "اسف لا استطيع كتم نفسي .")
         userid = user.id
     try:
         user = await event.client.get_entity(userid)
