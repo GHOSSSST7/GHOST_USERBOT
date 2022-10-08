@@ -2,7 +2,9 @@ import asyncio
 from collections import deque
 
 from . import edit_delete, edit_or_reply, mention, sbb_b
-
+from ..core.managers import edit_or_reply
+from ..helpers.utils import _format
+from . import extract_time, get_user_from_event
 plugin_category = "fun"
 
 
