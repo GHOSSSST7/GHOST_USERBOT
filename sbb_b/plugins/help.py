@@ -34,7 +34,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                 ],
                 [
                     Button.inline("التسلية", data="TASLIACMD"),
-                    Button.inline("الاداوات", data="toolsed1"),
+                    Button.inline("الادوات", data="toolsed1"),
                 ],
                 [
                     Button.inline("التحميل", data="DOWMANLODE4"),
@@ -80,7 +80,7 @@ async def _(event):
         ],
         [
             Button.inline("التسلية", data="TASLIACMD"),
-            Button.inline("الاداوات", data="toolsed1"),
+            Button.inline("الادوات", data="toolsed1"),
         ],
         [
             Button.inline("التحميل", data="DOWMANLODE4"),
