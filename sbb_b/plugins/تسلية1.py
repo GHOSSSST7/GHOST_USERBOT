@@ -34,10 +34,10 @@ async def _(event):
 async def _(event):
     animation_interval = 0.8
     animation_ttl = range(5)
-    event = await edit_or_reply(event, "wtf")
+    event = await edit_or_reply(event, "نعم !")
     animation_chars = [
-        "نعم !",
-        "نعممم 🙄",
+        "نعممم ؟",
+        "نعمممممم 🙄",
         "مالك ف حاجه ؟",
         "ف حاجه ولا اى 🤔\nhttps://telegra.ph/file/f3b760e4a99340d331f9b.jpg",
     ]
@@ -86,17 +86,17 @@ async def _(event):
 async def _(event):
     event = await edit_or_reply(event, "احـراق")
     await event.edit("احـرقه")
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.8)
     await event.edit("ليييي")
-    await asyncio.sleep(0.2)
+    await asyncio.sleep(0.8)
     await event.edit("كب عليه البنزين بسرعه 😂")
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.8)
     await event.edit("لا والنبى 😭")
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.8)
     await event.edit("اخرس خالص 😠")
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.8)
     await event.edit("😭")
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.8)
     await event.edit("يلا احرقه بسرعه 😂😠🔥")
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.8)
     await event.edit("🔥")
