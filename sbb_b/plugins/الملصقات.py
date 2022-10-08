@@ -692,7 +692,7 @@ async def pussyjmthon(event):
             "/newvideo",
             event,
             1,
-            "jmthon",
+            "Italia",
             True,
             "❤️",
             packname,
@@ -743,7 +743,7 @@ async def pic2packcmd(event):
     except Exception:
         emoji = "▫️"
     chat = "@Stickers"
-    name = "jmthon_" + "".join(
+    name = "Italia" + "".join(
         random.choice(list(string.ascii_lowercase + string.ascii_uppercase))
         for _ in range(16)
     )
