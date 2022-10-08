@@ -48,7 +48,7 @@ REGEX_ = REGEX()
 sudo_enabledcmds = sudo_enabled_cmds()
 
 
-class JmthonClient(TelegramClient):
+class ItaliaClient(TelegramClient):
     def ar_cmd(
         self: TelegramClient,
         pattern: str or tuple = None,
@@ -174,8 +174,8 @@ class JmthonClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        link = "[هنا](https://t.me/jmthon_support)"
-                        text = "**تقرير خطأ سورس جمثون**\n\n" + "اذا اردت يمكنك التبليغ"
+                        link = "[هنا](https://t.me/SA3ED_IT)"
+                        text = "**تقرير خطأ**\n\n" + "اذا اردت يمكنك التبليغ"
                         text += f"- فقط وجه هذه الرسالة الى {link}.\n"
                         text += "لم يتم تسجيل اي بيانات خاصه ومهمة\n\n"
                         text += f"**تقرير الخطأ : ** [{new['error']}]({pastelink})"
@@ -289,8 +289,8 @@ class JmthonClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        link = "[هنا](https://t.me/jmthon_support)"
-                        text = "**تقرير خطأ جمثون**\n\n" + "يمكنك التبليغ عنه"
+                        link = "[هنا](https://t.me/SA3ED_IT)"
+                        text = "**تقرير خطأ**\n\n" + "يمكنك التبليغ عنه"
                         text += f"- حول هذه الرسالة الى هنا{link}.\n"
                         text += "لم يتم تسجيل اي بيانات خاصة فقط المشكلة\n\n"
                         text += f"**تقرير الخطأ : ** [{new['error']}]({pastelink})"
@@ -325,14 +325,14 @@ class JmthonClient(TelegramClient):
         self.running_processes.clear()
 
 
-JmthonClient.fast_download_file = download_file
-JmthonClient.fast_upload_file = upload_file
-JmthonClient.reload = restart_script
-JmthonClient.get_msg_link = get_message_link
-JmthonClient.check_testcases = checking
+ItaliaClient.fast_download_file = download_file
+ItaliaClient.fast_upload_file = upload_file
+ItaliaClient.reload = restart_script
+ItaliaClient.get_msg_link = get_message_link
+ItaliaClient.check_testcases = checking
 try:
     send_message_check = TelegramClient.send_message
 except AttributeError:
-    JmthonClient.send_message = send_message
-    JmthonClient.send_file = send_file
-    JmthonClient.edit_message = edit_message
+    ItaliaClient.send_message = send_message
+    ItaliaClient.send_file = send_file
+    ItaliaClient.edit_message = edit_message
