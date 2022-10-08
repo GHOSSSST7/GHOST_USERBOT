@@ -2,9 +2,6 @@ import asyncio
 from collections import deque
 
 from . import edit_delete, edit_or_reply, mention, sbb_b
-from ..core.managers import edit_or_reply
-from ..helpers.utils import _format
-from . import extract_time, get_user_from_event
 plugin_category = "fun"
 
 
@@ -256,7 +253,6 @@ async def _(event):
     animation_interval = 0.3
     animation_ttl = range(12)
     event = await edit_or_reply(event, "شرطه")
-    user = await get_user_from_event(event)
     animation_chars = [
         "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
         "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
@@ -269,7 +265,7 @@ async def _(event):
         "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
         "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
         "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-        f"{_format.mentionuser(user.first_name ,user.id)} سلم نفسك الطريق كله محاصر 🙇 ",
+        f"{mentionuser} سلم نفسك الطريق كله محاصر 🙇 ",
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
