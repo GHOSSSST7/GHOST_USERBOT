@@ -31,7 +31,7 @@ Tnsmeet1 = {
 }
 
 
-@sbb_b.ar_cmd(pattern="حذف(?:\s|$)([\s\S]*)")
+@sbb_b.ar_cmd(pattern="مسح(?:\s|$)([\s\S]*)")
 async def iq(cloneiq):
     chat = await cloneiq.get_input_chat()
     msgs = []
