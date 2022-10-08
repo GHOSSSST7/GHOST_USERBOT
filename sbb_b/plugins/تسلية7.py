@@ -1,5 +1,3 @@
-# WRITED BY - @VUUZZ - @RR7PP
-
 import io
 import os
 import random
@@ -192,7 +190,7 @@ async def doge(event):
 
 
 @sbb_b.ar_cmd(
-    pattern="غلاكس(|ر)(?:\s|$)([\s\S]*)",
+    pattern="غلاكس(?:\s|$)([\s\S]*)",
     command=("غلاكس", plugin_category),
     info={
         "header": "Make glax the dragon scream your text.",
