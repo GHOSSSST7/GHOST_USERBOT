@@ -253,6 +253,7 @@ async def _(event):
     animation_interval = 0.3
     animation_ttl = range(12)
     event = await edit_or_reply(event, "شرطه")
+    a_user = await event.get_sender()
     mention = f"[{a_user.first_name}](tg://user?id={a_user.id})"
     animation_chars = [
         "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
