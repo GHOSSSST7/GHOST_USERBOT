@@ -69,26 +69,7 @@ async def saves():
         ] = "**⎙ :: انتبه عزيزي المستخدم هذا الملف ملغم يمكنه اختراق حسابك لم يتم تنصيبه في حسابك لا تقلق  𓆰.**"
     except Exception as e:
         print(str(e))
-    try:
-        await sbb_b(JoinChannelRequest(""))
-    except BaseException:
-        pass
-    try:
-        await sbb_b(JoinChannelRequest(""))
-    except BaseException:
-        pass
-    try:
-        await sbb_b(JoinChannelRequest(""))
-    except BaseException:
-        pass
-    try:
-        await sbb_b(JoinChannelRequest(""))
-    except BaseException:
-        pass
-    try:
-        await sbb_b(JoinChannelRequest(""))
-    except BaseException:
-        pass
+
 
 
 async def mybot():
