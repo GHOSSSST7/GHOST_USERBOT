@@ -558,10 +558,10 @@ async def inline_handler(event):
     else:
         buttons = [
             (
-                Button.url("قناة السورس", "t.me/JMTHON"),
+                Button.url("قناة السورس", "t.me/SA3ED_IT"),
                 Button.url(
                     "المطور",
-                    "t.me/RR7PP",
+                    "t.me/SA3ED_IT",
                 ),
             )
         ]
@@ -575,9 +575,9 @@ async def inline_handler(event):
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="[𝙅𝙈𝙏𝙃𝙊𝙉 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 🧸♥](https://t.me/JMTHON)",
+            title="[𝙅𝙈𝙏𝙃𝙊𝙉 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 🧸♥](https://t.me/SA3ED_IT)",
             description="لتنصيبه لك",
-            url="t.me/JMTHON",
+            url="t.me/SA3ED_IT",
             thumb=photo,
             content=photo,
             send_message=types.InputBotInlineMessageMediaAuto(
