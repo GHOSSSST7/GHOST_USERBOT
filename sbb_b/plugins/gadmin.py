@@ -57,7 +57,7 @@ async def catgban(event):  # sourcery no-metrics
     user, reason = await get_user_from_event(event, cate)
     if not user:
         return
-    if user.id == catub.uid:
+    if user.id == sbb_b.uid:
         return await edit_delete(cate, "`why would I ban myself`")
     if gban_sql.is_gbanned(user.id):
         await cate.edit(
@@ -374,7 +374,7 @@ async def catgkick(event):  # sourcery no-metrics
     user, reason = await get_user_from_event(event, cate)
     if not user:
         return
-    if user.id == catub.uid:
+    if user.id == sbb_b.uid:
         return await edit_delete(cate, "`why would I kick myself`")
     san = await admin_groups(event.client)
     count = 0
@@ -399,11 +399,11 @@ async def catgkick(event):  # sourcery no-metrics
     cattaken = (end - start).seconds
     if reason:
         await cate.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) `was gkicked in {count} groups in {cattaken} seconds`!!\n**Reason :** `{reason}`"
+            f"المستخدم : [{user.first_name}](tg://user?id={user.id})\nتم حظره من  {count} مجموعه انته ادمن فيها .\n المده :{cattaken} ثانيه .\nالسبب : {reason}"
         )
     else:
         await cate.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) `was gkicked in {count} groups in {cattaken} seconds`!!"
+            f"المستخدم : [{user.first_name}](tg://user?id={user.id})\nتم حظره من  {count} مجموعه انته ادمن فيها .\n المده :{cattaken} ثانيه ."
         )
 
     if BOTLOG and count != 0:
