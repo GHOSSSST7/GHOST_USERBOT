@@ -1092,8 +1092,8 @@ async def _(event):
             Button.inline("الحظر المؤقت", data="TADMIN"),
         ],
         [
-            Button.inline("الكتم العام", data="GADMIN1"),
-            Button.inline("الكتم المؤقت", data="TADMIN1"),
+            Button.inline("الكتم العام", data="GMUTE"),
+            Button.inline("الكتم المؤقت", data="TMUTE"),
         ],
         [
             Button.inline("⌫", data="admi3"),
@@ -1122,17 +1122,17 @@ async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
     await event.edit(TADMIN, buttons=buttons, link_preview=False)
 
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"GADMIN1")))
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"GMUTE")))
 @check_owner
 async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
-    await event.edit(GADMIN1, buttons=buttons, link_preview=False)
+    await event.edit(GMUTE, buttons=buttons, link_preview=False)
 
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"TADMIN1")))
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"TMUTE")))
 @check_owner
 async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
-    await event.edit(TADMIN1, buttons=buttons, link_preview=False)
+    await event.edit(TMUTE, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"admi3")))
 @check_owner
