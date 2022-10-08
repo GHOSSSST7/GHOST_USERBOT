@@ -1,8 +1,3 @@
-#  =============================
-#  == sbb_b - QHR_1  -  RR7PP =
-#  =============================
-
-
 import asyncio
 import os
 import re
