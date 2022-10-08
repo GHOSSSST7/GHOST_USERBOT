@@ -4,7 +4,7 @@ from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
 
 from ..Config import Config
-from .client import JmthonClient
+from .client import ItaliaClient
 
 __version__ = "2.10.6"
 
@@ -13,10 +13,10 @@ loop = None
 if Config.STRING_SESSION:
     session = StringSession(str(Config.STRING_SESSION))
 else:
-    session = "jmthon"
+    session = "Italia"
 
 try:
-    sbb_b = JmthonClient(
+    sbb_b = italiaClient(
         session=session,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -32,7 +32,7 @@ except Exception as e:
 
 
 sbb_b.tgbot = tgbot = JmthonClient(
-    session="jmthonTgbot",
+    session="ItaliaTgbot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
     loop=loop,
