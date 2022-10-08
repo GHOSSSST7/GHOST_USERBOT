@@ -245,7 +245,7 @@ async def startgmute(event):
         user, reason = await get_user_from_event(event)
         if not user:
             return
-        if user.id == catub.uid:
+        if user.id == sbb_b.uid:
             return await edit_or_reply(event, "`Sorry, I can't gmute myself`")
         userid = user.id
     try:
@@ -265,12 +265,12 @@ async def startgmute(event):
         if reason:
             await edit_or_reply(
                 event,
-                f"{_format.mentionuser(user.first_name ,user.id)} `is Successfully gmuted`\n**Reason :** `{reason}`",
+                f"المستخدم : {_format.mentionuser(user.first_name ,user.id)}\nتم كتمه عام ✓\nالسبب : {reason}",
             )
         else:
             await edit_or_reply(
                 event,
-                f"{_format.mentionuser(user.first_name ,user.id)} `is Successfully gmuted`",
+                f"المستخدم : {_format.mentionuser(user.first_name ,user.id)}\nتم كتمه عام ✓",
             )
     if BOTLOG:
         reply = await event.get_reply_message()
@@ -311,7 +311,7 @@ async def endgmute(event):
         user, reason = await get_user_from_event(event)
         if not user:
             return
-        if user.id == catub.uid:
+        if user.id == sbb_b.uid:
             return await edit_or_reply(event, "`Sorry, I can't gmute myself`")
         userid = user.id
     try:
@@ -330,12 +330,12 @@ async def endgmute(event):
         if reason:
             await edit_or_reply(
                 event,
-                f"{_format.mentionuser(user.first_name ,user.id)} `is Successfully ungmuted`\n**Reason :** `{reason}`",
+                f"المستخدم : {_format.mentionuser(user.first_name ,user.id)}\nتم الغاء كتمه عام ✓\nالسبب : {reason}",
             )
         else:
             await edit_or_reply(
                 event,
-                f"{_format.mentionuser(user.first_name ,user.id)} `is Successfully ungmuted`",
+                f"المستخدم : {_format.mentionuser(user.first_name ,user.id)}\nتم الغاء كتمه عام ✓",
             )
     if BOTLOG:
         if reason:
