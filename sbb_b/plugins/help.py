@@ -1084,14 +1084,16 @@ async def _(event):
             Button.inline("حذف الصورة", data="ALIVESOR"),
         ],
         [
-            Button.inline("", data=""),
-            Button.inline("", data=""),
+            Button.inline("تفليش", data="ALIVETFL"),
             Button.inline("الاحداث", data="ALIVEADV"),
         ],
         [
-            Button.inline("تفليش", data="ALIVETFL"),
-            Button.inline("", data=""),
-            Button.inline("", data=""),
+            Button.inline("الحظر العام", data="GADMIN"),
+            Button.inline("الحظر المؤقت", data="TADMIN"),
+        ],
+        [
+            Button.inline("الكتم العام", data="GADMIN1"),
+            Button.inline("الكتم المؤقت", data="TADMIN1"),
         ],
         [
             Button.inline("⌫", data="admi3"),
@@ -1107,7 +1109,30 @@ async def _(event):
 async def _(event):
     buttons = [[Button.inline("رجوع", data="admin2")]]
     await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
+    
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"GADMIN")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="admin2")]]
+    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
 
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"TADMIN")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="admin2")]]
+    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
+
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"GADMIN1")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="admin2")]]
+    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
+
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"TADMIN1")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="admin2")]]
+    await event.edit(ALIVETFL, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"admi3")))
 @check_owner
