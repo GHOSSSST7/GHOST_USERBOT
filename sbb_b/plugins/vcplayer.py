@@ -6,7 +6,8 @@ import logging
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 from telethon.tl.types import User
-from sbb_b import Config, sbb_b
+from ..Config import Config
+from sbb_b import sbb_b
 from sbb_b.core.managers import edit_delete, edit_or_reply
 
 from .helper.stream_helper import Stream
