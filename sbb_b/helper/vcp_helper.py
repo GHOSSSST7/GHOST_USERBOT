@@ -143,7 +143,7 @@ class CatVC:
             if self.PLAYING:
                 await self.app.change_stream(
                     self.CHAT_ID,
-                    AudioPiped("catvc/resources/Silence01s.mp3"),
+                    AudioPiped("resources/Silence01s.mp3"),
                 )
             self.PLAYING = False
             return "Skipped Stream\nEmpty Playlist"
