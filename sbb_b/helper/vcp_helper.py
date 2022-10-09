@@ -48,7 +48,7 @@ class CatVC:
         try:
             await self.app.join_group_call(
                 chat_id=chat.id,
-                stream=AudioPiped("catvc/resources/Silence01s.mp3"),
+                stream=AudioPiped("resources/Silence01s.mp3"),
                 join_as=join_as_chat,
                 stream_type=StreamType().pulse_stream,
             )
