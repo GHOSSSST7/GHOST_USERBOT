@@ -10,9 +10,9 @@ plugin_category = "extra"
 
 async def get_group_call(chat):
     if isinstance(chat, Channel):
-        result = await catub(functions.channels.GetFullChannelRequest(channel=chat))
+        result = await sbb_b(functions.channels.GetFullChannelRequest(channel=chat))
     elif isinstance(chat, Chat):
-        result = await catub(functions.messages.GetFullChatRequest(chat_id=chat.id))
+        result = await sbb_b(functions.messages.GetFullChatRequest(chat_id=chat.id))
     return result.full_chat.call
 
 
