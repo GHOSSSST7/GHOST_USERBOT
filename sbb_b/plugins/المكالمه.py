@@ -31,7 +31,7 @@ async def chat_vc_checker(event, chat, edits=True):
 async def parse_entity(entity):
     if entity.isnumeric():
         entity = int(entity)
-    return await catub.get_entity(entity)
+    return await sbb_b.get_entity(entity)
 
 
 @sbb_b.ar_cmd(
@@ -46,12 +46,12 @@ async def parse_entity(entity):
 )
 async def start_vc(event):
     "To start a Voice Chat."
-    vc_chat = await catub.get_entity(event.chat_id)
+    vc_chat = await sbb_b.get_entity(event.chat_id)
     gc_call = await chat_vc_checker(event, vc_chat, False)
     if gc_call:
         return await edit_delete(event, "Group Call is already available in this chat")
     try:
-        await catub(
+        await sbb_b(
             functions.phone.CreateGroupCallRequest(
                 peer=vc_chat,
                 title="Cat VC",
@@ -74,12 +74,12 @@ async def start_vc(event):
 )
 async def end_vc(event):
     "To end a Voice Chat."
-    vc_chat = await catub.get_entity(event.chat_id)
+    vc_chat = await sbb_b.get_entity(event.chat_id)
     gc_call = await chat_vc_checker(event, vc_chat)
     if not gc_call:
         return
     try:
-        await catub(functions.phone.DiscardGroupCallRequest(call=gc_call))
+        await sbb_b(functions.phone.DiscardGroupCallRequest(call=gc_call))
         await edit_delete(event, "Group Call Ended")
     except ChatAdminRequiredError:
         await edit_delete(event, "You should be chat admin to kill vc", time=20)
@@ -101,7 +101,7 @@ async def inv_vc(event):
     "To invite users to vc."
     users = event.pattern_match.group(1)
     reply = await event.get_reply_message()
-    vc_chat = await catub.get_entity(event.chat_id)
+    vc_chat = await sbb_b.get_entity(event.chat_id)
     gc_call = await chat_vc_checker(event, vc_chat)
     if not gc_call:
         return
@@ -117,7 +117,7 @@ async def inv_vc(event):
         if isinstance(cc, User):
             user_list.append(cc)
     try:
-        await catub(
+        await sbb_b(
             functions.phone.InviteToGroupCallRequest(call=gc_call, users=user_list)
         )
         await edit_delete(event, "Invited users to Group Call")
@@ -136,7 +136,7 @@ async def inv_vc(event):
 )
 async def info_vc(event):
     "Get info of VC."
-    vc_chat = await catub.get_entity(event.chat_id)
+    vc_chat = await sbb_b.get_entity(event.chat_id)
     gc_call = await chat_vc_checker(event, vc_chat)
     if not gc_call:
         return
@@ -169,13 +169,13 @@ async def info_vc(event):
 async def title_vc(event):
     "To change vc title."
     title = event.pattern_match.group(1)
-    vc_chat = await catub.get_entity(event.chat_id)
+    vc_chat = await sbb_b.get_entity(event.chat_id)
     gc_call = await chat_vc_checker(event, vc_chat)
     if not gc_call:
         return
     if not title:
         return await edit_delete("What should i keep as title")
-    await catub(functions.phone.EditGroupCallTitleRequest(call=gc_call, title=title))
+    await sbb_b(functions.phone.EditGroupCallTitleRequest(call=gc_call, title=title))
     await edit_delete(event, f"VC title was changed to **{title}**")
 
 
@@ -199,7 +199,7 @@ async def mute_vc(event):
     cmd = event.pattern_match.group(1)
     users = event.pattern_match.group(2)
     reply = await event.get_reply_message()
-    vc_chat = await catub.get_entity(event.chat_id)
+    vc_chat = await sbb_b.get_entity(event.chat_id)
     gc_call = await chat_vc_checker(event, vc_chat)
     if not gc_call:
         return
@@ -217,7 +217,7 @@ async def mute_vc(event):
             user_list.append(cc)
 
     for user in user_list:
-        await catub(
+        await sbb_b(
             functions.phone.EditGroupCallParticipantRequest(
                 call=gc_call,
                 participant=user,
