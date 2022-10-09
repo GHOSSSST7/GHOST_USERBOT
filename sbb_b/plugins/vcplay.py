@@ -4,9 +4,9 @@ from telethon.tl.types import User
 from sbb_b import sbb_b
 from sbb_b.core.managers import edit_delete, edit_or_reply
 
-from .helper.stream_helper import Stream
-from .helper.tg_downloader import tg_dl
-from .helper.vcp_helper import CatVC
+from sbb_b.helper.stream_helper import Stream
+from sbb_b.helper.tg_downloader import tg_dl
+from sbb_b.helper.vcp_helper import CatVC
 
 plugin_category = "extra"
 
