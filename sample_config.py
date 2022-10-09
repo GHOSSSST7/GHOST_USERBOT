@@ -36,8 +36,8 @@ class Config(object):
     else:
         EXTERNAL_REPO = None
     # فارات الميوزك
-    VCMODE = os.environ.get("VCMODE", True)
-    VCMODE = bool(VCMODE and (VCMODE.lower() != "true"))
+    VCMODE = os.environ.get("VCMODE", False)
+    VCMODE = bool(VCMODE and (VCMODE.lower() != "false"))
     VC_SESSION = os.environ.get("VC_SESSION", None)
     ALIVE_PIC = os.environ.get(
         "ALIVE_PIC", "https://telegra.ph/file/e9c27e7dfb0b1835d23ce.mp4"
