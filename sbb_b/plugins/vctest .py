@@ -70,7 +70,7 @@ async def joinVoicechat(event):
     await asyncio.sleep(0.3)
     await edit_or_reply(event, "`جارى الانضمام للمكالمة ...`")
     await asyncio.sleep(0.3)
-    await edit_or_reply(event, "`جارى الانضمام للمكالمة ......`)
+    await edit_or_reply(event, "`جارى الانضمام للمكالمة ......`")
     if chat and chat != "-as":
         if chat.strip("-").isnumeric():
             chat = int(chat)
