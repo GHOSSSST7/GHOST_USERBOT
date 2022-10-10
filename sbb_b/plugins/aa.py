@@ -17,6 +17,7 @@ from sbb_b.sql_helper.greetings_db import (
 from sbb_b.helpers.toolls import create_tl_btn, format_btn, get_msg_button
 
 from . import HNDLR, eor, get_string, mediainfo, sbb_b
+from sbb_b import sbb_b
 from ._inline import something
 
 Note = "\n\nNote: `{mention}`, `{group}`, `{count}`, `{name}`, `{fullname}`, `{username}`, `{userid}` can be used as formatting parameters.\n\n"
