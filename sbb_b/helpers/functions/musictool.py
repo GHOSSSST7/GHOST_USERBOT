@@ -79,10 +79,12 @@ LyricsGen = LyricGenius()
 
 
 async def song_download(url, event, quality="128k", video=False, title=True):
+    media_type = "Audio"
     media_ext = ["mp3", "mp4a"]
     media_cmd = song_dl.format(QUALITY=quality, video_link=url)
     name_cmd = name_dl.format(video_link=url)
     if video:
+        media_type = "Video"
         media_ext = ["mp4", "mkv"]
         media_cmd = video_dl.format(video_link=url)
 
@@ -90,14 +92,16 @@ async def song_download(url, event, quality="128k", video=False, title=True):
         stderr = (await runcmd(media_cmd))[1]
         media_name, stderr = (await runcmd(name_cmd))[:2]
         if stderr:
-            return await edit_or_reply(event, f"**خطأ ::** `{stderr}`")
+            return await edit_or_reply(event, f"**Error ::** `{stderr}`")
         media_name = os.path.splitext(media_name)[0]
         media_file = Path(f"{media_name}.{media_ext[0]}")
     if not os.path.exists(media_file):
         media_file = Path(f"{media_name}.{media_ext[1]}")
     elif not os.path.exists(media_file):
-        return await edit_or_reply(event, f"**- عذرا لم استطع ايجاد الطلب الخاص بك--")
-    await edit_or_reply(event, f"**- جار الرفع انتظر قليلا**")
+        return await edit_or_reply(
+            event, f"__Sorry!.. I'm unable to find your requested {media_type}.__"
+        )
+    await edit_or_reply(event, f"__Uploading requested {media_type}...__")
     media_thumb = Path(f"{media_name}.jpg")
     if not os.path.exists(media_thumb):
         media_thumb = Path(f"{media_name}.webp")
