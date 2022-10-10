@@ -51,7 +51,7 @@ async def joinVoicechat(event):
     chat = event.pattern_match.group(1)
     joinas = event.pattern_match.group(2)
 
-    await edit_or_reply(event, "جارى الانضمام للكول ....")
+    await edit_or_reply(event, "جارى الانضمام للكول .......")
 
     if chat and chat != "-as":
         if chat.strip("-").isnumeric():
@@ -101,10 +101,10 @@ async def joinVoicechat(event):
 async def leaveVoicechat(event):
     "To leave a Voice Chat."
     if vc_player.CHAT_ID:
-        await edit_or_reply(event, "جارى مغادره الكول ....")
+        await edit_or_reply(event, "جارى مغادره الكول .......")
         chat_name = vc_player.CHAT_NAME
         await vc_player.leave_vc()
-        await edit_delete(event, f"تم المغادره من {chat_name}")
+        await edit_delete(event, f"تم مغادره الكول مجموعة  {chat_name}")
     else:
         await edit_delete(event, "لم تقم بالانضمام من قبل !")
 
