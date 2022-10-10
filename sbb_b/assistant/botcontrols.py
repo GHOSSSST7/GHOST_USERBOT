@@ -112,7 +112,7 @@ async def bot_broadcast(event):
     await br_cast.edit(b_info, parse_mode="html")
 
 
-@sbb_b.cat_cmd(
+@sbb_b.ar_cmd(
     pattern="bot_users$",
     command=("bot_users", plugin_category),
     info={
