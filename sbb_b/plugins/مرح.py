@@ -81,7 +81,7 @@ async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-        if user.id == 1824749880:
+    if user.id == 1824749880:
         return await edit_or_reply(mention, f"اهين مين يا مره دا المطور 😏")
     muh = user.first_name.replace("\u2060", "") if user.first_name else user.username
     sos = random.choice(hena)
