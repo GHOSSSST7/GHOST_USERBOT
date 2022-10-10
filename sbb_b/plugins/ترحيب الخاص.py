@@ -17,7 +17,7 @@ plugin_category = "utils"
 welpriv = Config.PRV_ET or "رحب"
 delwelpriv = Config.DELPRV_ET or "حذف رحب"
 
-@sbb_b.ar_cmd(events.ChatAction)
+@sbb_b.on(events.ChatAction)
 async def _(event):
     cws = getcurrent_welcome_settings(event.chat_id)
     if (
@@ -80,7 +80,7 @@ async def _(event):
         )
 
 
-@sbb_b.ar_cmd(pattern=f"{welpriv}(?:\s|$)([\s\S]*)")
+@sbb_b.on(admin_cmd(pattern=f"{welpriv}(?:\s|$)([\s\S]*)")
 async def save_welcome(event):
     "To set private welcome message."
     msg = await event.get_reply_message()
@@ -116,7 +116,7 @@ async def save_welcome(event):
     await edit_or_reply("**⌯︙حـدث خطـأ أثنـاء ضبـط رسالـة الترحيـب في هـذه الـدردشـة ️**")
 
 
-@sbb_b.ar_cmd(pattern=f"{delwelpriv}(?:\s|$)([\s\S]*)")
+@sbb_b.on(admin_cmd(pattern=f"{delwelpriv}(?:\s|$)([\s\S]*)")
 async def del_welcome(event):
     "To turn off private welcome message"
     if rmwelcome_setting(event.chat_id) is True:
