@@ -18,6 +18,8 @@ from ..sql_helper import pmpermit_sql
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import mention
 
+PM_PIC = gvarstatus("pmpermit_pic") or "https://telegra.ph/file/d257cb08eaa1b850a911d.jpg"
+
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
 
