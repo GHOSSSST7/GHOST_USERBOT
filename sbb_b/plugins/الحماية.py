@@ -18,7 +18,6 @@ from ..sql_helper import pmpermit_sql
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import mention
 
-plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
 
@@ -638,41 +637,6 @@ async def pmpermit_on(event):
         await edit_delete(event, "تم تعطيل امر الحماية لحسابك بنجاح ✓")
     else:
         await edit_delete(event, "امر الحمايه بالفعل مُعطل لحسابك 🌿")
-
-
-@sbb_b.ar_cmd(
-pattern="pmmenu (on|off)$",
-    command=("pmmenu", plugin_category),
-    info={
-        "header": "To turn on or turn off pmmenu.",
-        "usage": "{tr}pmmenu on/off",
-    },
-)
-async def pmpermit_on(event):
-    "Turn on/off pmmenu."
-    input_str = event.pattern_match.group(1)
-    if input_str == "off":
-        if gvarstatus("pmmenu") is None:
-            addgvar("pmmenu", "false")
-            await edit_delete(
-                event,
-                "__Pmpermit Menu has been disabled for your account successfully.__",
-            )
-        else:
-            await edit_delete(
-                event, "__Pmpermit Menu is already disabled for your account__"
-            )
-    elif gvarstatus("pmmenu") is not None:
-        delgvar("pmmenu")
-        await edit_delete(
-            event, "__Pmpermit Menu has been enabled for your account successfully__"
-        )
-    else:
-        await edit_delete(
-            event, "__Pmpermit Menu is already enabled for your account__"
-        )
-
-
 
 @sbb_b.ar_cmd(pattern="(س|سماح)(?:\s|$)([\s\S]*)")
 async def approve_p_m(event):
