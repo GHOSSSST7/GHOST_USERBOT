@@ -55,7 +55,7 @@ async def joinVoicechat(event):
     joinas = event.pattern_match.group(2)
 
     await edit_or_reply(event, "جارى الانضمام للمكالمة")
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.1)
     await edit_or_reply(event, "جارى الانضمام للمكالمة .")
     await asyncio.sleep(0.1)
     await edit_or_reply(event, "جارى الانضمام للمكالمة ..")
