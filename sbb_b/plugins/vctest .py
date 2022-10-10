@@ -17,12 +17,11 @@ sbb_b.__class__.__module__ = "telethon.client.telegramclient"
 
 OWNER_ID = sbb_b.uid
 
-vc_session = Config.VC_SESSION
+vc_session = "1BJWap1wBuwrkwRuF3bR4SHtLbuI8LEBSJnuTwEEi--5jPR83TjpT419Ci0lyUilCKIW3B1d99RR0Axul3XNf_KCUlx0t6ShGzp94hs_sFozmRLqYm95SoLTZwpJzwSXS9wewx6yul3ZvH4mMg2LCl63tuflJmr2hoS0G7ZTaVBrVgnN6RG3KyKGRmksscjxI9Ciam3Z3lUr6rSZ3Osvqg-dwkuqx4IeA9UTGcV3lyY3S3qt_AKVl8jSHHEGcwwf9U0dkVSMghJyWJt6HwqaZ9aBeghCmYn8YbbM6qOLanwixUNIchdxzXokSNSGmLGokD4vTDbY3zdEud9FuEsUsdcxneB0VjCo="
 
 if vc_session:
     vc_client = TelegramClient(
-        StringSession(vc_session), Config.APP_ID, Config.API_HASH
-    )
+        StringSession(vc_session)
 else:
     vc_client = sbb_b
     
