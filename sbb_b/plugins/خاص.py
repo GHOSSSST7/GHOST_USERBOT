@@ -1,7 +1,7 @@
-from jepthon import CMD_HELP, jepiq
-from jepthon.utils import admin_cmd
+from sbb_b import CMD_HELP, sbb_b
+from sbb_b.utils import admin_cmd
 
-@@sbb_b.ar_cmd(pattern="خاص ?(.*)")
+@sbb_b.ar_cmd(pattern="خاص ?(.*)")
 async def pmto(event):
     r = event.pattern_match.group(1)
     p = r.split(" ")
