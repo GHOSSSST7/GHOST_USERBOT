@@ -1,5 +1,6 @@
 import asyncio
 
+from telethon.sessions import StringSession
 from telethon import TelegramClient
 from telethon.tl.types import User
 from sbb_b import sbb_b
