@@ -42,7 +42,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                 ],
                 [
                     Button.inline("الاكسترا", data="EXTRACMD"),
-                    Button.inline(" الفارات", data="VARJMTHON"),
+                    Button.inline("", data="VARJMTHON"),
                 ],
             ]
             result = builder.article(
@@ -88,7 +88,7 @@ async def _(event):
         ],
         [
             Button.inline("الاكسترا", data="EXTRACMD"),
-            Button.inline(" الفارات", data="VARJMTHON"),
+            Button.inline("", data="VARJMTHON"),
         ],
     ]
     await event.edit(buttons=butze)
