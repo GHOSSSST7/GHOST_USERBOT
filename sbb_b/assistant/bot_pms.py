@@ -166,15 +166,15 @@ async def varssett(event):
             [
                 Button.inline("تشغيل المكالمة", data="rozlve"),
                 Button.inline("انهاء المكالمة", data="endcalrz"),
-                Button.inline("تسمية المكالمة", data="title_roz"),
+                Button.inline("", data=""),
             ],
             [
                 Button.inline("", data=""),
-                Button.inline("", data=""),
+                Button.inline("مغادرة المكالمة", data="leaveVoicechatroz"),
                 Button.inline("انضمام للمكالمة", data="joinVoicecharoz"),
             ],
             [
-                Button.inline("مغادرة المكالمة", data="leaveVoicechatroz"),
+                Button.inline("", data=""),
                 Button.inline("قائمة التشغيل", data="get_playlistroz"),
                 Button.inline("", data=""),
             ],
