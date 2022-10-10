@@ -59,8 +59,8 @@ class Config(object):
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     # ايدي حسابك
     OWNER_ID = int(os.environ.get("OWNER_ID") or 0)
-    PRV_ET = os.environ.get("PRV_ET", None)
-    DELPRV_ET = os.environ.get("DELPRV_ET", None)
+    UP_ET = os.environ.get("UP_ET", None)
+    DOWN_ET = os.environ.get("DOWN_ET", None)
     # ايدي كروب لتخزين حتى يحفظ رسائل الخاص والمجمواعت الي تسويلك تاك
     PM_LOGGER_GROUP_ID = int(
         os.environ.get("PM_LOGGER_GROUP_ID")
