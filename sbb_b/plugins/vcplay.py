@@ -215,7 +215,7 @@ async def play_audio(event):
             event, "قم بالرد على ملف صوتي لتشغيله .", time=20
         )
     if not vc_player.CHAT_ID:
-        return await edit_or_reply(event, "انضم للمكالمة اولا عن طريقه الامر `.انضم`")
+        return await edit_or_reply(event, "انضم للمكالمة اولا عن طريق الامر `.انضم`")
     if not input_str:
         return await edit_or_reply(event, "No Input to play in vc")
     await edit_or_reply(event, "جارى التشغيل ......")
