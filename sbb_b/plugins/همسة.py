@@ -2,6 +2,7 @@ from telethon import events
 import random, re
 from sbb_b.utils import admin_cmd
 import asyncio 
+from sbb_b import sbb_b
 
 @sbb_b.on(
     admin_cmd(pattern="همسة ?(.*)")
