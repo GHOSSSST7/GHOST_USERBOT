@@ -70,7 +70,7 @@ vcsi
 wand
 wget
 yt_dlp
-py-tgcalls==0.9.1
+py-tgcalls==0.9.3
 
 
 git+https://github.com/sandy1709/Telethon@beta
