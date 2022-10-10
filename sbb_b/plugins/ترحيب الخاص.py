@@ -17,7 +17,7 @@ plugin_category = "utils"
 welpriv = Config.PRV_ET or "رحب"
 delwelpriv = Config.DELPRV_ET or "حذف رحب"
 
-@sbb_b.ar(events.ChatAction)
+@sbb_b.ar_cmd(events.ChatAction)
 async def _(event):
     cws = getcurrent_welcome_settings(event.chat_id)
     if (
