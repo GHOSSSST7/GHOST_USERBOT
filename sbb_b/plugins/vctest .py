@@ -21,7 +21,7 @@ vc_session = "1BJWap1wBuwrkwRuF3bR4SHtLbuI8LEBSJnuTwEEi--5jPR83TjpT419Ci0lyUilCK
 
 if vc_session:
     vc_client = TelegramClient(
-        StringSession(vc_session)
+        StringSession(vc_session))
 else:
     vc_client = sbb_b
     
