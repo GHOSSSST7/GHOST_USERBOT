@@ -8,7 +8,7 @@ from ..Config import Config
 plugin_category = "utils"
 
 
-@sbb_b.ar_cmd
+@sbb_b.ar_cmd(
     pattern="نقل ملكية (.*)",
     command=("ملكية", plugin_category),
     info={
