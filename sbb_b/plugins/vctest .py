@@ -15,19 +15,6 @@ plugin_category = "extra"
 
 sbb_b.__class__.__module__ = "telethon.client.telegramclient"
 
-OWNER_ID = sbb_b.uid
-
-vc_session = "1BJWap1wBuwrkwRuF3bR4SHtLbuI8LEBSJnuTwEEi--5jPR83TjpT419Ci0lyUilCKIW3B1d99RR0Axul3XNf_KCUlx0t6ShGzp94hs_sFozmRLqYm95SoLTZwpJzwSXS9wewx6yul3ZvH4mMg2LCl63tuflJmr2hoS0G7ZTaVBrVgnN6RG3KyKGRmksscjxI9Ciam3Z3lUr6rSZ3Osvqg-dwkuqx4IeA9UTGcV3lyY3S3qt_AKVl8jSHHEGcwwf9U0dkVSMghJyWJt6HwqaZ9aBeghCmYn8YbbM6qOLanwixUNIchdxzXokSNSGmLGokD4vTDbY3zdEud9FuEsUsdcxneB0VjCo="
-api_id = "17383312"
-api_hash = "dc495a68169bd3f55fa9c1712de3e3b7"
-
-if vc_session:
-    vc_client = TelegramClient(
-        StringSession(vc_session), Config.APP_ID, Config.API_HASH
-    )
-else:
-    vc_client = sbb_b
-    
 vc_player = CatVC(sbb_b)
 
 asyncio.create_task(vc_player.start())
@@ -68,10 +55,12 @@ async def joinVoicechat(event):
     joinas = event.pattern_match.group(2)
 
     await edit_or_reply(event, "`جارى الانضمام للمكالمة .`")
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(0.6)
     await edit_or_reply(event, "`جارى الانضمام للمكالمة ...`")
-    await asyncio.sleep(0.3)
-    await edit_or_reply(event, "`جارى الانضمام للمكالمة ......`")
+    await asyncio.sleep(0.6)
+    await edit_or_reply(event, "`جارى الانضمام للمكالمة .....`")
+    await asyncio.sleep(0.6)
+    await edit_or_reply(event, "`جارى الانضمام للمكالمة .......`")
     if chat and chat != "-as":
         if chat.strip("-").isnumeric():
             chat = int(chat)
