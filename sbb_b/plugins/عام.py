@@ -13,6 +13,10 @@ from telethon.tl.types import (ChannelParticipantsAdmins,
 from sbb_b.utils import admin_cmd
 from ..Config import Config
 from sbb_b import CMD_HELP, sbb_b
+
+up_admin = Config.UP_ET or "ارفع"
+down_admin = Config.DOWN_ET or "تزل"
+
 async def get_full_user(event):
     args = event.pattern_match.group(1).split(':', 1)
     extra = None
@@ -54,7 +58,7 @@ async def get_user_from_id(user, event):
         await event.edit(str(err))
         return None
     return user_obj
-@sbb_b.ar_cmd(pattern="ارفع (?: |$)(.*)")
+@sbb_b.on(admin_cmd(pattern="{up_admin} ?(.*)"))
 async def gben(sbb_b):
     dc = razan = sbb_b
     i = 0
@@ -105,7 +109,7 @@ async def gben(sbb_b):
         f"**▾∮المستخدم [{user.first_name}](tg://user?id={user.id})\n▾∮ تم رفعه في : {i} من المجموعات**"
     )
 
-@sbb_b.ar_cmd(pattern="نزل (?: |$)(.*)")
+@sbb_b.on(admin_cmd(pattern="{down_admin} ?(.*)"))
 async def gben(sbb_b):
     dc = razan = sbb_b
     i = 0
