@@ -169,14 +169,14 @@ async def varssett(event):
                 Button.inline("تسمية المكالمة", data="title_roz"),
             ],
             [
-                Button.inline("دعوة للمكالمة", data="inv_vcrz"),
-                Button.inline("معلومات المكالمة", data="info_roz"),
+                Button.inline("", data=""),
+                Button.inline("", data=""),
                 Button.inline("انضمام للمكالمة", data="joinVoicecharoz"),
             ],
             [
                 Button.inline("مغادرة المكالمة", data="leaveVoicechatroz"),
                 Button.inline("قائمة التشغيل", data="get_playlistroz"),
-                Button.inline("تشغيل فيديو", data="play_vide"),
+                Button.inline("", data=""),
             ],
             [
                 Button.inline("تشغيل صوتي", data="play_audioroze"),
@@ -191,7 +191,7 @@ async def varssett(event):
 async def skip_srazan(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.تخطي_التشغيل `
+الامر:       `.تخطي `
 
 الشرح: يستخدم هذا الامر لتخطي التشغيل الحالي ويقوم بتشغيل المقطع الذي بعده بحسب قائمة التشغيل
 ألاستخدام: اكتب الامر في الدردشة فقط
@@ -207,7 +207,7 @@ async def skip_srazan(event):
 async def resume_stzrzo(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.استئناف_التشغيل `
+الامر:       `.كمل `
 
 الشرح: يستخدم هذا الامر لأستئناف التشغيل في المكالمة
 ألاستخدام: اكتب الامر في الدردشة فقط
@@ -223,7 +223,7 @@ async def resume_stzrzo(event):
 async def pause_streamroz(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.ايقاف_مؤقت `
+الامر:       `.وقف `
 
 الشرح: يستخدم هذا الامر لايقاف التشغيل الحالية بشكل مؤقت في المكالمة
 ألاستخدام: اكتب الامر في الدردشة فقط
@@ -239,7 +239,7 @@ async def pause_streamroz(event):
 async def play_vide(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.تشغيل_صوتي `
+الامر:       `.شغل `
 
 الشرح: يستخدم هذا الامر لتشغيل المقطع الصوتي في المكالمة الصوتية
 ألاستخدام: اكتب الامر مع رابط الفيديو من اليوتيوب
@@ -271,7 +271,7 @@ async def play_vide(event):
 async def get_playlistroz(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.قائمة_التشغيل`
+الامر:       `.القائمة`
 
 الشرح: يستخدم هذا الامر لمعرفة الفيديوهات والصوتيات المشغلة في المكالمة او في قائمة الانتظار
 ألاستخدام: اكتب الامر فقط في الدردشة 
@@ -287,7 +287,7 @@ async def get_playlistroz(event):
 async def leaveVoicechat(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.مغادرة_المكالمة`
+الامر:       `.غادر`
 
 الشرح: يستخدم هذا الامر لجعل البوت الذي بحسابك يغادر المكالمة الصوتية
 ألاستخدام: اكتب الامر فقط في الدردشة 
@@ -303,7 +303,7 @@ async def leaveVoicechat(event):
 async def joinVoicecharoz(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.انضمام_للمكالمة`
+الامر:       `.انضم`
 
 الشرح: يستخدم هذا الامر لجعل البوت الذي بحسابك يشغل و يدخل الى المكالمة الصوتية
 ألاستخدام: اكتب الامر فقط في الدردشة 
@@ -367,7 +367,7 @@ async def varssett(event):
 async def varssett(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.تشغيل_المكالمة`
+الامر:       `.بدء مكالمة`
 
 الشرح: يستخدم هذا الامر لتشغيل المكالمة الصوتية في المجموعة فقط ارسله في المجموعة ويجب ان تكون مشرف اولا
 ألاستخدام: فقط ارسل الامر بدون اي اضافات
@@ -383,7 +383,7 @@ async def varssett(event):
 async def varssett(event):
     await event.edit(
         """القسم: اوامر المشغل
-الامر:       `.انهاء_المكالمة`
+الامر:       `.انهاء المكالمة`
 
 الشرح: يستخدم هذا الامر لانهاء المكالمة الصوتية في المجموعة فقط ارسله في المجموعة ويجب ان تكون مشرف اولا
 ألاستخدام: فقط ارسل الامر بدون اي اضافات
