@@ -23,12 +23,12 @@ async def _get_file_name(path: pathlib.Path, full: bool = True) -> str:
 async def tg_dl(event):
     "To download the replied telegram file"
     mone = await edit_or_reply(event, "`جارى التحميل .`")
-           await asyncio.sleep(0.1)
-           await edit_or_reply(event, "`جارى التحميل ..`")
-           await asyncio.sleep(0.1)
-           await edit_or_reply(event, "`جارى التحميل ...`")
-           await asyncio.sleep(0.1)
-           await edit_or_reply(event, "`جارى التحميل ....`")
+    await asyncio.sleep(0.1)
+    await edit_or_reply(event, "`جارى التحميل ..`")
+    await asyncio.sleep(0.1)
+    await edit_or_reply(event, "`جارى التحميل ...`")
+    await asyncio.sleep(0.1)
+    await edit_or_reply(event, "`جارى التحميل ....`")
     name = NAME
     path = None
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
