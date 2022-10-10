@@ -23,7 +23,8 @@ api_hash = "dc495a68169bd3f55fa9c1712de3e3b7"
 
 if vc_session:
     vc_client = TelegramClient(
-        StringSession(vc_session))
+        StringSession(vc_session), Config.APP_ID, Config.API_HASH
+    )
 else:
     vc_client = sbb_b
     
