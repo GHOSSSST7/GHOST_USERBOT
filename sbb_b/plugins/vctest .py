@@ -333,7 +333,7 @@ async def skip_stream(event):
     await edit_or_reply(event, "جارى التخطي .")
     await asyncio.sleep(1)
     await edit_or_reply(event, "جارى التخطي ..")
-await asyncio.sleep(1)
+    await asyncio.sleep(1)
     await edit_or_reply(event, "جارى التخطي ....")
     res = await vc_player.skip()
     await edit_delete(event, res, time=30)
