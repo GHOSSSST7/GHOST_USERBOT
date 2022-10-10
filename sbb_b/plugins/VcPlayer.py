@@ -245,7 +245,7 @@ async def pause_stream(event):
     await edit_or_reply(event, "جارى الايقاف ...")
     await asyncio.sleep(0.3)
     await edit_or_reply(event, "جارى الايقاف ....")
-    await asyncio.sleep(0.3
+    await asyncio.sleep(0.3)
     await edit_or_reply(event, "جارى الايقاف .....")
     await asyncio.sleep(0.3)
     await edit_or_reply(event, "جارى الايقاف ......")
