@@ -60,14 +60,13 @@ async def joinVoicechat(event):
     await asyncio.sleep(0.3)
     await edit_or_reply(event, "جارى الانضمام للمكالمة ..")
     await asyncio.sleep(0.3)
-    await edit_or_reply(event, "جارى الانضمام لمكالمة ....")
-    await edit_or_reply(event, "جارى الانضمام للمكالمة .....")
-    await asyncio.sleep(0.3)
-    await edit_or_reply(event, "جارى الانضمام للمكالمة .")
-    await asyncio.sleep(0.3)
-    await edit_or_reply(event, "جارى الانضمام للمكالمة ..")
+    await edit_or_reply(event, "جارى الانضمام لمكالمة ...")
     await asyncio.sleep(0.3)
     await edit_or_reply(event, "جارى الانضمام للمكالمة ....")
+    await asyncio.sleep(0.3)
+    await edit_or_reply(event, "جارى الانضمام للمكالمة .....")
+    await asyncio.sleep(0.3)
+    await edit_or_reply(event, "جارى الانضمام لمكالمة ......")
     if chat and chat != "-as":
         if chat.strip("-").isnumeric():
             chat = int(chat)
@@ -122,10 +121,16 @@ async def leaveVoicechat(event):
         await asyncio.sleep(0.3)
         await edit_or_reply(event, "جارى مغادرة المكالمة ..")
         await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى مغادرة المكالمة ...")
+        await asyncio.sleep(0.3)
         await edit_or_reply(event, "جارى مغادرة المكالمة ....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى مغادرة المكالمة .....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى مغادرة المكالمة ......")
         chat_name = vc_player.CHAT_NAME
         await vc_player.leave_vc()
-        await edit_delete(event, f"تم مغادره الكول مجموعة  {chat_name}")
+        await edit_delete(event, f"تم مغادره المكالمة فى مجموعة  {chat_name}")
     else:
         await edit_delete(event, "لم تقم بالانضمام من قبل !")
 
@@ -158,51 +163,6 @@ async def get_playlist(event):
             else:
                 cat += f"{num}. 📺  `{item['title']}`\n"
         await edit_delete(event, f"قائمة التشغيل :\n\n{cat}\nاستمتع بالمشاهدة .")
-
-
-@sbb_b.ar_cmd(
-    pattern="vplay ?(-f)? ?([\S ]*)?",
-    command=("vplay", plugin_category),
-    info={
-        "header": "To Play a media as video on VC.",
-        "description": "To play a video stream on VC.",
-        "flags": {
-            "-f": "Force play the Video",
-        },
-        "usage": [
-            "{tr}vplay (reply to message)",
-            "{tr}vplay (yt link)",
-            "{tr}vplay -f (yt link)",
-        ],
-        "examples": [
-            "{tr}vplay",
-            "{tr}vplay https://www.youtube.com/watch?v=c05GBLT_Ds0",
-            "{tr}vplay -f https://www.youtube.com/watch?v=c05GBLT_Ds0",
-        ],
-    },
-)
-async def play_video(event):
-    "To Play a media as video on VC."
-    flag = event.pattern_match.group(1)
-    input_str = event.pattern_match.group(2)
-    if input_str == "" and event.reply_to_msg_id:
-        input_str = await tg_dl(event)
-    if not input_str:
-        return await edit_delete(
-            event, "Please Provide a media file to stream on VC", time=20
-        )
-    if not vc_player.CHAT_ID:
-        return await edit_or_reply(event, "Join a VC and use play command")
-    if not input_str:
-        return await edit_or_reply(event, "No Input to play in vc")
-    await edit_or_reply(event, "Playing in VC ......")
-    if flag:
-        resp = await vc_player.play_song(input_str, Stream.video, force=True)
-    else:
-        resp = await vc_player.play_song(input_str, Stream.video, force=False)
-    if resp:
-        await edit_delete(event, resp, time=30)
-
 
 @sbb_b.ar_cmd(
     pattern="شغل ?(-f)? ?([\S ]*)?",
@@ -239,7 +199,19 @@ async def play_audio(event):
         return await edit_or_reply(event, "انضم للمكالمة اولا عن طريق الامر `.انضم`")
     if not input_str:
         return await edit_or_reply(event, "No Input to play in vc")
-    await edit_or_reply(event, "جارى التشغيل ......")
+        await edit_or_reply(event, "جارى التشغيل ")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التشغيل .")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التشغيل ..")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التشغيل ...")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التشغيل ....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التشغيل .....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التشغيل ......")
     if flag:
         resp = await vc_player.play_song(input_str, Stream.audio, force=True)
     else:
@@ -264,7 +236,19 @@ async def play_audio(event):
 )
 async def pause_stream(event):
     "To Pause a stream on Voice Chat."
-    await edit_or_reply(event, "جارى الايقاف مؤقتا .....")
+        await edit_or_reply(event, "جارى الايقاف ")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الايقاف .")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الايقاف ..")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الايقاف ...")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الايقاف ....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الايقاف .....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الايقاف ......")
     res = await vc_player.pause()
     await edit_delete(event, res, time=30)
 
@@ -285,7 +269,19 @@ async def pause_stream(event):
 )
 async def resume_stream(event):
     "To Resume a stream on Voice Chat."
-    await edit_or_reply(event, "جارى الاستئناف ......")
+        await edit_or_reply(event, "جارى الاستئناف ")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الاستئناف .")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الاستئناف ..")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الاستئناف ...")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الاستئناف ....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الاستئناف .....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى الاستئناف ......")
     res = await vc_player.resume()
     await edit_delete(event, res, time=30)
 
@@ -348,13 +344,20 @@ async def resume_stream(event):
 )
 async def skip_stream(event):
     "To Skip currently playing stream on Voice Chat."
-    await edit_or_reply(event, "جارى التخطي")
-    await asyncio.sleep(0.3)
-    await edit_or_reply(event, "جارى التخطي .")
-    await asyncio.sleep(0.3)
-    await edit_or_reply(event, "جارى التخطي ..")
-    await asyncio.sleep(0.3)
-    await edit_or_reply(event, "جارى التخطي ....")
+        await edit_or_reply(event, "جارى التخطي ")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التخطي .")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التخطي ..")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التخطي ...")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التخطي ....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التخطي .....")
+        await asyncio.sleep(0.3)
+        await edit_or_reply(event, "جارى التخطي ......")
+
     res = await vc_player.skip()
     await edit_delete(event, res, time=30)
     
