@@ -639,23 +639,38 @@ async def pmpermit_on(event):
         await edit_delete(event, "امر الحمايه بالفعل مُعطل لحسابك 🌿")
 
 
-@sbb_b.ar_cmd(pattern="الحماية (تشغيل|تعطيل)$")  # ترجمه وكتابة فريق جمثون
+@sbb_b.ar_cmd(
+pattern="pmmenu (on|off)$",
+    command=("pmmenu", plugin_category),
+    info={
+        "header": "To turn on or turn off pmmenu.",
+        "usage": "{tr}pmmenu on/off",
+    },
+)
 async def pmpermit_on(event):
+    "Turn on/off pmmenu."
     input_str = event.pattern_match.group(1)
-    if input_str == "تعطيل":
-        if gvarstatus("pmmenu") is None:  # ترجمه وكتابة فريق جمثون
+    if input_str == "off":
+        if gvarstatus("pmmenu") is None:
             addgvar("pmmenu", "false")
             await edit_delete(
                 event,
-                "تم تعطيل امر الحماية لحسابك بنجاح ✓",
+                "__Pmpermit Menu has been disabled for your account successfully.__",
             )
         else:
-            await edit_delete(event, "امر الحمايه بالفعل مُعطل لحسابك 🌿")
+            await edit_delete(
+                event, "__Pmpermit Menu is already disabled for your account__"
+            )
     elif gvarstatus("pmmenu") is not None:
         delgvar("pmmenu")
-        await edit_delete(event, "تم تفعيل امر الحماية لحسابك بنجاح ✓")
+        await edit_delete(
+            event, "__Pmpermit Menu has been enabled for your account successfully__"
+        )
     else:
-        await edit_delete(event, "امر الحمايه بالفعل مُمكن لحسابك 🌿")
+        await edit_delete(
+            event, "__Pmpermit Menu is already enabled for your account__"
+        )
+
 
 
 @sbb_b.ar_cmd(pattern="(س|سماح)(?:\s|$)([\s\S]*)")
