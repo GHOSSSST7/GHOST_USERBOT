@@ -71,7 +71,7 @@ class CatVC:
             await self.join_vc(chat=chat, join_as=join_as)
         self.CHAT_ID = chat.id
         self.CHAT_NAME = chat.title
-        return f"تم االانضمام للمكالمة فى مجموعة{chat.title}**{join_as_title}"
+        return f"تم الانضمام للمكالمة فى مجموعة {chat.title}{join_as_title}"
 
     async def leave_vc(self):
         try:
@@ -119,17 +119,17 @@ class CatVC:
                 return "`File Path is invalid`"
         if self.PLAYING and not force:
             self.PLAYLIST.append({"title": title, "path": playable, "stream": stream})
-            return f"تم الاضافة الى القائمة.\n الرقم : {len(self.PLAYLIST)+1}"
+            return f"تم الاضافة الى قائمة التشغيل .\nالرقم : {len(self.PLAYLIST)+1}"
         if not self.PLAYING:
             self.PLAYLIST.append({"title": title, "path": playable, "stream": stream})
             await self.skip()
-            return f"تشغيل الان {title}"
+            return f"جاري تشغيل الان {title}"
         if force and self.PLAYING:
             self.PLAYLIST.insert(
                 0, {"title": title, "path": playable, "stream": stream}
             )
             await self.skip()
-            return f"تشغيل الان {title}"
+            return f"جاري تشغيل الان {title}"
 
     async def handle_next(self, update):
         if isinstance(update, StreamAudioEnded):
@@ -146,7 +146,7 @@ class CatVC:
                     AudioPiped("resources/Silence01s.mp3"),
                 )
             self.PLAYING = False
-            return "القائمة فارغة !"
+            return "قائمة التشغيل فارغة !"
 
         next = self.PLAYLIST.pop(0)
         if next["stream"] == Stream.audio:
@@ -158,7 +158,7 @@ class CatVC:
         except Exception:
             await self.skip()
         self.PLAYING = next
-        return f"تم التخطي\nتشغيل الان :`{next['title']}`"
+        return f"تم التخطي\nجاري تشغيل الان :`{next['title']}`"
 
     async def pause(self):
         if not self.PLAYING:
