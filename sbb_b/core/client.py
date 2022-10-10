@@ -105,11 +105,12 @@ class JmthonClient(TelegramClient):
             async def wrapper(check):  # sourcery no-metrics
                 # sourcery skip: low-code-quality
                 if groups_only and not check.is_group:
-                    await edit_delete(check, "يستخدم الامر في المجموعات ", 10)
-                    return
+                   return await edit_delete(
+                       check, "يستخدم الامر في المجموعات ", 10)
+
                 if private_only and not check.is_private:
-                    await edit_delete(check, "يستخدم الامر فقط في الخاص ", 10)
-                    return
+                   return await edit_delete(
+                       check, "يستخدم الامر فقط في الخاص ", 10)
                 try:
                     await func(check)
                 except events.StopPropagation:
