@@ -28,17 +28,17 @@ botusername = Config.TG_BOT_USERNAME
 cmhd = Config.COMMAND_HAND_LER
 
 
-@sbb_b.bot_cmd(pattern="^اوامري$", from_users=Config.OWNER_ID)
+@sbb_b.bot_cmd(pattern="^/help$", from_users=Config.OWNER_ID)
 async def bot_help(event):
     await event.reply(
-        f"""هذه الاوامر تستخدم هنا فقط:
-**ملاحظة : **يمكنك استخدام هذه الاوامر هنا : {botusername}
+        f"""The commands in the bot are:
+**Note : **__This commands work only in this bot__ {botusername}
 
-• **الامر : **`ايدي` <بالرد على المستخدم>
-• **الشرح : **بالرد على الملصق او المتحركات او الرسالة لعرض معلومات المرسل 
-• **ملاحظة : **تعمل على جميع المستخدمين حتى الذي مفعل خصوصية
+• **Cmd : **/uinfo <reply to user message>
+• **Info : **__You have noticed that forwarded stickers/emoji doesn't have forward tag so you can identify the user who sent thoose messages by this cmd.__
+• **Note : **__It works for all forwarded messages. even for users who's permission forward message nobody.__
 
-• md **C: **/ban <reason> or /ban <username/userid> <reason>
+• **Cmd : **/ban <reason> or /ban <username/userid> <reason>
 • **Info : **__Reply to a user message with reason so he will be notified as you banned from the bot and his messages will not be forworded to you further.__
 • **Note : **__Reason is must. without reason it won't work. __
 
@@ -112,7 +112,7 @@ async def bot_broadcast(event):
     await br_cast.edit(b_info, parse_mode="html")
 
 
-@sbb_b.ar_cmd(
+@sbb_b.cat_cmd(
     pattern="bot_users$",
     command=("bot_users", plugin_category),
     info={
