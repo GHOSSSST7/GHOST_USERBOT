@@ -39,12 +39,12 @@ async def _(event):
     elif event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
-        lan = input_str or "ar"
+        lan = input_str or "en"
     else:
         if not input_str:
             return await edit_or_reply(event, "Invalid Syntax. Module stopping.")
         text = input_str
-        lan = "ar"
+        lan = "en"
     catevent = await edit_or_reply(event, "`Recording......`")
     text = deEmojify(text.strip())
     lan = lan.strip()
@@ -67,9 +67,8 @@ async def _(event):
             "100k",
             "-vbr",
             "on",
-            f"{required_file_name}.opus",
+            required_file_name + ".opus",
         ]
-
         try:
             t_response = subprocess.check_output(
                 command_to_execute, stderr=subprocess.STDOUT
@@ -79,7 +78,7 @@ async def _(event):
             # continue sending required_file_name
         else:
             os.remove(required_file_name)
-            required_file_name = f"{required_file_name}.opus"
+            required_file_name = required_file_name + ".opus"
         end = datetime.now()
         ms = (end - start).seconds
         await event.client.send_file(
@@ -91,7 +90,8 @@ async def _(event):
         )
         os.remove(required_file_name)
         await edit_delete(
-            catevent, f"`Processed text {text[:20]} into voice in {ms} seconds!`"
+            catevent,
+            "`Processed text {} into voice in {} seconds!`".format(text[0:20], ms),
         )
     except Exception as e:
         await edit_or_reply(catevent, f"**Error:**\n`{e}`")
