@@ -39,12 +39,12 @@ async def _(event):
     elif event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
-        lan = input_str or "en"
+        lan = input_str or "ar"
     else:
         if not input_str:
             return await edit_or_reply(event, "Invalid Syntax. Module stopping.")
         text = input_str
-        lan = "en"
+        lan = "ar"
     catevent = await edit_or_reply(event, "`Recording......`")
     text = deEmojify(text.strip())
     lan = lan.strip()
