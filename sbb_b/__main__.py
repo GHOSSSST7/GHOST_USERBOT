@@ -63,6 +63,13 @@ async def startup_process():
     return
 
 async def externalrepo():
+    if Config.EXTERNAL_REPO:
+
+        await install_externalrepo(
+
+            Config.EXTERNAL_REPO, Config.EXTERNAL_REPOBRANCH, "xtraplugins"
+
+        )
     if Config.VCMODE:
         await install_externalrepo(
             "https://github.com/sa3ed266it/CatVCPlayer", "main", "catvc"
