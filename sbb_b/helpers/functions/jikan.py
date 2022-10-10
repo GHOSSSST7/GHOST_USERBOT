@@ -24,13 +24,13 @@ animnefillerurl = "https://www.animefillerlist.com/shows/"
 # Anime Helper
 
 weekdays = {
-    "الاثنين": 0,
-    "الثلاثاء": 1,
-    "الاربعاء": 2,
-    "الخميس": 3,
-    "الجمعة": 4,
-    "السبت": 5,
-    "الاحد": 6,
+    "monday": 0,
+    "tuesday": 1,
+    "wednesday": 2,
+    "thursday": 3,
+    "friday": 4,
+    "saturday": 5,
+    "sunday": 6,
 }
 
 
@@ -301,7 +301,7 @@ query ($search: String) {
 async def get_anime_schedule(weekid):
     "get anime schedule"
     dayname = get_weekday(weekid)
-    result = f"✙ **الحلقه المجدولة القادمه {dayname.title()} هي : **\n\n"
+    result = f"✙ **Scheduled animes for {dayname.title()} are : **\n\n"
     async with jikanpy.AioJikan() as animesession:
         scheduled_list = (await animesession.schedule(day=dayname)).get(dayname)
         for a_name in scheduled_list:
@@ -317,7 +317,7 @@ async def callAPI(search_str, manga=False):
 
 
 async def searchanilist(search_str, manga=False):
-    typea = "مانجا" if manga else "انمي"
+    typea = "MANGA" if manga else "ANIME"
     variables = {"search": search_str, "type": typea, "page": 1, "perPage": 10}
     response = requests.post(
         anilisturl, json={"query": anilist_query, "variables": variables}
@@ -326,7 +326,7 @@ async def searchanilist(search_str, manga=False):
     jsonData = json.loads(response.text)
     res = list(jsonData.keys())
     if "errors" in res:
-        msg += f"**خطأ** : `{jsonData['errors'][0]['message']}`"
+        msg += f"**Error** : `{jsonData['errors'][0]['message']}`"
         return msg, False
     return jsonData["data"]["Page"]["media"], True
 
@@ -336,7 +336,7 @@ async def formatJSON(outData, manga=False):
     jsonData = json.loads(outData)
     res = list(jsonData.keys())
     if "errors" in res:
-        msg += f"**خطأ** : `{jsonData['errors'][0]['message']}`"
+        msg += f"**Error** : `{jsonData['errors'][0]['message']}`"
         return msg
     jsonData = jsonData["data"]["Media"]
     if "bannerImage" in jsonData.keys():
@@ -346,21 +346,22 @@ async def formatJSON(outData, manga=False):
     title = jsonData["title"]["romaji"]
     link = f"https://anilist.co/anime/{jsonData['id']}"
     msg += f"[{title}]({link})"
-    msg += f"\n\n**النوع** : {jsonData['format']}"
-    msg += "\n**التصنيف** : "
+    msg += f"\n\n**Type** : {jsonData['format']}"
+    msg += "\n**Genres** : "
     msg += ", ".join(jsonData["genres"])
-    msg += f"\n**الحالة** : {jsonData['status']}"
+    msg += f"\n**Status** : {jsonData['status']}"
     if manga:
-        msg += f"\n**الفصل** : {jsonData['chapters']}"
-        msg += f"\n**الحجم** : {jsonData['volumes']}"
+        msg += f"\n**Chapters** : {jsonData['chapters']}"
+        msg += f"\n**Volumes** : {jsonData['volumes']}"
     else:
-        msg += f"\n**الحلقة** : {jsonData['episodes']}"
-        msg += f"\n**المدة** : {jsonData['duration']} min\n\n"
-    msg += f"\n**السنة** : {jsonData['startDate']['year']}"
-    msg += f"\n**المعدل** : {jsonData['averageScore']}"
-    msg += f"\n**الشعبية** : {jsonData['popularity']}"
-    jmthon = f"{jsonData['description']}"
-    msg += " __" + re.sub("<br>", "\n", jmthon) + "__"
+        msg += f"\n**Episode** : {jsonData['episodes']}"
+        msg += f"\n**Duration** : {jsonData['duration']} min\n\n"
+    msg += f"\n**Year** : {jsonData['startDate']['year']}"
+    msg += f"\n**Score** : {jsonData['averageScore']}"
+    msg += f"\n**Popularity** : {jsonData['popularity']}"
+    # https://t.me/catuserbot_support/19496
+    cat = f"{jsonData['description']}"
+    msg += " __" + re.sub("<br>", "\n", cat) + "__"
     msg = re.sub("<b>", "__**", msg)
     msg = re.sub("</b>", "**__", msg)
     return msg
@@ -370,9 +371,9 @@ def shorten(description, info="anilist.co"):
     msg = ""
     if len(description) > 700:
         description = f"{description[:200]}....."
-        msg += f"\n**الشرح**:\n{description} [اقرا اكثر]({info})"
+        msg += f"\n**Description**:\n{description} [Read More]({info})"
     else:
-        msg += f"\n**الشرح**: \n   {description}"
+        msg += f"\n**Description**: \n   {description}"
     return (
         msg.replace("<br>", "")
         .replace("</br>", "")
@@ -394,22 +395,22 @@ async def anilist_user(input_str):
     user_data = result["data"]["User"]
     stats = textwrap.dedent(
         f"""
-**المعرف :** [{user_data['name']}]({user_data['siteUrl']})
-**ايدي  :** `{user_data['id']}` 
-**الطلبات المنضمة :**`{datetime.fromtimestamp(user_data['createdAt'])}`
-**اخر تحديثات :**`{datetime.fromtimestamp(user_data['updatedAt'])}`
+**User name :** [{user_data['name']}]({user_data['siteUrl']})
+**Anilist ID :** `{user_data['id']}` 
+**Joined anilist :**`{datetime.fromtimestamp(user_data['createdAt'])}`
+**Last Updated :**`{datetime.fromtimestamp(user_data['updatedAt'])}`
 
-**✙  حالة الانمي*
-• **عدد المشاهدين الكلي:** `{user_data["statistics"]["anime"]['count']}`
-• **عدد مشاهدي الحلقة : **`{user_data["statistics"]["anime"]['episodesWatched']}`
-• **مجموع الوقت النصروف : **`{readable_time(user_data["statistics"]["anime"]['minutesWatched']*60)}`
-• **نسبة المعدل :** `{user_data["statistics"]["anime"]['meanScore']}`
+**✙  Anime Stats**
+• **Total Anime Watched :** `{user_data["statistics"]["anime"]['count']}`
+• **Total Episode Watched : **`{user_data["statistics"]["anime"]['episodesWatched']}`
+• **Total Time Spent : **`{readable_time(user_data["statistics"]["anime"]['minutesWatched']*60)}`
+• **Average Score :** `{user_data["statistics"]["anime"]['meanScore']}`
 
-**✙  حالة المانجا**
-• **عدد القارئين :** `{user_data["statistics"]["manga"]['count']}`
-• **عدد قارئي الفصل:** `{user_data["statistics"]["manga"]['chaptersRead']}`
-• **عدد قارئي الحجم: **`{user_data["statistics"]["manga"]['volumesRead']}`
-• **نسبة المعدل : **`{user_data["statistics"]["manga"]['meanScore']}`
+**✙  Manga Stats**
+• **Total Manga Read :** `{user_data["statistics"]["manga"]['count']}`
+• **Total Chapters Read :** `{user_data["statistics"]["manga"]['chaptersRead']}`
+• **Total Volumes Read : **`{user_data["statistics"]["manga"]['volumesRead']}`
+• **Average Score : **`{user_data["statistics"]["manga"]['meanScore']}`
 """
     )
     return stats, f'https://img.anili.st/user/{user_data["id"]}?a={time.time()}'
@@ -482,9 +483,9 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
         result = result["data"]["Media"]
         if result["trailer"]:
             trailer = f'https://www.youtube.com/watch?v={result["trailer"]["id"]}'
-            TRAILER = f"<a href='{trailer}'>🎬 تريلر</a>"
+            TRAILER = f"<a href='{trailer}'>🎬 Trailer</a>"
         else:
-            TRAILER = "🎬 <i>لا يوجد تريلر</i>"
+            TRAILER = "🎬 <i>No Trailer Available</i>"
         studio_string = ", ".join(nodes["name"] for nodes in result["studios"]["nodes"])
     elif search_type == "anime_manga":
         variables = {"search": search_str}
@@ -507,7 +508,7 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
     alternative_names.extend(result["synonyms"])
     if alternative_names:
         alternative_names_string = ", ".join(alternative_names[:3])
-        caption += f"\n<b>كذلك يعرف ب </b>: <i>{alternative_names_string}</i>"
+        caption += f"\n<b>Also known as</b>: <i>{alternative_names_string}</i>"
     genre_string = ", ".join(result["genres"])
     if result["description"] is not None:
         synopsis = result["description"].split(" ", 60)
@@ -516,7 +517,7 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
         " ".join(synopsis) + "..."
     for entity in result:
         if result[entity] is None:
-            result[entity] = "غير معرف"
+            result[entity] = "Unknown"
     if search_type == "anime_anime":
         anime_malid = result["idMal"]
         anime_result = await anime_json_synomsis(
@@ -531,8 +532,8 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
             html_ += "<br>"
             html_ += f"<h3>{character['name']['full']}</h3>"
             html_ += f"<em>{character['name']['native']}</em><br>"
-            html_ += f"<b>ايدي الشخصية</b>: {character['id']}<br>"
-            html_ += f"<h4>حول الشخصية:</h4>{character.get('description', 'N/A')}"
+            html_ += f"<b>Character ID</b>: {character['id']}<br>"
+            html_ += f"<h4>About Character and Role:</h4>{character.get('description', 'N/A')}"
             html_char += f"{html_}<br><br>"
         studios = "".join(
             f"""<a href='{studio["siteUrl"]}'>• {studio["name"]}</a> """
@@ -547,19 +548,20 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
         native = anime_data["title"]["native"]
         english = anime_data["title"]["english"]
         image = getBannerLink(result["idMal"], False, anime_data.get("id"))
+        # Telegraph Post mejik
         html_pc = ""
         html_pc += f"<h1>{native}</h1>"
-        html_pc += "<h3>الملخص:</h3>"
+        html_pc += "<h3>Synopsis:</h3>"
         html_pc += result["description"] or "Unknown"
         html_pc += "<br>"
         if html_char:
-            html_pc += "<h2>الشخصية الرئيسية:</h2>"
+            html_pc += "<h2>Main Characters:</h2>"
             html_pc += html_char
             html_pc += "<br><br>"
-        html_pc += "<h3>معلومات اكثر:</h3>"
-        html_pc += f"<br><b>الاستوديو:</b> {studios}<br>"
+        html_pc += "<h3>More Info:</h3>"
+        html_pc += f"<br><b>Studios:</b> {studios}<br>"
         html_pc += (
-            f"<a href='https://myanimelist.net/anime/{anime_malid}'>الشماهدات</a>"
+            f"<a href='https://myanimelist.net/anime/{anime_malid}'>View on MAL</a>"
         )
     else:
         anime_malid = result["id"]
@@ -575,8 +577,8 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
             html_ += "<br>"
             html_ += f"<h3>{character['name']['full']}</h3>"
             html_ += f"<em>{character['name']['native']}</em><br>"
-            html_ += f"<b>ايدي الشخصية</b>: {character['id']}<br>"
-            html_ += f"<h4>حول الشخصية:</h4>{character.get('description', 'N/A')}"
+            html_ += f"<b>Character ID</b>: {character['id']}<br>"
+            html_ += f"<h4>About Character and Role:</h4>{character.get('description', 'N/A')}"
             html_char += f"{html_}<br><br>"
         coverImg = anime_data.get("coverImage")["extraLarge"]
         bannerImg = anime_data.get("bannerImage")
@@ -593,12 +595,12 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
         html_pc += result["description"] or "Unknown"
         html_pc += "<br>"
         if html_char:
-            html_pc += "<h2>الشخصية الاساسية:</h2>"
+            html_pc += "<h2>Main Characters:</h2>"
             html_pc += html_char
             html_pc += "<br><br>"
-        html_pc += "<h3>معلومات اكثر:</h3>"
+        html_pc += "<h3>More Info:</h3>"
         if result["idMal"]:
-            html_pc += f"<a href='https://myanimelist.net/anime/{result['idMal']}'>المشاهدات</a>"
+            html_pc += f"<a href='https://myanimelist.net/anime/{result['idMal']}'>View on MAL</a>"
     html_pc += f"<a href='{anilist_animelink}'> View on anilist.co</a>"
     html_pc += f"<img src='{bannerImg}'/>"
     title_h = english or romaji
@@ -621,18 +623,19 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
                 endaired += "-" + str(result["endDate"]["day"])
         caption += textwrap.dedent(
             f"""
-        🆎 <b>النوع</b>: <i>{result['type'].lower()}</i>
-        🆔 <b>الايدي</b>: <i>{result['idMal']}</i>
-        📡 <b>الحالة</b>: <i>{result['status'].lower()}</i>
-        ⏳ <b>البداية</b>: <i>{aired}</i>
-        ⌛️ <b>النهاية</b>: <i>{endaired}</i>
-        🔢 <b>الحلقات</b>: <i>{result['episodes']}</i>
-        💯 <b>التقييم</b>: <i>{result['averageScore']}</i>
-        📊 <b>الشعبية</b>: <i>{result['popularity']}</i>
-        🌐 <b>الموسم</b>: <i>{result['season'].lower()}</i>
-        ⌛ <b>المدة</b>: <i>{result['duration']}</i>
-        🎭 <b>التصنيف</b>: <i>{genre_string}</i>
-        🎙️ <b>الاستوديو</b>: <i>{studio_string}</i>
+        🆎 <b>Type</b>: <i>{result['type'].lower()}</i>
+        🆔 <b>MAL ID</b>: <i>{result['idMal']}</i>
+        🆔 <b>AL ID</b>: <i>{result['id']}</i>
+        📡 <b>Status</b>: <i>{result['status'].lower()}</i>
+        ⏳ <b>Airing Started</b>: <i>{aired}</i>
+        ⌛️ <b>Airing Ended</b>: <i>{endaired}</i>
+        🔢 <b>Episodes</b>: <i>{result['episodes']}</i>
+        💯 <b>Score</b>: <i>{result['averageScore']}</i>
+        📊 <b>Popularity</b>: <i>{result['popularity']}</i>
+        🌐 <b>Premiered</b>: <i>{result['season'].lower()}</i>
+        ⌛ <b>Duration</b>: <i>{result['duration']}</i>
+        🎭 <b>Genres</b>: <i>{genre_string}</i>
+        🎙️ <b>Studios</b>: <i>{studio_string}</i>
         """
         )
         synopsis_link = await post_to_telegraph(
@@ -646,14 +649,15 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
     elif search_type == "anime_manga":
         caption += textwrap.dedent(
             f"""
-        🆎 <b>النوع</b>: <i>{result['type'].lower()}</i>
-        🆔 <b>الايدي</b>: <i>{result['idMal']}</i>
-        📡 <b>الحالة</b>: <i>{result['status'].lower()}</i>
-        🔢 <b>الحجم</b>: <i>{result['volumes']}</i>
-        📃 <b>الفصول</b>: <i>{result['chapters']}</i>
-        💯 <b>التقييم</b>: <i>{result['averageScore']}</i>
-        📊 <b>الشعبية</b>: <i>{result['popularity']}</i>
-        🎭 <b>التصنيف</b>: <i>{genre_string}</i>
+        🆎 <b>Type</b>: <i>{result['type'].lower()}</i>
+        🆔 <b>MAL ID</b>: <i>{result['idMal']}</i>
+        🆔 <b>AL ID</b>: <i>{result['id']}</i>
+        📡 <b>Status</b>: <i>{result['status'].lower()}</i>
+        🔢 <b>Volumes</b>: <i>{result['volumes']}</i>
+        📃 <b>Chapters</b>: <i>{result['chapters']}</i>
+        💯 <b>Score</b>: <i>{result['averageScore']}</i>
+        📊 <b>Popularity</b>: <i>{result['popularity']}</i>
+        🎭 <b>Genres</b>: <i>{genre_string}</i>
         """
         )
         synopsis_link = await post_to_telegraph(
@@ -662,7 +666,7 @@ async def get_anime_manga(search_str, search_type, _user_id):  # sourcery no-met
             + f"<code>{caption}</code>\n"
             + html_pc,
         )
-        caption += f"📖 <a href='{synopsis_link}'><b>الملخص</b></a> <b>&</b> <a href='{result['siteUrl']}'><b>قراءة المزيد</b></a>"
+        caption += f"📖 <a href='{synopsis_link}'><b>Synopsis</b></a> <b>&</b> <a href='{result['siteUrl']}'><b>Read More</b></a>"
 
     return caption, image
 
