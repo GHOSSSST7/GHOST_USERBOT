@@ -116,7 +116,7 @@ async def _(event):
 
             jepthonevent,
 
-            "تحويل النص {} الى مقطع صوتي في {} ثواني ".format(text[0:20], ms),
+            "تم تحويل النص الى مقطع صوتي في {} ثواني ".format(text[0:20], ms),
 
         )
 
