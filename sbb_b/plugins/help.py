@@ -27,7 +27,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
         await sbb_b.get_me()
         if query.startswith("الاوامر") and event.query.user_id == sbb_b.uid:
             buttons = [
-                [Button.url("المطـور", "https://t.me/SA3ED_IT")],
+                [Button.url("• المطـور •", "https://t.me/SA3ED_IT")],
                 [
                     Button.inline("البوت", data="BOTCMD4"),
                     Button.inline("الجروب", data="admincmd_s"),
@@ -212,7 +212,7 @@ async def varssett(event):
 @check_owner
 async def _(event):
     butze = [
-        [Button.url("المطـور", "https://t.me/SA3ED_IT")],
+        [Button.url("• المطـور •", "https://t.me/SA3ED_IT")],
         [
             Button.inline("البوت", data="BOTCMD4"),
             Button.inline("الجروب", data="admincmd_s"),
