@@ -20,7 +20,31 @@ async def permalink(mention):
         mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nتـم رفعـه بقلبك ♥️ "
     )
 
+@sbb_b.ar_cmd(pattern="رفع بهيمة(?: |$)(.*)")
+async def permalink(mention):
+    user, custom = await get_user_from_event(mention)
+    if not user:
+        return
+    if custom:
+        return await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
+    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
+    await edit_or_reply(
+        mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nتـم رفعـها بهيمة 🐂\nهاتولها برسيم بسرعه 🌱😂 "
+    )
 
+@sbb_b.ar_cmd(pattern="رفع تور(?: |$)(.*)")
+async def permalink(mention):
+    user, custom = await get_user_from_event(mention)
+    if not user:
+        return
+    if custom:
+        return await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
+    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
+    await edit_or_reply(
+        mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nطور هايج ف عنبر سبعه  😂🦏\nحلقوا عليه 😂 "
+    )
+
+    
 @sbb_b.ar_cmd(pattern="رفع زوجي(?: |$)(.*)")
 async def permalink(mention):
     user, custom = await get_user_from_event(mention)
@@ -138,7 +162,30 @@ async def permalink(mention):
         mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nتـم رفعـها جاموسة\nوهى جاموسه اصلا 😂🦬"
     )
 
-
+@sbb_b.ar_cmd(pattern="رفع شبشب(?: |$)(.*)")
+async def permalink(mention):
+    user, custom = await get_user_from_event(mention)
+    if not user:
+        return
+    if custom:
+        return await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
+    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
+    await edit_or_reply(
+        mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nتـم رفعـها شبشب\nحد يجى يلبسه 😂"
+    )
+    
+@sbb_b.ar_cmd(pattern="رفع حلويات(?: |$)(.*)")
+async def permalink(mention):
+    user, custom = await get_user_from_event(mention)
+    if not user:
+        return
+    if custom:
+        return await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
+    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
+    await edit_or_reply(
+        mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nتـم رفعـه حلويات\nالكيلو ب اتنين وبس 😂"
+    )
+    
 @sbb_b.ar_cmd(pattern="رفع قرد(?: |$)(.*)")
 async def permalink(mention):
     user, custom = await get_user_from_event(mention)
@@ -226,12 +273,12 @@ async def permalink(mention):
     )
 
 
-@sbb_b.on(admin_cmd(pattern="زاوج(?:\s|$)([\s\S]*)"))
+@sbb_b.on(admin_cmd(pattern="زواج(?:\s|$)([\s\S]*)"))
 async def rzfun(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    await edit_or_reply(mention, f"**نتجوز وماتباوع على غيري 🥺💞 ܰ**")
+    await edit_or_reply(mention, f"نتجوز واغسلك المواعين 🥺😂 ܰ")
 
 
 @sbb_b.on(admin_cmd(pattern="طلاق(?:\s|$)([\s\S]*)"))
@@ -239,4 +286,4 @@ async def mention(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    await edit_or_reply(mention, f"**انتى طالق بالعشرة 😹😭💕 ܰ**")
+    await edit_or_reply(mention, f"انتى طالق بالعشرة 😂😭💕\nيلا ي بنت الكلب بره 😂")
