@@ -174,7 +174,7 @@ async def _(event):
         ],
         [
             Button.inline("الحاسبة", data="CALCATERE"),
-            Button.inline("", data=""),
+            Button.inline("خاص", data="PVIT"),
             Button.inline("الارسال الوهمي", data="SACAMF"),
         ],
         [
@@ -201,6 +201,12 @@ async def _(event):
 async def _(event):
     buttons = [[Button.inline("رجوع", data="EXTRACMD")]]
     await event.edit(HEMAIREF, buttons=buttons, link_preview=False)
+    
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"PVIT")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="EXTRACMD")]]
+    await event.edit(PVIT, buttons=buttons, link_preview=False)
     
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"AZKARIT")))
 @check_owner
