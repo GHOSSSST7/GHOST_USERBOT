@@ -4,7 +4,7 @@ from telethon.sessions import StringSession
 from telethon import TelegramClient
 from telethon.tl.types import User
 from sbb_b import sbb_b
-from sbb_b import Config
+
 from sbb_b.core.managers import edit_delete, edit_or_reply
 
 from sbb_b.helper.stream_helper import Stream
