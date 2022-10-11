@@ -41,7 +41,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                     Button.inline("الازرار", data="ITBUTT"),
                 ],
                 [
-                    Button.inline("الاكسترا", data="EXTRACMD"),
+                    Button.inline("اضافات", data="EXTRACMD"),
                     Button.inline("الميوزك", data="MSHKLMSIC"),
                 ],
             ]
@@ -86,7 +86,7 @@ async def _(event):
             Button.inline("الازرار", data="ITBUTT"),
         ],
         [
-            Button.inline("الاكسترا", data="EXTRACMD"),
+            Button.inline("اضافات", data="EXTRACMD"),
             Button.inline("الميوزك", data="MSHKLMSIC"),
         ],
     ]
@@ -183,7 +183,7 @@ async def _(event):
             Button.inline("البروفيل", data="PROFUIECMD"),
         ],
         [
-            Button.inline("", data=""),
+            Button.inline("الاذكار", data="AZKARIT"),
             Button.inline("الكتابة", data="KTABAFE"),
             Button.inline("التاك و المنشن", data="TAGE4E"),
         ],
@@ -201,7 +201,12 @@ async def _(event):
 async def _(event):
     buttons = [[Button.inline("رجوع", data="EXTRACMD")]]
     await event.edit(HEMAIREF, buttons=buttons, link_preview=False)
-
+    
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"AZKARIT")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="EXTRACMD")]]
+    await event.edit(AZKARIT, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"KTABAFE")))
 @check_owner
