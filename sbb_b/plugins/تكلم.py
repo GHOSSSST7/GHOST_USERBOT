@@ -116,7 +116,7 @@ async def _(event):
 
             Italiaevent,
 
-            "تم تحويل النص الى مقطع صوتي في {} ثواني ".format(text[0:20], ms),
+            "تم تحويل النص الى مقطع صوتي بنجاح ✓".format(text[0:20], ms),
 
         )
 
