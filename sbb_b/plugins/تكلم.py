@@ -46,7 +46,7 @@ async def _(event):
         text = text.strip()
         lan = lan.strip()
 
-    jepthonevent = await edit_or_reply(event, "⌔∮ جـار التسجيل انتـظر قليلا")
+    Italiaevent = await edit_or_reply(event, "⌔∮ جـار التسجيل انتـظر قليلا")
 
 
     if not os.path.isdir("./temp/"):
@@ -84,7 +84,7 @@ async def _(event):
 
         except (subprocess.CalledProcessError, NameError, FileNotFoundError) as exc:
 
-            await jepthonevent.edit(str(exc))
+            await Italiaevent.edit(str(exc))
 
         else:
 
@@ -114,7 +114,7 @@ async def _(event):
 
         await edit_delete(
 
-            jepthonevent,
+            Italiaevent,
 
             "تم تحويل النص الى مقطع صوتي في {} ثواني ".format(text[0:20], ms),
 
@@ -122,4 +122,4 @@ async def _(event):
 
     except Exception as e:
 
-        await edit_or_reply(jepthonevent, f"خطأ:\n{e}")
+        await edit_or_reply(Italiaevent, f"خطأ:\n{e}")
