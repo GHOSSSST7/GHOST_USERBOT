@@ -7,7 +7,7 @@ from datetime import datetime
 
 from telethon.tl import types
 from telethon.utils import get_extension
-from sbb_b.Config import Config
+
 from sbb.core.managers import edit_or_reply
 from sbb_b.helpers import progress
 
