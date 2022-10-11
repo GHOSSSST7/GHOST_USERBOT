@@ -16,7 +16,7 @@ plugin_category = "tools"
 )
 async def _(event):
     cmd = "ls sbb_b/plugins"
-    o = (await _catutils.runcmd(cmd))[0]
+    o = (await _jmthonutils.runcmd(cmd))[0]
     OUTPUT = f"الـمـلفـات:\n{o}"
     await edit_or_reply(event, OUTPUT)
 
