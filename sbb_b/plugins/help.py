@@ -638,6 +638,7 @@ async def _(event):
         [
             Button.inline("ايقاف التكرار", data="STOPTKRARE"),
             Button.inline("وسبام", data="FGKHEF8"),
+            Button.inline("وقت الرسالة", data="MSGTIME"),
         ],
         [
             Button.inline("⌫", data="TOOLSR3"),
@@ -652,6 +653,12 @@ async def _(event):
 async def _(event):
     buttons = [[Button.inline("رجوع", data="TOOLCMD2")]]
     await event.edit(FINDSONGIT, buttons=buttons, link_preview=False)
+    
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"MSGTIME")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="TOOLCMD2")]]
+    await event.edit(MSGTIME, buttons=buttons, link_preview=False)
     
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"ALIVEDIII")))
 @check_owner
