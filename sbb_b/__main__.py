@@ -64,7 +64,7 @@ async def startup_process():
 
 async def externalrepo():
     if Config.VCMODE:
-        await install_externalrepo("https://github.com/sa3ed266it/Italiavc", "itvc", "jepthonvc")
+        await install_externalrepo("https://github.com/sa3ed266it/Italiavc", "itvc", "Italiavc")
 
 sbb_b.loop.run_until_complete(externalrepo())
 sbb_b.loop.run_until_complete(startup_process())
