@@ -627,7 +627,7 @@ async def _(event):
     buttons = [
         [
             Button.inline("", data=""),
-            Button.inline("", data=""),
+            Button.inline("التكلم", data="ALN6KCMD"),
             Button.inline("التليجراف", data="TELEHTMED"),
         ],
         [
@@ -654,6 +654,11 @@ async def _(event):
     buttons = [[Button.inline("رجوع", data="toolsed1")]]
     await event.edit(ALIVEDIII, buttons=buttons, link_preview=False)
 
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"ALN6KCMD")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="toolsed1")]]
+    await event.edit(ALN6KCMD, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"ALMKD5D")))
 @check_owner
