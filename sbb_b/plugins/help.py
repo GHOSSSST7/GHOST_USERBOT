@@ -42,7 +42,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                 ],
                 [
                     Button.inline("الاكسترا", data="EXTRACMD"),
-                    Button.inline("", data="VARJMTHON"),
+                    Button.inline("الميوزك", data="MSHKLMSIC"),
                 ],
             ]
             result = builder.article(
@@ -68,6 +68,145 @@ async def repo(event):
     await response[0].click(event.chat_id)
     await event.delete()
 
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"skip_srazan")))
+async def skip_srazan(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.تخطي `
+الشرح: يستخدم هذا الامر لتخطي التشغيل الحالي ويقوم بتشغيل المقطع الذي بعده بحسب قائمة التشغيل
+ألاستخدام: اكتب الامر في الدردشة فقط
+""",
+
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"resume_stzrzo")))
+async def resume_stzrzo(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.كمل `
+الشرح: يستخدم هذا الامر لأستئناف التشغيل في المكالمة
+ألاستخدام: اكتب الامر في الدردشة فقط
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pause_streamroz")))
+async def pause_streamroz(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.وقف `
+الشرح: يستخدم هذا الامر لايقاف التشغيل الحالية بشكل مؤقت في المكالمة
+ألاستخدام: اكتب الامر في الدردشة فقط
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"play_audioroze")))
+async def play_vide(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.تشغيل `
+الشرح: يستخدم هذا الامر لتشغيل المقطع الصوتي في المكالمة الصوتية
+ألاستخدام: اكتب الامر مع رابط الفيديو من اليوتيوب
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"play_vide")))
+async def play_vide(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.تشغيل_فيديو`
+الشرح: يستخدم هذا الامر لتشغيل فيديو في المكالمة الصوتية
+ألاستخدام: اكتب الامر مع رابط الفيديو من اليوتيوب
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"get_playlistroz")))
+async def get_playlistroz(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.القائمة`
+الشرح: يستخدم هذا الامر لمعرفة الفيديوهات والصوتيات المشغلة في المكالمة او في قائمة الانتظار
+ألاستخدام: اكتب الامر فقط في الدردشة 
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"leaveVoicechatroz")))
+async def leaveVoicechat(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.غادر`
+الشرح: يستخدم هذا الامر لجعل البوت الذي بحسابك يغادر المكالمة الصوتية
+ألاستخدام: اكتب الامر فقط في الدردشة 
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"joinVoicecharoz")))
+async def joinVoicecharoz(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.انضم`
+الشرح: يستخدم هذا الامر لجعل البوت الذي بحسابك يشغل و يدخل الى المكالمة الصوتية
+ألاستخدام: اكتب الامر فقط في الدردشة 
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozlve")))
+async def varssett(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.بدء مكالمة`
+الشرح: يستخدم هذا الامر لتشغيل المكالمة الصوتية في المجموعة فقط ارسله في المجموعة ويجب ان تكون مشرف اولا
+ألاستخدام: فقط ارسل الامر بدون اي اضافات
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
+
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"endcalrz")))
+async def varssett(event):
+    await event.edit(
+        """القسم: اوامر المشغل
+الامر:       `.انهاء المكالمة`
+الشرح: يستخدم هذا الامر لانهاء المكالمة الصوتية في المجموعة فقط ارسله في المجموعة ويجب ان تكون مشرف اولا
+ألاستخدام: فقط ارسل الامر بدون اي اضافات
+""",
+        buttons=[
+            [Button.inline("رجوع", data="MSHKLMSIC")],
+        ],
+    )
+
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"MAIN")))
 @check_owner
@@ -88,7 +227,7 @@ async def _(event):
         ],
         [
             Button.inline("الاكسترا", data="EXTRACMD"),
-            Button.inline("", data="VARJMTHON"),
+            Button.inline("الميوزك", data="MSHKLMSIC"),
         ],
     ]
     await event.edit(buttons=butze)
