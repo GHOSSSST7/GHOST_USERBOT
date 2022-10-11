@@ -53,68 +53,6 @@ async def waifu(animu):
 
 # 12 21 28 30
 @sbb_b.ar_cmd(
-    pattern="ستيكر ?(?:(.*?) ?; )?([\s\S]*)",
-    command=("ستيكر", plugin_category),
-    info={
-        "header": "your text as sticker.",
-        "usage": [
-            "{tr}stcr <text>",
-            "{tr}stcr <font file name> ; <text>",
-        ],
-        "examples": "{tr}stcr hello",
-    },
-)  # WRITED BY - @VUUZZ - @RR7PP
-async def sticklet(event):
-    "⌔︙النص الخاص بك كملصق"
-    R = random.randint(0, 256)
-    G = random.randint(0, 256)
-    B = random.randint(0, 256)
-    reply_to_id = await reply_id(event)
-    font_file_name = event.pattern_match.group(1)
-    if not font_file_name:
-        font_file_name = ""
-    sticktext = event.pattern_match.group(2)
-    reply_message = await event.get_reply_message()
-    if not sticktext:
-        if event.reply_to_msg_id:
-            sticktext = reply_message.message
-        else:
-            return await edit_or_reply(event, " ⌔︙تحتاج شيئًا ، همممم")
-    await event.delete()
-    sticktext = deEmojify(sticktext)
-    sticktext = textwrap.wrap(sticktext, width=10)
-    sticktext = "\n".join(sticktext)
-    image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
-    draw = ImageDraw.Draw(image)
-    fontsize = 230
-    FONT_FILE = await get_font_file(event.client, "@catfonts", font_file_name)
-    font = ImageFont.truetype(FONT_FILE, size=fontsize)
-    while draw.multiline_textsize(sticktext, font=font) > (512, 512):
-        fontsize -= 3
-        font = ImageFont.truetype(FONT_FILE, size=fontsize)
-    width, height = draw.multiline_textsize(sticktext, font=font)
-    draw.multiline_text(
-        ((512 - width) / 2, (512 - height) / 2), sticktext, font=font, fill=(R, G, B)
-    )
-    image_stream = io.BytesIO()
-    image_stream.name = "sbb_b.webp"
-    image.save(image_stream, "WebP")
-    image_stream.seek(0)
-    # finally, reply the sticker
-    await event.client.send_file(
-        event.chat_id,
-        image_stream,
-        caption="cat's Sticklet",
-        reply_to=reply_to_id,
-    )
-    try:
-        os.remove(FONT_FILE)
-    except BaseException:
-        pass
-
-
-# WRITED BY - @VUUZZ - @RR7PP
-@sbb_b.ar_cmd(
     pattern="هونك(?:\s|$)([\s\S]*)",
     command=("هونك", plugin_category),
     info={
@@ -163,34 +101,7 @@ async def twt(event):
 
 
 @sbb_b.ar_cmd(
-    pattern="دوغي(?:\s|$)([\s\S]*)",
-    command=("دوغي", plugin_category),
-    info={
-        "header": "Make doge say anything.",
-        "usage": "{tr}doge <text/reply to msg>",
-        "examples": "{tr}doge Gib money",
-    },
-)  # WRITED BY - @VUUZZ - @RR7PP
-async def doge(event):
-    "⌔︙اصنع ستيكر كلب رائع."
-    text = event.pattern_match.group(1)
-    reply_to_id = await reply_id(event)
-    bot_name = "@DogeStickerBot"
-    if not text:
-        if event.is_reply:
-            text = (await event.get_reply_message()).message
-        else:
-            return await edit_delete(event, "⌯︙ماذا يفترض بالكلب ان يقول اعطه نصا**")
-    text = deEmojify(text)
-    await event.delete()
-    await hide_inlinebot(event.client, bot_name, text, event.chat_id, reply_to_id)
-
-
-# WRITED BY - @VUUZZ - @RR7PP
-
-
-@sbb_b.ar_cmd(
-    pattern="غلاكس(?:\s|$)([\s\S]*)",
+    pattern="غلاكس(|ر)(?:\s|$)([\s\S]*)",
     command=("غلاكس", plugin_category),
     info={
         "header": "Make glax the dragon scream your text.",
