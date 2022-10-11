@@ -116,6 +116,7 @@ async def varssett(event):
             [Button.inline("القائمة الرئيسية", data="MAIN")],
         ]
         await event.edit(ROE, buttons=butze)
+    )
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"rozlve")))
 @check_owner
