@@ -126,7 +126,7 @@ async def bot_start(event):
             ],
             [
                 Button.inline("", data=""),
-                Button.inline("• اوامر الميوزك •", data="MSHKLMSIC"),
+                Button.inline("", data=""),
             ],
         ]
     try:
