@@ -171,7 +171,7 @@ async def permalink(mention):
         return await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
     tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
     await edit_or_reply(
-        mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nتـم رفعـها شبشب\nحد يجى يلبسه 😂"
+        mention, f"المستخدم [{tag}](tg://user?id={user.id}) \nتـم رفعـه شبشب\nحد يجى يلبسه 😂"
     )
     
 @sbb_b.ar_cmd(pattern="رفع حلويات(?: |$)(.*)")
@@ -278,7 +278,7 @@ async def rzfun(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    await edit_or_reply(mention, f"نتجوز واغسلك المواعين 🥺😂 ܰ")
+    await edit_or_reply(mention, f"نتجوز واغسلك المواعين 🥺😂")
 
 
 @sbb_b.on(admin_cmd(pattern="طلاق(?:\s|$)([\s\S]*)"))
@@ -286,4 +286,4 @@ async def mention(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
         return
-    await edit_or_reply(mention, f"انتى طالق بالعشرة 😂😭💕\nيلا ي بنت الكلب بره 😂")
+    await edit_or_reply(mention, f"انتى طالق بالعشرة 😂😭\nيلا ي بنت الكلب بره 😂")
