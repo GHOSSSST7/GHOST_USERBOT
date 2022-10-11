@@ -94,9 +94,7 @@ async def _(event):
 
 @sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"MSHKLMSIC")))
 async def varssett(event):
-    await event.edit(
-        "",
-        buttons=[
+        butze=[
             [
                 Button.inline("تشغيل المكالمة", data="rozlve"),
                 Button.inline("انهاء المكالمة", data="endcalrz"),
@@ -116,7 +114,6 @@ async def varssett(event):
             [Button.inline("القائمة الرئيسية", data="MAIN")],
         ]
         await event.edit(ROE, buttons=butze)
-    )
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"rozlve")))
 @check_owner
