@@ -13,7 +13,7 @@ from ..sql_helper.globals import gvarstatus
 ROE = ""
 ROZADM = "من هنا يمكنك ايجاد جميع"
 IQTHONPC = (
-    gvarstatus("ALIVE_PICC") or "https://telegra.ph/file/52b4377d499aebba7a0f6.jpg"
+    gvarstatus("ALIVE_PICC") or "https://telegra.ph/file/326d5b1db904e2124e720.jpg"
 )
 RAZAN = Config.TG_BOT_USERNAME
 
@@ -68,146 +68,6 @@ async def repo(event):
     await response[0].click(event.chat_id)
     await event.delete()
 
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"skip_srazan")))
-async def skip_srazan(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.تخطي `
-الشرح: يستخدم هذا الامر لتخطي التشغيل الحالي ويقوم بتشغيل المقطع الذي بعده بحسب قائمة التشغيل
-ألاستخدام: اكتب الامر في الدردشة فقط
-""",
-
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"resume_stzrzo")))
-async def resume_stzrzo(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.كمل `
-الشرح: يستخدم هذا الامر لأستئناف التشغيل في المكالمة
-ألاستخدام: اكتب الامر في الدردشة فقط
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pause_streamroz")))
-async def pause_streamroz(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.وقف `
-الشرح: يستخدم هذا الامر لايقاف التشغيل الحالية بشكل مؤقت في المكالمة
-ألاستخدام: اكتب الامر في الدردشة فقط
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"play_audioroze")))
-async def play_vide(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.تشغيل `
-الشرح: يستخدم هذا الامر لتشغيل المقطع الصوتي في المكالمة الصوتية
-ألاستخدام: اكتب الامر مع رابط الفيديو من اليوتيوب
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"play_vide")))
-async def play_vide(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.تشغيل_فيديو`
-الشرح: يستخدم هذا الامر لتشغيل فيديو في المكالمة الصوتية
-ألاستخدام: اكتب الامر مع رابط الفيديو من اليوتيوب
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"get_playlistroz")))
-async def get_playlistroz(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.القائمة`
-الشرح: يستخدم هذا الامر لمعرفة الفيديوهات والصوتيات المشغلة في المكالمة او في قائمة الانتظار
-ألاستخدام: اكتب الامر فقط في الدردشة 
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"leaveVoicechatroz")))
-async def leaveVoicechat(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.غادر`
-الشرح: يستخدم هذا الامر لجعل البوت الذي بحسابك يغادر المكالمة الصوتية
-ألاستخدام: اكتب الامر فقط في الدردشة 
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"joinVoicecharoz")))
-async def joinVoicecharoz(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.انضم`
-الشرح: يستخدم هذا الامر لجعل البوت الذي بحسابك يشغل و يدخل الى المكالمة الصوتية
-ألاستخدام: اكتب الامر فقط في الدردشة 
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"rozlve")))
-async def varssett(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.بدء مكالمة`
-الشرح: يستخدم هذا الامر لتشغيل المكالمة الصوتية في المجموعة فقط ارسله في المجموعة ويجب ان تكون مشرف اولا
-ألاستخدام: فقط ارسل الامر بدون اي اضافات
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"endcalrz")))
-async def varssett(event):
-    await event.edit(
-        """القسم: اوامر المشغل
-الامر:       `.انهاء المكالمة`
-الشرح: يستخدم هذا الامر لانهاء المكالمة الصوتية في المجموعة فقط ارسله في المجموعة ويجب ان تكون مشرف اولا
-ألاستخدام: فقط ارسل الامر بدون اي اضافات
-""",
-        buttons=[
-            [Button.inline("رجوع", data="MSHKLMSIC")],
-        ],
-    )
-
-
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"MAIN")))
 @check_owner
 async def _(event):
@@ -232,329 +92,79 @@ async def _(event):
     ]
     await event.edit(buttons=butze)
 
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"VARJMTHON")))
+@sbb_b.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"MSHKLMSIC")))
 async def varssett(event):
     await event.edit(
-        "من هنا يمكنك عرض شروحات الفارات:",
+        "",
         buttons=[
             [
-                Button.inline("فارات الفحص", data="alivevar"),
-                Button.inline("فارات الحماية", data="pmvars"),
+                Button.inline("تشغيل المكالمة", data="rozlve"),
+                Button.inline("انهاء المكالمة", data="endcalrz"),
             ],
-            [Button.inline("فارات البروفايل", data="namevar")],
+            [
+                Button.inline("مغادرة المكالمة", data="leaveVoicechatroz"),
+                Button.inline("انضمام للمكالمة", data="joinVoicecharoz"),
+            ],
+            [
+                Button.inline("قائمة التشغيل", data="get_playlistroz"),
+                Button.inline("تشغيل صوتي", data="play_audioroze"),
+            ],
+            [
+                Button.inline("ايقاف مؤقت", data="pause_streamroz"),
+                Button.inline("تخطي التشغيل", data="skip_srazan"),
+            ],
             [Button.inline("القائمة الرئيسية", data="MAIN")],
-        ],
-    )
+        ]
+        await event.edit(ROE, buttons=butze)
 
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"namevar")))
-async def varssett(event):
-    await event.edit(
-        "من هنا يمكنك عرض شروحات فارات الاسم والبايو والخ:",
-        buttons=[
-            [
-                Button.inline("اسم حسابك", data="nameprvr"),
-                Button.inline("زخرفة الارقام", data="numlokvar"),
-            ],
-            [
-                Button.inline("نبذة حسابك", data="biolokvar"),
-                Button.inline("صورة حسابك", data="phovarlok"),
-            ],
-            [
-                Button.inline("رمز الاسم", data="symnamvar"),
-            ],
-            [Button.inline("رجوع", data="VARJMTHON")],
-            [Button.inline("القائمة الرئيسية", data="MAIN")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"ITBUTT")))
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"rozlve")))
 @check_owner
 async def _(event):
-    buttons = [[Button.inline("رجوع", data="MAIN")]]
-    await event.edit(ITBUTT, buttons=buttons, link_preview=False)
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"symnamvar")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات البروفايل
-الفار الحالي: فار الرمز
-
-الامر:             `.وضع الرمز`
-
-الشرح :  يقوم هذا الامر بوضع رمز بداية اسم حسابك عند تشغيل امر  .اسم وقتي
-الاستخدام : تقوم بالرد على الرمز بالامر   `.وضع الرمز`
-
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="namevar")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"phovarlok")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات البروفايل
-الفار الحالي: فار الصورة
-
-الامر:             `.وضع الصورة`
-
-الشرح :  يقوم هذا الامر بوضع الصورة الخاصة بحسابك عند تشغيل امر الصورة الوقتية
-الاستخدام : تقوم بالرد على رابط الصورة بالامر   `.وضع البايو`
-*يمكنك استخدا الزخرفة او اللغة الانكليزية او العربية الخ..
-
-* كيفية جلب رابط الصورة؟
--بالرد على الصورة المراد استخراج منها الرابط ب  `.تلكراف ميديا`
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="namevar")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"biolokvar")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات البروفايل
-الفار الحالي: فار البايو
-
-الامر:             `.وضع البايو`
-
-الشرح :  يقوم هذا الامر بوضع النبذه او البايو عند تشغيل امر البايو الوقتي
-الاستخدام : تقوم بالرد على البايو بالامر   `.وضع البايو`
-
-*يمكنك استخدا الزخرفة او اللغة الانكليزية او العربية الخ..
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="namevar")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"numlokvar")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات البروفايل
-الفار الحالي: فار الزخرفة
-
-.زخرفة الوقت 1
-.زخرفة الوقت 2
-.زخرفة الوقت 3
-.زخرفة الوقت 4
-.زخرفة الوقت 5
-.زخرفة الوقت 6
-.زخرفة الوقت 7
-.زخرفة الوقت 8
-.زخرفة الوقت 9
-
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="namevar")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"nameprvr")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات البروفايل
-الفار الحالي: فار الاسم
-
-الامر:             `.وضع الاسم`
-
-الشرح :  يقوم هذا الامر بوضع اسم حسابك للعديد من الاوامر مثل الفحص والخ
-الاستخدام : تقوم بالرد على اسمك بالامر   `.وضع الاسم`
-
-*يمكنك استخدا الزخرفة او اللغة الانكليزية او العربية الخ..
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="namevar")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"pmvars")))
-async def varssett(event):
-    await event.edit(
-        "من هنا يمكنك عرض شروحات فارات الحماية:",
-        buttons=[
-            [
-                Button.inline("صورة الحماية", data="picpmvar"),
-                Button.inline("كليشة الحماية", data="pmvarkish"),
-            ],
-            [
-                Button.inline("كليشة الحظر", data="banklish"),
-                Button.inline("عدد التحذيرات", data="warnvars"),
-            ],
-            [Button.inline("رجوع", data="VARJMTHON")],
-            [Button.inline("القائمة الرئيسية", data="MAIN")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"banklish")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات الحماية
-الفار الحالي: فار كليشة الحظر
-
-الامر:             `.وضع كليشة الحظر`
-
-الشرح :  يقوم هذا الامر بتغيير الكليشة (الكلام) التي تظهر عندما تنتهي تحذيرات الشخص ويتم حظره
-الاستخدام : تقوم بالرد على الكليشة التي تريد وضعها بالامر   `.وضع كليشة الحظر `
-
-* يمكنك كتابة اي كليشة مثلا: عزيزي المستخدم تم حظرك 
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="pmvars")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"warnvars")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات الحماية
-الفار الحالي: فار عدد التحذيرات
-
-الامر:             `.وضع عدد التحذيرات`
-
-الشرح :  يقوم هذا الامر بتغيير عدد التحذيرات التي يقوم السورس بتحذير المستخدم بها قبل حظره
-الاستخدام : تقوم بالرد على عدد التحذيرات كرقم  بالامر   `.وضع عدد التحذيرات `
-
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="pmvars")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"pmvarkish")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات الحماية
-الفار الحالي: فار كليشة الحماية
-
-الامر:             `.وضع كليشة الحماية`
-
-الشرح :  يقوم هذا الامر بتغيير الكليشة (الكلام) التي تظهر عندما يكون امر الحماية شغال ويراسلك احد
-الاستخدام : تقوم بالرد على الكليشة التي تريد وضعها بالامر   `.وضع كليشة الحماية `
-
-* يمكنك الحصول على  كليشة جاهزة من هذه القناة @JJOTT
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="pmvars")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"picpmvar")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات الحماية
-الفار الحالي: فار صورة الحماية
-
-الامر:             `.وضع صورة الحماية`
-
-الشرح :  يقوم هذا الامر بتغيير او وضع الصورة التي تظهر عندما يكون امر الحماية  شغال ويراسلك احد
-الاستخدام : تقوم بالرد على رابط الصورة التي تريد وضعها بالامر   `.وضع صورة الحماية` 
-
-* كيفية جلب رابط الصورة؟
--بالرد على الصورة المراد استخراج منها الرابط ب  `.تلكراف ميديا`
-ملاحظة : **يمكنك استخدام الاوامر في اي دردشة او محادثة**
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="pmvars")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"alivevar")))
-async def varssett(event):
-    await event.edit(
-        "من هنا يمكنك عرض شروحات فارات الفحص:",
-        buttons=[
-            [
-                Button.inline("صورة الفحص", data="picvars"),
-                Button.inline("كليشة الفحص", data="kleshalive"),
-            ],
-            [Button.inline("رمز الفحص", data="rmzalive")],
-            [Button.inline("رجوع", data="VARJMTHON")],
-            [Button.inline("القائمة الرئيسية", data="MAIN")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"picvars")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات الفحص
-الفار الحالي: فار صورة الفحص
-
-الامر:             `.وضع صورة الفحص`
-الشرح :  يقوم هذا الامر بتغيير او وضع الصورة التي تظهر عند ارسال  امر   `.فحص`
-الاستخدام : تقوم بالرد على رابط الصورة التي تريد وضعها بالامر   `.وضع صورة الفحص` 
-
-* كيفية جلب رابط الصورة؟
--بالرد على الصورة المراد استخراج منها الرابط ب  `.تلكراف ميديا`
-ملاحظة : **يمكنك استخدام الاوامر في اي دردشة او محادثة**
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="alivevar")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"kleshalive")))
-async def varssett(event):
-    await event.edit(
-        """ نوع الفار: فارات الفحص
-الفار الحالي: فار كليشة الفحص
-الامر:             `.وضع كليشة الفحص`
-
-الشرح :  يقوم هذا الامر بتغيير الكليشة (الكلام) التي تظهر عند ارسال  امر  `.فحص`
-الاستخدام : تقوم بالرد على الكليشة التي تريد وضعها بالامر   `.وضع كليشة الفحص `
-
-* يمكنك الحصول على  كليشة جاهزة من هذه القناة @JJOTT
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="alivevar")],
-        ],
-    )
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"rmzalive")))
-async def varssett(event):
-    await event.edit(
-        """نوع الفار: فارات الفحص
-الفار الحالي: فار رمز الفحص
-
-الامر:             `.وضع رمز الفحص`
-
-الشرح :  يقوم هذا الامر بتغيير الرمز  الذي يظهر عند ارسال  امر  `.فحص`
-الاستخدام : تقوم بالرد على الرمز التي تريد وضعه بالامر   `.وضع رمز الفحص `
-
-ملاحظة : يمكنك استخدام الاوامر في اي دردشة او محادثة
-اوامر فارات سورس جمثون @jmthon""",
-        buttons=[
-            [Button.inline("رجوع", data="alivevar")],
-        ],
-    )
-
-
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(rozlve, buttons=buttons, link_preview=False)
+        
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"endcalrz")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(endcalrz, buttons=buttons, link_preview=False)
+        
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"leaveVoicechatroz")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(leaveVoicechatroz, buttons=buttons, link_preview=False)
+        
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"joinVoicecharoz")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(joinVoicecharoz, buttons=buttons, link_preview=False)
+   
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"get_playlistroz")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(get_playlistroz, buttons=buttons, link_preview=False)
+        
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"play_audioroze")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(play_audioroze, buttons=buttons, link_preview=False)
+        
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"pause_streamroz")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(pause_streamroz, buttons=buttons, link_preview=False)
+        
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"skip_srazan")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="MSHKLMSIC")]]
+    await event.edit(skip_srazan, buttons=buttons, link_preview=False)
+        
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"EXTRACMD")))
 @check_owner
 async def _(event):
