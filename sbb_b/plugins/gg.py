@@ -7,7 +7,7 @@ from telethon.tl.functions.channels import (EditAdminRequest,                   
                            EditPhotoRequest)
 
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
-from telethon.tl.types import (ChannelParticipantsAdmins,                                 ChatAdminRights,                         ChatBannedRights,                   MessageEntityMentionNam,                 MessageMediaPhoto)
+from telethon.tl.types import (ChannelParticipantsAdmins,                                 ChatAdminRights,                         ChatBannedRights,                   MessageEntityMentionName,                 MessageMediaPhoto)
 from sbb_b.utils import register, errors_handler
 from sbb_b.utils import admin_cmd
 from sbb_b import bot as borg
