@@ -89,7 +89,7 @@ async def gben(userbot):
         rgt = ChatAdminRights(add_admins=False,
                                invite_users=True,
                                 change_info=True,
-                                manage_video_chats=True,
+
                                  ban_users=True,
                                   delete_messages=True,
                                    pin_messages=True)
@@ -143,7 +143,7 @@ async def gben(userbot):
         rgt = ChatAdminRights(add_admins=None,
                                invite_users=None,
                                 change_info=None,
-                                manage_video_chats=None,
+
                                  ban_users=None,
                                   delete_messages=None,
                                    pin_messages=None)
