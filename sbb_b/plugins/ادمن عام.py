@@ -99,13 +99,13 @@ async def gben(userbot):
           try:
              await userbot.client(EditAdminRequest(x, user, rgt, rank))
              i += 1
-             await legend.edit(f"#رفع_ادمن_عام\nالمستخدم : __[{user.first_name}](tg://user?id={user.id})__\nتم رفعه ادمن\nعدد المجموعات : `{i}`")
+             await legend.edit(f"المستخدم : [{user.first_name}](tg://user?id={user.id})\nتم رفعه ادمن فى {i} مجموعة موجود ادمن فيها .")
           except:
              pass
     else:
         await ultrax.edit(f"`قم بالرد على شخص او ضع يوزر نيم .`")
     return await ultrax.edit(
-        f"#رفع_ادمن_عام\nالمستخدم : __[{user.first_name}](tg://user?id={user.id})__\nتم رفعه ادمن\nعدد المجموعات : `{i}`"
+        f"المستخدم : [{user.first_name}](tg://user?id={user.id})\nتم رفعه ادمن فى {i} مجموعة موجود ادمن فيها ."
     )
 
 @borg.on(admin_cmd(pattern="نزل ?(.*)"))
@@ -152,11 +152,11 @@ async def gben(userbot):
           try:
              await userbot.client(EditAdminRequest(x, user, rgt, rank))
              i += 1
-             await legend.edit(f"#ازاله_ادمن_عام\nالمستخدم : [{user.first_name}](tg://user?id={user.id})\nتم ازالته من الادمن\nعدد المجموعات : `{i}`")
+             await legend.edit(f"المستخدم : [{user.first_name}](tg://user?id={user.id})\nتم ازالته من الادمن فى {i} مجموعة موجود ادمن فيها .")
           except:
              pass
     else:
         await ultrax.edit(f"`قم بالرد على شخص او ضع يوزر نيم .`")
     return await ultrax.edit(
-        f"#ازاله_ادمن_عام\nالمستخدم : [{user.first_name}](tg://user?id={user.id})\nتم ازالته من الادمن\nعدد المجموعات : `{i}`"
+        f"المستخدم : [{user.first_name}](tg://user?id={user.id})\nتم ازالته من الادمن فى {i} مجموعة موجود ادمن فيها ."
     )
