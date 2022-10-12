@@ -179,7 +179,7 @@ async def _(event):
         ],
         [
             Button.inline("حماية الخاص", data="HEMAIREF"),
-            Button.inline("الذاتية", data="DATECMD"),
+            Button.inline("", data=""),
             Button.inline("البروفيل", data="PROFUIECMD"),
         ],
         [
