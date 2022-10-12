@@ -54,7 +54,7 @@ async def get_user_from_id(user, event):
         return None
     return user_obj
 
-@borg.on(admin_cmd(pattern="gpromote ?(.*)"))
+@borg.on(admin_cmd(pattern="ارفع ?(.*)"))
 async def gben(userbot):
     ultrax = legend = userbot
     i = 0
@@ -78,7 +78,7 @@ async def gben(userbot):
        return
     try:
         if not rank:
-            rank = "ㅤㅤ"
+            rank = "Admin"
     except:
         return await legend.edit(f"**Sᴏᴍᴇᴛʜɪɴɢ W3ɴᴛ Wʀᴏɴɢ 🧐 !!**")
     if user:
@@ -105,7 +105,7 @@ async def gben(userbot):
         f"**Nᴇᴡ Gᴘʀᴏᴍᴏᴛɪᴏɴ !!**\n\n**Usᴇʀ** :- __[{user.first_name}](tg://user?id={user.id})__\n**Aғғᴇᴄᴛᴇᴅ Cʜᴀᴛs** :- `{i}`"
     )
 
-@borg.on(admin_cmd(pattern="gdemote ?(.*)"))
+@borg.on(admin_cmd(pattern="نزل ?(.*)"))
 async def gben(userbot):
     ultrax = legend = userbot
     i = 0
@@ -131,7 +131,7 @@ async def gben(userbot):
        return
     try:
         if not rank:
-            rank = "ㅤㅤ"
+            rank = "Admin"
     except:
         return await legend.edit(f"**Sᴏᴍᴇᴛʜɪɴɢ W3ɴᴛ Wʀᴏɴɢ 🧐 !!**")
     if user:
