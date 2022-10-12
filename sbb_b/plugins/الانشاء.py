@@ -62,7 +62,7 @@ async def _(event):
         if answer[0] != "error":
             await edit_or_reply(
                 event,
-                f"تم صنع المجموعه بنجاح ✓\nاسم المجموعه : `{group_name}`\nالرابط : {result.link}",
+                f"تم صنع المجموعه بنجاح ✓\nاسم المجموعه : `{group_name}`\nالرابط : {answer[0].link}",
             )
         else:
             await edit_delete(event, f"**خطأ:**\n{answer[1]}")
