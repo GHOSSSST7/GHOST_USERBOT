@@ -71,7 +71,7 @@ wand
 wget
 yt_dlp
 py-tgcalls==0.9.3
-
+fake_useragent
 
 git+https://github.com/sandy1709/Telethon@beta
 git+https://github.com/goldsmith/Wikipedia
