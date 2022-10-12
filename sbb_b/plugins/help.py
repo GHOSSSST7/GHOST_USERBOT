@@ -870,6 +870,8 @@ async def _(event):
             Button.inline("الكتم العام", data="GMUTE"),
             Button.inline("الكتم المؤقت", data="TMUTE"),
         ],
+            Button.inline("ادمن عام", data="ALIVErfe"),
+            Button.inline("ازاله ادمن عام", data="ALIVEnzl"),
         [
             Button.inline("⌫", data="admi3"),
             Button.inline("⌦", data="admincmd_s"),
