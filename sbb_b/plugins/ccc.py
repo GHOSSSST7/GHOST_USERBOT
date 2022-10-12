@@ -39,7 +39,7 @@ async def _(event):
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await event.edit(str(e))
-    elif type_of_group in ["g", "c"]:
+    elif type_of_group in ["جروب", "c"]:
         try:
             r = await event.client(
                 functions.channels.CreateChannelRequest(
