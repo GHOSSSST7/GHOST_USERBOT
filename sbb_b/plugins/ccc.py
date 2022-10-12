@@ -6,8 +6,6 @@ from sbb_b import sbb_b
 @sbb_b.on(admin_cmd(pattern="صنع (جروب|c) (.*)"))  # pylint:disable=E0602
 @sbb_b.on(sudo_cmd(pattern="صنع (جروب|c) (.*)", allow_sudo=True))
 async def _(event):
-    if event.fwd_from:
-        return
     type_of_group = event.pattern_match.group(1)
     group_name = event.pattern_match.group(2)
     event = await edit_or_reply(event, "Creating weit sur.....")
