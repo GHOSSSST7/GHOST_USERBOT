@@ -149,7 +149,17 @@ async def permalink(mention):
         mention, f"نسبة الغباء لـ [{muh}](tg://user?id={user.id}) هـي {rzona} 😂💔"
     )
 
-
+@sbb_b.ar_cmd(pattern="نسبة الذكاء(?: |$)(.*)")
+async def permalink(mention):
+    user, custom = await get_user_from_event(mention)
+    if not user:
+        return
+    muh = user.first_name.replace("\u2060", "") if user.first_name else user.username
+    rzona = random.choice(ZK)
+    await edit_or_reply(
+        mention, f"نسبة الذكاء لـ [{muh}](tg://user?id={user.id}) هـي {rzona} 😂💔"
+    )
+    
 @sbb_b.ar_cmd(pattern="رفع جاموسة(?: |$)(.*)")
 async def permalink(mention):
     user, custom = await get_user_from_event(mention)
