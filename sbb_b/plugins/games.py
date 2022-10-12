@@ -6,7 +6,7 @@ import requests
 
 from sbb_b import sbb_b
 
-from ..core.managers import eod, eor
+from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.utils import reply_id
 
 menu_category = "fun"
@@ -62,10 +62,10 @@ async def truth_dare_task(event):
     "Get a random task either truth or dare."
     taskmode = event.pattern_match.group(1)
     if taskmode == "task":
-        legendevent = await eor(event, "Getting a random task for you.....")
+        legendevent = await edit_or_reply(event, "Getting a random task for you.....")
         taskmode = random.choice(["truth", "dare"])
     else:
-        legendevent = await eor(event, f"Getting a random {taskmode} task for you.....")
+        legendevent = await edit_or_reply(event, f"Getting a random {taskmode} task for you.....")
     category = event.pattern_match.group(2)
     category = int(random.choice(category)) if category else random.choice([1, 2])
     try:
@@ -75,7 +75,7 @@ async def truth_dare_task(event):
         else:
             await legendevent.edit(f"**The dare task for you is**\n`{task}`")
     except Exception as e:
-        await eod(legendevent, f"**Error while getting task**\n`{e}`", 7)
+        await edit_delete(legendevent, f"**Error while getting task**\n`{e}`", 7)
 
 
 @sbb_b.ar_cmd(
@@ -134,16 +134,16 @@ async def igame(event):
         for i, item in enumerate(game, start=1)
     )
     if not input_str:
-        await eod(event, f"**Available Game Codes & Names :-**\n\n{game_list}", time=60)
+        await edit_delete(event, f"**Available Game Codes & Names :-**\n\n{game_list}", time=60)
         return
     if input_str not in game_code:
-        legendevent = await eor(event, "`Give me a correct game code...`")
+        legendevent = await edit_or_reply(event, "`Give me a correct game code...`")
         await asyncio.sleep(1)
-        await eod(
+        await edit_delete(
             legendevent, f"**Available Game Codes & Names :-**\n\n{game_list}", time=60
         )
     else:
-        await eor(
+        await edit_or_reply(
             event,
             f"**Game code `{input_str}` is selected for game:-** __{game[input_str]}__",
         )
