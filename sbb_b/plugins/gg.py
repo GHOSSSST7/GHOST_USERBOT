@@ -1,13 +1,16 @@
 from sbb_b import CMD_HELP
-
 marculs=9
 from telethon.errors.rpcerrorlist import (UserIdInvalidError,
-                                            MessageTooLongError)
-from telethon.tl.functions.channels import (EditAdminRequest,                                              EditBannedRequest,
-                           EditPhotoRequest)
-
+                                          MessageTooLongError)
+from telethon.tl.functions.channels import (EditAdminRequest,
+                                            EditBannedRequest,
+                                            EditPhotoRequest)
 from telethon.tl.functions.messages import UpdatePinnedMessageRequest
-from telethon.tl.types import (ChannelParticipantsAdmins,                                 ChatAdminRights,                         ChatBannedRights,                   MessageEntityMentionName,                 MessageMediaPhoto)
+from telethon.tl.types import (ChannelParticipantsAdmins,
+                               ChatAdminRights,
+                               ChatBannedRights,
+                               MessageEntityMentionName,
+                               MessageMediaPhoto)
 from sbb_b.utils import register, errors_handler
 from sbb_b.utils import admin_cmd
 from sbb_b import bot as borg
@@ -39,7 +42,7 @@ async def get_full_user(event):
         try:
             user_obj = await event.client.get_entity(user)
         except Exception as err:
-            return await event.edit("`Eʀʀᴏʀ Pʟᴇᴀsᴇ Rᴇᴘᴏʀᴛ Iɴ` **@UltraXChat**`.`", str(err))   
+            return await event.edit("خطأ .", str(err))   
     return user_obj, extra
 global hawk,moth
 hawk="admin"
@@ -60,7 +63,7 @@ async def gben(userbot):
     i = 0
     sender = await legend.get_sender()
     me = await userbot.client.get_me()
-    await ultrax.edit("`Pʀᴏᴍᴏᴛɪɴɢ...`")
+    await ultrax.edit("`جارى رفعه ادمن ....`")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
     await userbot.get_chat()
@@ -74,13 +77,13 @@ async def gben(userbot):
     except:
         pass
     if me == user:
-       k = await ultrax.edit("`Aʀᴇ ʏᴏᴜ ᴀ ɴᴏᴏʙ ᴡʜᴏ ᴡᴀɴᴛ ᴛᴏ ᴘʀᴏᴍᴏᴛᴇ ʏᴏᴜʀsᴇʟғ ㋛ !!`")
+       k = await ultrax.edit("`🤔🤔`")
        return
     try:
         if not rank:
             rank = "Admin"
     except:
-        return await legend.edit(f"**Sᴏᴍᴇᴛʜɪɴɢ W3ɴᴛ Wʀᴏɴɢ 🧐 !!**")
+        return await legend.edit(f"`خطأ !!`")
     if user:
         telchanel = [d.entity.id
                      for d in await userbot.client.get_dialogs()
@@ -89,7 +92,6 @@ async def gben(userbot):
         rgt = ChatAdminRights(add_admins=False,
                                invite_users=True,
                                 change_info=True,
-
                                  ban_users=True,
                                   delete_messages=True,
                                    pin_messages=True)
@@ -97,13 +99,13 @@ async def gben(userbot):
           try:
              await userbot.client(EditAdminRequest(x, user, rgt, rank))
              i += 1
-             await legend.edit(f"**Nᴇᴡ Gᴘʀᴏᴍᴏᴛɪᴏɴ !!**\n\n**Usᴇʀ** :- __[{user.first_name}](tg://user?id={user.id})__\n**Aғғᴇᴄᴛᴇᴅ Cʜᴀᴛs** :- `{i}`")
+             await legend.edit(f"#رفع_ادمن_عام\nالمستخدم : __[{user.first_name}](tg://user?id={user.id})__\nتم رفعه ادمن\nعدد المجموعات : `{i}`")
           except:
              pass
     else:
-        await ultrax.edit(f"`Rᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ ᴛᴏ Gᴘʀᴏᴍᴏᴛᴇ ᴛʜᴇᴍ...`")
+        await ultrax.edit(f"`قم بالرد على شخص او ضع يوزر نيم .`")
     return await ultrax.edit(
-        f"**Nᴇᴡ Gᴘʀᴏᴍᴏᴛɪᴏɴ !!**\n\n**Usᴇʀ** :- __[{user.first_name}](tg://user?id={user.id})__\n**Aғғᴇᴄᴛᴇᴅ Cʜᴀᴛs** :- `{i}`"
+        f"#رفع_ادمن_عام\nالمستخدم : __[{user.first_name}](tg://user?id={user.id})__\nتم رفعه ادمن\nعدد المجموعات : `{i}`"
     )
 
 @borg.on(admin_cmd(pattern="نزل ?(.*)"))
@@ -112,7 +114,7 @@ async def gben(userbot):
     i = 0
     sender = await ultrax.get_sender()
     me = await userbot.client.get_me()
-    await legend.edit("`Dᴇᴍᴏᴛɪɴɢ...`")
+    await legend.edit("`جارى ازالته من الادمن ....`")
 
 # Pls kang mat krna pyar se bol rha hu, nhi to DMCA hai hi
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
@@ -128,13 +130,13 @@ async def gben(userbot):
     except:
         pass
     if me == user:
-       k = await ultrax.edit("`Aʀᴇ ʏᴏᴜ ᴀ ɴᴏᴏʙ ᴡʜᴏ ᴡᴀɴᴛ ᴛᴏ ᴅᴇᴍᴏᴛᴇ ʏᴏᴜʀsᴇʟғ ㋛ !!`")
+       k = await ultrax.edit("`🤔🤔`")
        return
     try:
         if not rank:
             rank = "Admin"
     except:
-        return await legend.edit(f"**Sᴏᴍᴇᴛʜɪɴɢ W3ɴᴛ Wʀᴏɴɢ 🧐 !!**")
+        return await legend.edit(f"`خطأ !!`")
     if user:
         telchanel = [d.entity.id
                      for d in await userbot.client.get_dialogs()
@@ -143,7 +145,6 @@ async def gben(userbot):
         rgt = ChatAdminRights(add_admins=None,
                                invite_users=None,
                                 change_info=None,
-
                                  ban_users=None,
                                   delete_messages=None,
                                    pin_messages=None)
@@ -151,11 +152,11 @@ async def gben(userbot):
           try:
              await userbot.client(EditAdminRequest(x, user, rgt, rank))
              i += 1
-             await legend.edit(f"`Gʟᴏʙʙᴀʟʏ Dᴇᴍᴏᴛᴇᴅ` **[{user.first_name}](tg://user?id={user.id})** `Iɴ` **{i}** `Cʜᴀᴛs.`")
+             await legend.edit(f"#ازاله_ادمن_عام\nالمستخدم : [{user.first_name}](tg://user?id={user.id})\nتم ازالته من الادمن\nعدد المجموعات : `{i}`")
           except:
              pass
     else:
-        await ultrax.edit(f"`Rᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ ᴛᴏ Gᴘʀᴏᴍᴏᴛᴇ ᴛʜᴇᴍ...`")
+        await ultrax.edit(f"`قم بالرد على شخص او ضع يوزر نيم .`")
     return await ultrax.edit(
-        f"`Gʟᴏʙʙᴀʟʏ Dᴇᴍᴏᴛᴇᴅ` **[{user.first_name}](tg://user?id={user.id})** `Iɴ` **{i}** `Cʜᴀᴛs.`"
+        f"#ازاله_ادمن_عام\nالمستخدم : [{user.first_name}](tg://user?id={user.id})\nتم ازالته من الادمن\nعدد المجموعات : `{i}`"
     )
