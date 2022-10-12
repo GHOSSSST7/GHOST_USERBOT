@@ -861,6 +861,7 @@ async def _(event):
         [
             Button.inline("تفليش", data="ALIVETFL"),
             Button.inline("الاحداث", data="ALIVEADV"),
+            Button.inline("صلاحيات المجموعة", data="GROUPHP"),
         ],
         [
             Button.inline("الحظر العام", data="GADMIN"),
@@ -870,8 +871,10 @@ async def _(event):
             Button.inline("الكتم العام", data="GMUTE"),
             Button.inline("الكتم المؤقت", data="TMUTE"),
         ],
+        [
             Button.inline("ادمن عام", data="ALIVErfe"),
             Button.inline("ازاله ادمن عام", data="ALIVEnzl"),
+        ],
         [
             Button.inline("⌫", data="admi3"),
             Button.inline("⌦", data="admincmd_s"),
@@ -880,6 +883,11 @@ async def _(event):
     ]
     await event.edit(ROE, buttons=buttons, link_preview=False)
 
+@sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"GROUPHP")))
+@check_owner
+async def _(event):
+    buttons = [[Button.inline("رجوع", data="admin2")]]
+    await event.edit(GROUPHP, buttons=buttons, link_preview=False)
 
 @sbb_b.tgbot.on(CallbackQuery(data=re.compile(rb"ALIVETFL")))
 @check_owner
