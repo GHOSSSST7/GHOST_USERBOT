@@ -240,7 +240,7 @@ async def permalink(mention):
     muh = user.first_name.replace("\u2060", "") if user.first_name else user.username
     sos = random.choice(kz)
     await edit_or_reply(
-        mention, f"- نسبة الرجولة لـ [{muh}](tg://user?id={user.id}) هـي {sos} 🥵🖤"
+        mention, f"- نسبة الرجولة لـ [{muh}](tg://user?id={user.id}) هـي {sos} "
     )
 
 
