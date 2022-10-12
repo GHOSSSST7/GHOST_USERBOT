@@ -3,6 +3,7 @@ from ..utils import admin_cmd
 from ..utils import edit_or_reply, eor
 from ..utils import sudo_cmd
 from .. import CMD_HELP
+from sbb_b import sbb_b
 
 @borg.on(admin_cmd(pattern="button (.*)"))
 @borg.on(sudo_cmd(pattern="button", allow_sudo=True))
@@ -18,7 +19,7 @@ async def Buttons(event):
     await LEGENDX[0].click(event.chat_id)
     await event.delete()
 
-@xbot.on(events.InlineQuery(pattern='BUTTON'))
+@sbb_b.on(events.InlineQuery(pattern='BUTTON'))
 async def file(event):
   f = open("Button.txt")
   ok = f.readlines()[0]
