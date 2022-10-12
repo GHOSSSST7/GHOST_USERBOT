@@ -130,14 +130,3 @@ async def who(event):
         await roz.delete()
     except TypeError:
         await roz.edit(caption, parse_mode="html")
-
-
-@sbb_b.ar_cmd(pattern="رابطه(?:\s|$)([\s\S]*)")
-async def permalink(mention):
-    user, custom = await get_user_from_event(mention)
-    if not user:
-        return
-    if custom:
-        return await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
-    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
-    await edit_or_reply(mention, f"⪼  [{tag}](tg://user?id={user.id})  𓆰. ")
