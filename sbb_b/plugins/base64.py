@@ -37,7 +37,7 @@ async def endecrypt(event):
     else:
         tol = event.text[9:]
     if tol == "":
-        return await edit_delete(event, "I need something to encode \ncheck `.help base`")
+        return await edit_delete(event, "استخدم الامر بطريقه صحيحه !\nencode : `.base -e`\ndecode : `.base -d`")
     if "-e" in type:
         if tol:
             try:
