@@ -1,6 +1,6 @@
 import heroku3
 import re, os
-from config import config
+from sbb_b import config
 from ..utils import admin_cmd
 LEGENDX = config.HEROKU_APP_NAME
 PROBOYX = config.HEROKU_API_KEY
