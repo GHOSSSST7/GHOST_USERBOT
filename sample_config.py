@@ -126,7 +126,7 @@ class Config(object):
     # فارات للمعدلين والنسخ تخص الكيتهاب
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
-
+    RANDOM_STUFF_API_KEY = os.environ.get("RANDOM_STUFF_API_KEY", None)
     DEEP_AI = os.environ.get("DEEP_AI", None)
 
     # لمعرفه عدد الرسائل للتلجرام لا تغيره
