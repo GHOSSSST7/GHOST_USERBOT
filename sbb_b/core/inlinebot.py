@@ -65,7 +65,7 @@ def main_menu():
         (
             Button.inline(f"ملفات المرح ⛄️ ({len(GRP_INFO['fun'])})", data="fun_menu"),
             Button.inline(
-                f"ملفات الميديا 🎧 ({len(GRP_INFO['misc'])})", data="misc_menu"
+                f"ملفات الميديا 🎧 ({len(GRP_INFO['fun'])})", data="misc_menu"
             ),
         ),
         (
