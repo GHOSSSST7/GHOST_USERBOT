@@ -1,6 +1,6 @@
 from telethon import functions
 
-from sbb_b import sbb
+from sbb_b import sbb_b
 
 from ..Config import Config
 from ..core import CMD_INFO, PLG_INFO
