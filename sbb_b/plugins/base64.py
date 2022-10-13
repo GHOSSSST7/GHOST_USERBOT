@@ -14,44 +14,6 @@ from ..helpers.tools import media_type
 
 menu_category = "tools"
 
-
-@sbb_b.ar_cmd(
-    pattern="hash ([\s\S]*)",
-    command=("hash", menu_category),
-    info={
-        "header": "Find the md5, sha1, sha256, sha512 of the string when written into a txt file.",
-        "usage": "{tr}hash <text>",
-        "examples": "{tr}hash LegendUserBot",
-    },
-)
-async def gethash(hash_q):
-    "Find the md5, sha1, sha256, sha512 of the string when written into a txt file."
-    hashtxt_ = "".join(hash_q.text.split(maxsplit=1)[1:])
-    with open("hashdis.txt", "w+") as hashtxt:
-        hashtxt.write(hashtxt_)
-    md5 = runapp(["md5sum", "hashdis.txt"], stdout=PIPE)
-    md5 = md5.stdout.decode()
-    sha1 = runapp(["sha1sum", "hashdis.txt"], stdout=PIPE)
-    sha1 = sha1.stdout.decode()
-    sha256 = runapp(["sha256sum", "hashdis.txt"], stdout=PIPE)
-    sha256 = sha256.stdout.decode()
-    sha512 = runapp(["sha512sum", "hashdis.txt"], stdout=PIPE)
-    runapp(["rm", "hashdis.txt"], stdout=PIPE)
-    sha512 = sha512.stdout.decode()
-    ans = f"**Text : **\
-            \n`{hashtxt_}`\
-            \n**MD5 : **`\
-            \n`{md5}`\
-            \n**SHA1 : **`\
-            \n`{sha1}`\
-            \n**SHA256 : **`\
-            \n`{sha256}`\
-            \n**SHA512 : **`\
-            \n`{sha512[:-1]}`\
-         "
-    await edit_or_reply(hash_q, ans)
-
-
 @sbb_b.ar_cmd(
     pattern="base(?: |$)([\s\S]*)",
     command=("base", menu_category),
