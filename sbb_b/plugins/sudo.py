@@ -2,8 +2,8 @@ import heroku3
 import re, os
 from ..Config import Config
 from ..utils import admin_cmd
-LEGENDX = config.HEROKU_APP_NAME
-PROBOYX = config.HEROKU_API_KEY
+LEGENDX = Config.HEROKU_APP_NAME
+PROBOYX = Config.HEROKU_API_KEY
 sudolist = os.environ.get("SUDO_USERS", None)
 @bot.on(admin_cmd(pattern='addsudo'))
 async def add_sudo(event):
