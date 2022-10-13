@@ -56,7 +56,7 @@ MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
-@tgbot.on(events.NewMessage(pattern="^/bun(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^/ban(?: |$)(.*)"))
 async def ban(event):
     noob = event.sender_id
     userids = []
@@ -100,7 +100,7 @@ async def ban(event):
         await event.reply(f"Banned  `{str(user.id)}` !")
 
 
-@tgbot.on(events.NewMessage(pattern="^/unbun(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^/unban(?: |$)(.*)"))
 async def nothanos(event):
     userids = []
     noob = event.sender_id
@@ -131,7 +131,7 @@ async def nothanos(event):
         return
 
 
-@tgbot.on(events.NewMessage(pattern="^/prumote(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^/promote(?: |$)(.*)"))
 async def promote(event):
     userids = []
     noob = event.sender_id
@@ -155,15 +155,15 @@ async def promote(event):
         return
     new_rights = ChatAdminRights(
         add_admins=False,
-        invite_users=False,
-        change_info=False,
+        invite_users=True,
+        change_info=True,
         ban_users=True,
         delete_messages=True,
         pin_messages=True,
     )
     user, rank = await get_user_from_event(event)
     if not rank:
-        rank = "mememaster"  # Just in case.
+        rank = "Admin"  # Just in case.
     if user:
         pass
     else:
@@ -171,7 +171,7 @@ async def promote(event):
     # Try to promote if current user is admin or creator
     try:
         await event.client(EditAdminRequest(event.chat_id, user.id, new_rights, rank))
-        await event.reply("`Promoted Successfully! Now gib Party`")
+        await event.reply("`Promoted Successfully! `")
 
     # If Telethon spit BadRequestError, assume
     # we don't have Promote permission
@@ -180,7 +180,7 @@ async def promote(event):
         return
 
 
-@tgbot.on(events.NewMessage(pattern="^/demute(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^/demote(?: |$)(.*)"))
 async def demote(event):
     userids = []
     noob = event.sender_id
@@ -201,7 +201,7 @@ async def demote(event):
         await event.reply("I Am Not Admin 🤭")
         return
 
-    rank = "mememaster"  # dummy rank, lol.
+    rank = "Admin"  # dummy rank, lol.
     user = await get_user_from_event(event)
     user = user[0]
     if user:
@@ -226,7 +226,7 @@ async def demote(event):
     except BadRequestError:
         await event.reply("Me No Permission 🤔")
         return
-    await event.reply("`Demoted this Guy Successfully!`")
+    await event.reply("`Demoted Successfully!`")
 
 
 @tgbot.on(events.NewMessage(pattern="^/pin(?: |$)(.*)"))
