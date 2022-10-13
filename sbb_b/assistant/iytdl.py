@@ -67,7 +67,7 @@ async def iytdl_inline(event):
     while type:
         try:
             results = await event.client.inline_query(
-                Config.BOT_USERNAME, f"ytdl {input_url}"
+                Config.TG_BOT_USERNAME, f"ytdl {input_url}"
             )
             type = False
         except BotResponseTimeoutError:
