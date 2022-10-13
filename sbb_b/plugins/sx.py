@@ -83,22 +83,22 @@ async def _(event):
     y = x.id
 
     if y == 1496036895:
-        return await eor(event, "Can't use this command here.")
+        return await edit_or_reply(event, "Can't use this command here.")
     if Config.ABUSE != "ON":
-        return await eor(
+        return await edit_or_reply(
             event,
             "**This command is only for users with heroku variable** `ABUSE` **as** `ON`",
         )
     owo = event.text[7:]
     if owo in neko_category:
-        king = await eor(event, f"`Searching {owo} ...`")
+        king = await edit_or_reply(event, f"`Searching {owo} ...`")
         link = nekos.img(owo)
         x = await event.client.send_file(event.chat_id, link, force_document=False)
         await king.delete()
         if link.endswith((".gif")):
             await unsave_gif(event, x)
     elif owo == "":
-        king = await eor(event, "`Searching randoms...`")
+        king = await edit_or_reply(event, "`Searching randoms...`")
         uwu = random.choice(neko_category)
         link = nekos.img(uwu)
         x = await event.client.send_file(event.chat_id, link, force_document=False)
@@ -106,7 +106,7 @@ async def _(event):
         if link.endswith((".gif")):
             await unsave_gif(event, x)
     else:
-        await eor(
+        await edit_or_reply(
             event,
             f"**Unmatched argument.** \n\n__Get all the required queries for nekos here__ -> **[Nekos Queries](http://telegra.ph/Nekos-Queries-08-20)**",
         )
