@@ -125,7 +125,7 @@ async def bot_start(event):
                 Button.url("• المطور •", "https://t.me/SA3ED_IT"),
             ],
             [
-                Button.url("✚ أضفني الى مجموعتك", "https://t.me/{TG_BOT_USERNAME}?startgroup=true"),
+                Button.url("✚ أضفني الى مجموعتك", "https://t.me/{botusername}?startgroup=true"),
                 Button.inline("", data=""),
             ],
         ]
