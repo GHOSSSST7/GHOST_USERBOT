@@ -182,7 +182,6 @@ async def _(event):
         )
 
 
-"""
 @sbb_b.ar_cmd(
     pattern="xnxx(?:\s|$)([\s\S]*)",
     command=("xnxx", menu_category),
@@ -430,7 +429,7 @@ async def pussy(event):
             media_url = m
         pwnlist += f"<b><i>{i}. <a href = {media_url}>{t}</a></b>\n"
     await edit_or_reply(event, pwnlist, parse_mode="html")
-"""
+
 
 
 @sbb_b.ar_cmd(
