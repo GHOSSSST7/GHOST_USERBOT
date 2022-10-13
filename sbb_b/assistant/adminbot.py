@@ -14,7 +14,7 @@ from . import *
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
-NO_ADMIN = "`I am not an admin nub nibba!`"
+NO_ADMIN = "`I am not an admin !`"
 NO_PERM = (
     "`I don't have sufficient permissions! This is so sed. Alexa play Tera Baap Aaya`"
 )
@@ -56,7 +56,7 @@ MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
-@tgbot.on(events.NewMessage(pattern="^/ban(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^حظر(?: |$)(.*)"))
 async def ban(event):
     noob = event.sender_id
     userids = []
@@ -100,7 +100,7 @@ async def ban(event):
         await event.reply(f"Banned  `{str(user.id)}` !")
 
 
-@tgbot.on(events.NewMessage(pattern="^/unban(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^الغاء حظر(?: |$)(.*)"))
 async def nothanos(event):
     userids = []
     noob = event.sender_id
@@ -131,7 +131,7 @@ async def nothanos(event):
         return
 
 
-@tgbot.on(events.NewMessage(pattern="^/promote(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^رفع ادمن(?: |$)(.*)"))
 async def promote(event):
     userids = []
     noob = event.sender_id
@@ -180,7 +180,7 @@ async def promote(event):
         return
 
 
-@tgbot.on(events.NewMessage(pattern="^/demote(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^ازاله ادمن(?: |$)(.*)"))
 async def demote(event):
     userids = []
     noob = event.sender_id
@@ -229,7 +229,7 @@ async def demote(event):
     await event.reply("`Demoted Successfully!`")
 
 
-@tgbot.on(events.NewMessage(pattern="^/pin(?: |$)(.*)"))
+@tgbot.on(events.NewMessage(pattern="^تثبيت(?: |$)(.*)"))
 async def pin(event):
     userids = []
     noob = event.sender_id
