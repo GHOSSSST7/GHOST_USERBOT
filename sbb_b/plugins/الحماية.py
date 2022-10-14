@@ -18,7 +18,7 @@ from ..sql_helper import pmpermit_sql
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import mention
 
-PM_PIC = Config.PM_PIC or ""
+ITALIA = Config.PM_PIC or ""
 
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
@@ -120,11 +120,11 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             remwarns=remwarns,
         )
     elif gvarstatus("pmmenu") is None:
-        USER_BOT_NO_WARN = f"""{PM_PIC}❃ اهلا بك {mention} \nتم ارسال رسالتك بنجاح . \nانتظر الرد حتى لا يتم حظرك من البوت. 
+        USER_BOT_NO_WARN = f"""{ITALIA}❃ اهلا بك {mention} \nتم ارسال رسالتك بنجاح . \nانتظر الرد حتى لا يتم حظرك من البوت. 
 
 لديك {warns}/{totalwarns} من التحذيرات . """
     else:
-        USER_BOT_NO_WARN = f"""{PM_PIC}❃ اهلا بك {mention} \nتم ارسال رسالتك بنجاح . \nانتظر الرد حتى لا يتم حظرك من البوت. 
+        USER_BOT_NO_WARN = f"""{ITALIA}❃ اهلا بك {mention} \nتم ارسال رسالتك بنجاح . \nانتظر الرد حتى لا يتم حظرك من البوت. 
 
 لديك {warns}/{totalwarns} من التحذيرات . """
     addgvar("pmpermit_text", USER_BOT_NO_WARN)
