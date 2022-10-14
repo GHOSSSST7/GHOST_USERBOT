@@ -152,7 +152,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
                 )
     except Exception as e:
         LOGS.error(e)
-        msg = await event.reply(PM_PIC, USER_BOT_NO_WARN)
+        msg = await event.reply(USER_BOT_NO_WARN, PM_PIC)
     try:
         if str(chat.id) in PMMESSAGE_CACHE:
             await event.client.delete_messages(chat.id, PMMESSAGE_CACHE[str(chat.id)])
