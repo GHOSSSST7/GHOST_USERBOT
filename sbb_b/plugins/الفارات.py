@@ -22,7 +22,7 @@ HEROKU_API_KEY = Config.HEROKU_API_KEY
 vlist = [
     "ALIVE_PIC",
     "ALIVE_PICC",
-    "ALIVE_EMOJI",
+    "TI_FN",
     "ALIVE_TELETHONIQ",
     "ALIVE_TEXT",
     "ALLOW_NSFW",
@@ -97,18 +97,18 @@ async def bad(event):
             vname = oldvars[vname]
         if cmd == "اضف":
             if not vinfo and vname == "ALIVE_TEMPLATE":
-                return await edit_delete(event, f"**♛")
+                return await edit_delete(event, f"♛")
             if not vinfo and vname == "PING_IQ":
                 return await edit_delete(
                     event,
-                    f"**♛︙ قم بكتابة الامـر بـشكل صحـيح  :  .اضف فار PING_TEXT النص الخاص بك**",
+                    f"قم بكتابة الامـر بـشكل صحـيح  :  .اضف فار PING_TEXT النص الخاص بك",
                 )
             if not vinfo:
-                return await edit_delete(event, f"**♛︙ يـجب وضع القـيمـة الصحـيحه**")
+                return await edit_delete(event, f"يـجب وضع القـيمـة الصحـيحه")
             check = vinfo.split(" ")
             for i in check:
                 if (("PIC" in vname) or ("pic" in vname)) and not url(i):
-                    return await edit_delete(event, "**♛︙ يـجـب وضـع رابـط صحـيح **")
+                    return await edit_delete(event, "يـجـب وضـع رابـط صحـيح")
             addgvar(vname, vinfo)
             if BOTLOG_CHATID:
                 await event.client.send_message(
@@ -117,13 +117,13 @@ async def bad(event):
                 await event.client.send_message(BOTLOG_CHATID, vinfo, silent=True)
             await edit_delete(
                 event,
-                f"**♛︙  📑 القيـمة لـ {vname} \n♛︙   تـم تغييـرها لـ :-** `{vinfo}`",
+                f"📑 القيـمة لـ {vname} \n♛︙   تـم تغييـرها لـ : `{vinfo}`",
                 time=20,
             )
         if cmd == "جلب":
             var_data = gvarstatus(vname)
             await edit_delete(
-                event, f"**♛︙  📑 قيـمة الـ {vname}** \n♛︙   هية  `{var_data}`", time=20
+                event, f"📑 قيـمة الـ {vname}** \n   هى  `{var_data}`", time=20
             )
         elif cmd == "حذف":
             delgvar(vname)
