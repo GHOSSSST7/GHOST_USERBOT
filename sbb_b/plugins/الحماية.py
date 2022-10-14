@@ -397,7 +397,7 @@ async def do_pm_spam_action(event, chat):
         return
 
 #ترجمه وكتابة فريق جـيبثون
-@sbb_b.ar_cmd((incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
+@sbb_b.ar_cmd(incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
 async def on_new_private_message(event):
     if gvarstatus("pmpermit") is None:
         return
@@ -597,7 +597,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@sbb_b.ar_cmd((
+@sbb_b.ar_cmd(
     pattern="الحماية (تشغيل|تعطيل)$",
     command=("الحماية", plugin_category),
     info={
@@ -625,7 +625,7 @@ async def pmpermit_on(event):
         await edit_delete(event, "⌯︙امر الحمايه بالفعل مُعطل لحسابك 🌿")
 
 
-@sbb_b.ar_cmd((
+@sbb_b.ar_cmd(
     pattern="الحماية (تشغيل|تعطيل)$",
     command=("الحماية", plugin_category),
     info={
@@ -658,7 +658,7 @@ async def pmpermit_on(event):
         )
 
 
-@sbb_b.ar_cmd((
+@sbb_b.ar_cmd(
     pattern="(س|سماح)(?:\s|$)([\s\S]*)",
     command=("سماح", plugin_category),
     info={
@@ -734,7 +734,7 @@ async def approve_p_m(event):  # sourcery no-metrics
         )
 #ترجمه وكتابة فريق جـيبثون
 
-@sbb_b.ar_cmd((
+@sbb_b.ar_cmd(
     pattern="(ر|رفض)(?:\s|$)([\s\S]*)",
     command=("رفض", plugin_category),
     info={
@@ -785,7 +785,7 @@ async def disapprove_p_m(event):
         )
 
 
-@sbb_b.ar_cmd((
+@sbb_b.ar_cmd(
     pattern="بلوك(?:\s|$)([\s\S]*)",
     command=("بلوك", plugin_category),
     info={
@@ -841,7 +841,7 @@ async def block_p_m(event):
     )
 
 
-@sbb_b.ar_cmd((
+@sbb_b.ar_cmd(
     pattern="انبلوك(?:\s|$)([\s\S]*)",
     command=("انبلوك", plugin_category),
     info={
@@ -874,7 +874,7 @@ async def unblock_pm(event):
     )
 
 #ترجمه وكتابة فريق جـيبثون
-@sbb_b.ar_cmd((
+@sbb_b.ar_cmd(
     pattern="المسموح لهم$",
     command=("المسموح لهم", plugin_category),
     info={
