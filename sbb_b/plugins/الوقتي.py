@@ -33,7 +33,7 @@ autophoto_path = os.path.join(os.getcwd(), "sbb_B", "photo_pfp.png")
 digitalpfp = (
     gvarstatus("DIGITAL_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
 )
-RR7PP = Config.ETIM_JM or ""
+RR7PP = Config.TIME_JM or ""
 
 normzltext = "0123456789"
 namerzfont = Config.TI_FN or "0𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫"
