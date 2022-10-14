@@ -18,8 +18,6 @@ from ..sql_helper import pmpermit_sql
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import mention
 
-ITALIA_path = "sbb_b/cbf8332d0d543535f88e7.jpg"
-
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
 
