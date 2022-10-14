@@ -36,7 +36,7 @@ digitalpfp = (
 RR7PP = Config.TIME_JM or ""
 
 normzltext = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
-namerzfont = Config.TI_FN or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+namerzfont = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
 COLLECTION_STRINGS = {
     "batmanpfp_strings": [
