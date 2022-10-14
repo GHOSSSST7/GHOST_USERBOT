@@ -23,7 +23,7 @@ vlist = [
     "ALIVE_PIC",
     "ALIVE_PICC",
     "TI_FN",
-    "ETIM_JM",
+    "TIME_JM",
     "ALIVE_TEXT",
     "ALLOW_NSFW",
     "HELP_EMOJI",
