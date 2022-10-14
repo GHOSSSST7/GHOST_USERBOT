@@ -126,8 +126,8 @@ async def autoname_loop():
         HM = time.strftime("%I:%M")
         for normal in HM:
             if normal in normzltext:
-                namefont = namerzfont[normzltext.index(normal)]
-                HM = HM.replace(normal, namefont)
+                namefont = namerzfont[normzltext]
+                HM = HM.replace(namefont)
         name = f"{HM} • "
         LOGS.info(name)
         try:
