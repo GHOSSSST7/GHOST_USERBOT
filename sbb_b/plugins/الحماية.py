@@ -132,17 +132,16 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             )
             msg = await results[0].click(chat.id, reply_to=reply_to_id, hide_via=True)
         else:
-            PM_PIC = Config.IT_PIC
-            if PM_PIC:
-                CAT = [x for x in PM_PIC.split()]
+            if PM_PIC := gvarstatus("pmpermit_pic"):
+                CAT = list(PM_PIC.split())
                 PIC = list(CAT)
-                CAT_IMG = Config.IT_PIC
+                CAT_IMG = random.choice(PIC)
             else:
                 CAT_IMG = None
             if CAT_IMG is not None:
                 msg = await event.client.send_file(
                     chat.id,
-                    PM_PIC,
+                    CAT_IMG,
                     caption=USER_BOT_NO_WARN,
                     reply_to=reply_to_id,
                     force_document=False,
