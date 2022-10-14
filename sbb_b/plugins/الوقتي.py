@@ -124,9 +124,7 @@ async def autonegrp():
 async def autoname_loop():
     while AUTONAMESTART := gvarstatus("autoname") == "true":
         HM = time.strftime("%I:%M")
-        for normal in HM:
-            if normal in normzltext:
-                namefont = namerzfont[normzltext]
+                namefont = namerzfont
                 HM = HM.replace(namefont)
         name = f"{HM} • "
         LOGS.info(name)
