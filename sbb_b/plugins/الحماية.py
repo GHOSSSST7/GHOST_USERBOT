@@ -734,7 +734,7 @@ async def disapprove_p_m(event):
     else:
         await edit_delete(
             event,
-            f"[{user.first_name}](tg://user?id={user.id})\nلم يتم الموافقة عليه بالأصل .",
+            f"[{user.first_name}](tg://user?id={user.id}) لم يتم الموافقة عليه بالأصل .",
         )
 
 
