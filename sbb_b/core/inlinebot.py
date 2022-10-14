@@ -524,33 +524,33 @@ async def inline_handler(event):
             await event.answer([result] if result else None)
         elif string == "pmpermit":
             buttons = [
-                Button.inline(text="عرض الخيارات ", data="show_pmpermit_options"),
+                Button.inline(text="🪐 الخـيارات", data="show_pmpermit_options"),
             ]
             PM_PIC = gvarstatus("pmpermit_pic")
             if PM_PIC:
-                CAT = [x for x in PM_PIC.split()]
-                PIC = list(CAT)
-                CAT_IMG = random.choice(PIC)
+                ROZE = [x for x in PM_PIC.split()]
+                PIC = list(ROZE)
+                ROZE_IMG = random.choice(PIC)
             else:
-                CAT_IMG = None
+                ROZE_IMG = None
             query = gvarstatus("pmpermit_text")
-            if CAT_IMG and CAT_IMG.endswith((".jpg", ".jpeg", ".png")):
+            if ROZE_IMG and ROZE_IMG.endswith((".jpg", ".jpeg", ".png")):
                 result = builder.photo(
-                    CAT_IMG,
-                    # title="Alive cat",
+                    ROZE_IMG,
+                    # title="Alive ROZE",
                     text=query,
                     buttons=buttons,
                 )
-            elif CAT_IMG:
+            elif ROZE_IMG:
                 result = builder.document(
-                    CAT_IMG,
-                    title="Alive cat",
+                    ROZE_IMG,
+                    title="Alive BOT",
                     text=query,
                     buttons=buttons,
                 )
             else:
                 result = builder.article(
-                    title="Alive cat",
+                    title="Alive BOT",
                     text=query,
                     buttons=buttons,
                 )
@@ -558,26 +558,32 @@ async def inline_handler(event):
     else:
         buttons = [
             (
-                Button.url("قناة السورس", "t.me/SA3ED_IT"),
+                Button.url("قنـاة السـورس ⚒️", "https://t.me/Jepthon"),
                 Button.url(
-                    "المطور",
-                    "t.me/SA3ED_IT",
+                    "كـروب المـساعدة 📬",
+                    "https://t.me/Jepthon1",
                 ),
             )
         ]
         markup = event.client.build_reply_markup(buttons)
         photo = types.InputWebDocument(
-            url=CATLOGO, size=0, mime_type="image/jpeg", attributes=[]
+            url=ROZLOGO, size=0, mime_type="image/jpeg", attributes=[]
         )
         text, msg_entities = await event.client._parse_message_text(
-            "لجعل جمثون من نصيبك!", "md"
+            "**[بـوت جيـبثون 🧸♥](https://t.me/Jepthon)**\
+            \n\
+            \n❤ جيـبثون هـو بـوت بسـيط يدخـل الـى حسـابك لجعـلك تتحـكم به معـ اوامـر معينـة.\
+            \n\
+            \n**اذا كـنت تـرغب بتـنصيـب السـورس عـلى حسـابك ,\
+            \n🐾 تعال الـى [كروب المسـاعدة](https://t.me/Jepthon1)!**",
+            "md",
         )
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="[𝙅𝙈𝙏𝙃𝙊𝙉 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 🧸♥](https://t.me/SA3ED_IT)",
-            description="لتنصيبه لك",
-            url="t.me/SA3ED_IT",
+            title="jepiq 🧸♥",
+            description="ادخـل كـروب المسـاعدة",
+            url="https://t.me/Jepthon1",
             thumb=photo,
             content=photo,
             send_message=types.InputBotInlineMessageMediaAuto(
