@@ -35,8 +35,8 @@ digitalpfp = (
 )
 RR7PP = Config.TIME_JM or ""
 
-normzltext = "0123456789"
-namerzfont = Config.TI_FN or "0𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫"
+normzltext = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+namerzfont = Config.TI_FN or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
 COLLECTION_STRINGS = {
     "batmanpfp_strings": [
@@ -124,11 +124,11 @@ async def autonegrp():
 async def autoname_loop():
     while AUTONAMESTART := gvarstatus("autoname") == "true":
         HM = time.strftime("%I:%M")
-        Dont1Tags = gvarstatus(f"FONTS_AUTO") or "font1"
-        FONT1 = requests.get(
-            f"https://klanrsulten.ml/FONTS/{Dont1Tags}.php?text={HM}"
-        ).json()["newText"]
-        name = f"{FONT1} • "
+        for normal in HM:
+            if normal in normzltext:
+                namefont = namerzfont[normzltext.index(normal)]
+                HM = HM.replace(normal, namefont)
+        name = f"{HM} • "
         LOGS.info(name)
         try:
             await sbb_b(functions.account.UpdateProfileRequest(first_name=name))
