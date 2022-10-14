@@ -134,7 +134,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             )
             msg = await results[0].click(chat.id, reply_to=reply_to_id, hide_via=True)
         else:
-            PM_PIC = gvarstatus("pmpermit_pic")
+            PM_PIC = Config.IT_PIC
             if PM_PIC:
                 CAT = [x for x in PM_PIC.split()]
                 PIC = list(CAT)
@@ -144,14 +144,14 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             if CAT_IMG is not None:
                 msg = await event.client.send_file(
                     chat.id,
-                    CAT_IMG,
+                    PM_PIC,
                     caption=USER_BOT_NO_WARN,
                     reply_to=reply_to_id,
                     force_document=False,
                 )
             else:
                 msg = await event.client.send_message(
-                    chat.id, USER_BOT_NO_WARN, reply_to=reply_to_id
+                    chat.id, USER_BOT_NO_WARN, PM_PIC, reply_to=reply_to_id
                 )
     except Exception as e:
         LOGS.error(e)
@@ -699,7 +699,7 @@ async def approve_p_m(event):
     else:
         await edit_delete(
             event,
-            f"[{user.first_name}](tg://user?id={user.id}) \nهو بالفعل في قائمة السماح",
+            f"[{user.first_name}](tg://user?id={user.id}) هو بالفعل في قائمة السماح",
         )
 
 
