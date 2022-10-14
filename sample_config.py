@@ -81,7 +81,7 @@ class Config(object):
     # هنا اسم الملف الي ما تريده يتثبت عندك
     NO_LOAD = list(os.environ.get("NO_LOAD", "").split())
     TKRAR = os.environ.get("TKRAR", None)
-    TI_FN = os.environ.get("TI_FN", None)
+    TI_FN = os.environ.get("TI_FN") or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
     # هنا خلي الرمز الي تخليه قبل الامر مثل . ` * ,
     # او بما يسمى الريجكس
