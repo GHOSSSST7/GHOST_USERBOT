@@ -35,8 +35,8 @@ digitalpfp = (
 )
 RR7PP = Config.TIME_JM or ""
 
-normzltext = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
-namerzfont = Config.TI_FN or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+normzltext = "0123456789"
+namerzfont = Config.TI_FN or "0𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫"
 
 COLLECTION_STRINGS = {
     "batmanpfp_strings": [
@@ -128,7 +128,7 @@ async def autoname_loop():
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        name = f"{HM} • "
+        name = f"{RR7PP} {HM} • "
         LOGS.info(name)
         try:
             await sbb_b(functions.account.UpdateProfileRequest(first_name=name))
