@@ -130,7 +130,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             results = await event.client.inline_query(
                 Config.TG_BOT_USERNAME, "pmpermit"
             )
-            msg = await results[0].click(chat.id, reply_to=reply_to_id, hide_via=True)
+            msg = await results[0].click(chat.id, PM_PIC, reply_to=reply_to_id, hide_via=True)
         else:
             if PM_PIC := gvarstatus("pmpermit_pic"):
                 CAT = list(PM_PIC.split())
@@ -152,7 +152,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
                 )
     except Exception as e:
         LOGS.error(e)
-        msg = await event.reply(USER_BOT_NO_WARN)
+        msg = await event.reply(PM_PIC, USER_BOT_NO_WARN)
     try:
         if str(chat.id) in PMMESSAGE_CACHE:
             await event.client.delete_messages(chat.id, PMMESSAGE_CACHE[str(chat.id)])
