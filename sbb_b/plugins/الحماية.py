@@ -120,13 +120,11 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             remwarns=remwarns,
         )
     elif gvarstatus("pmmenu") is None:
-        USER_BOT_NO_WARN = f"""{ITALIA}❃ اهلا بك {mention} \nتم ارسال رسالتك بنجاح . \nانتظر الرد حتى لا يتم حظرك من البوت. 
-
-لديك {warns}/{totalwarns} من التحذيرات . """
+        USER_BOT_NO_WARN = f"""❃ مرحبا {mention} \n❃ تم ارسال رسالتك بنجاح . \n❃ انتظر الرد حتى لا يتم حظرك من البوت.
+❃ لديك {warns}/{totalwarns} من التحذيرات . """
     else:
-        USER_BOT_NO_WARN = f"""{ITALIA}❃ اهلا بك {mention} \nتم ارسال رسالتك بنجاح . \nانتظر الرد حتى لا يتم حظرك من البوت. 
-
-لديك {warns}/{totalwarns} من التحذيرات . """
+        USER_BOT_NO_WARN = f"""❃ مرحبا {mention} \n❃ تم ارسال رسالتك بنجاح . \n❃ انتظر الرد حتى لا يتم حظرك من البوت.
+❃ لديك {warns}/{totalwarns} من التحذيرات . """
     addgvar("pmpermit_text", USER_BOT_NO_WARN)
     PM_WARNS[str(chat.id)] += 1
     try:
@@ -146,7 +144,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             if CAT_IMG is not None:
                 msg = await event.client.send_file(
                     chat.id,
-                    CAT_IMG,
+                    PM_PIC,
                     caption=USER_BOT_NO_WARN,
                     reply_to=reply_to_id,
                     force_document=False,
