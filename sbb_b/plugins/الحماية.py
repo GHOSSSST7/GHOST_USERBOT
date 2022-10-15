@@ -126,7 +126,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
     else:
         USER_BOT_NO_WARN = f"""❃ مرحبا {mention} \n❃ تم ارسال رسالتك بنجاح . \n❃ انتظر الرد حتى لا يتم حظرك من البوت.
 ❃ لديك {warns}/{totalwarns} من التحذيرات . """
-    addgvar("pmpermit_text", USER_BOT_NO_WARN, ITPICC)
+    addgvar("pmpermit_text", USER_BOT_NO_WARN, CAT_IMG)
     PM_WARNS[str(chat.id)] += 1
     try:
         if gvarstatus("pmmenu") is None:
@@ -155,7 +155,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
                 )
     except Exception as e:
         LOGS.error(e)
-        msg = await event.reply(USER_BOT_NO_WARN)
+        msg = await event.reply(USER_BOT_NO_WARN, CAT_IMG)
     try:
         if str(chat.id) in PMMESSAGE_CACHE:
             await event.client.delete_messages(chat.id, PMMESSAGE_CACHE[str(chat.id)])
