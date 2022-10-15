@@ -38,13 +38,14 @@ vlist = [
     "MAX_FLOOD_IN_PMS",
     "START_TEXT",
     "BOT_START_PIC",
-    "NO_OF_ROWS_IN_HELP",
+    "IT_EMJ",
     "HELP_PIC",
 ]
 
 oldvars = {
     "PM_PIC": "pmpermit_pic",
     "PM_TEXT": "pmpermit_txt",
+    "IT_EMJ": "RR7PP",
     "PM_BLOCK": "pmblock",
 }
 
