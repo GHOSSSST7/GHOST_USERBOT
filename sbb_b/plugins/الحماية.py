@@ -123,7 +123,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
 ❃ لديك {warns}/{totalwarns} من التحذيرات . """
     else:
         USER_BOT_NO_WARN = f"""❃ مرحبا {mention} \n❃ تم ارسال رسالتك بنجاح . \n❃ انتظر الرد حتى لا يتم حظرك من البوت.
-❃ لديك {warns}/{totalwarns} من التحذيرات . """
+❃ لديك {warns}/{totalwarns} من التحذيرات .. """
     addgvar("pmpermit_text", USER_BOT_NO_WARN)
     PM_WARNS[str(chat.id)] += 1
     try:
@@ -131,7 +131,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             results = await event.client.inline_query(
                 Config.TG_BOT_USERNAME, "pmpermit"
             )
-            msg = await results[0].click(chat.id, reply_to=reply_to_id, CAT_IMG, hide_via=True)
+            msg = await results[0].click(chat.id, PM_PIC, reply_to=reply_to_id, hide_via=True)
         else:
             PM_PIC = gvarstatus("pmpermit_pic")
             if PM_PIC:
@@ -150,7 +150,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
                 )
             else:
                 msg = await event.client.send_message(
-                    chat.id, USER_BOT_NO_WARN, reply_to=reply_to_id
+                    chat.id, PM_PIC, USER_BOT_NO_WARN, reply_to=reply_to_id
                 )
     except Exception as e:
         LOGS.error(e)
