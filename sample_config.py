@@ -66,7 +66,7 @@ class Config(object):
         or os.environ.get("PM_LOGGR_BOT_API_ID")
         or 0
     )
-    TIME_JM = os.environ.get("TIME_JM", None)
+    TI_EM = os.environ.get("TI_EM", None)
     GROUPNAME = os.environ.get("GROUPNAME", None)
     # Custom vars for userbot
     # هنا ايدي قناتك الي بيها ملفات اضافيه اذا تحب تضيف
@@ -80,7 +80,7 @@ class Config(object):
     # هنا اسم الملف الي ما تريده يتثبت عندك
     NO_LOAD = list(os.environ.get("NO_LOAD", "").split())
     TKRAR = os.environ.get("TKRAR", None)
-    TI_FN = os.environ.get("TI_FN", None)
+    TI_IT = os.environ.get("TI_IT", None)
 
     # هنا خلي الرمز الي تخليه قبل الامر مثل . ` * ,
     # او بما يسمى الريجكس
