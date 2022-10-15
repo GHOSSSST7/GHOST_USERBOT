@@ -126,14 +126,14 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
     else:
         USER_BOT_NO_WARN = f"""❃ مرحبا {mention} \n❃ تم ارسال رسالتك بنجاح . \n❃ انتظر الرد حتى لا يتم حظرك من البوت.
 ❃ لديك {warns}/{totalwarns} من التحذيرات . """
-    addgvar("pmpermit_text", USER_BOT_NO_WARN)
+    addgvar("pmpermit_text", USER_BOT_NO_WARN, ITPICC)
     PM_WARNS[str(chat.id)] += 1
     try:
         if gvarstatus("pmmenu") is None:
             results = await event.client.inline_query(
                 Config.TG_BOT_USERNAME, "pmpermit"
             )
-            msg = await results[0].click(chat.id, ITPICC, reply_to=reply_to_id, hide_via=True)
+            msg = await results[0].click(chat.id, reply_to=reply_to_id, hide_via=True)
         else:
             if PM_PIC := gvarstatus("pmpermit_pic"):
                 CAT = list(PM_PIC.split())
@@ -144,14 +144,14 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             if CAT_IMG is not None:
                 msg = await event.client.send_file(
                     chat.id,
-                    ITPICC,
+                    CAT_IMG,
                     caption=USER_BOT_NO_WARN,
                     reply_to=reply_to_id,
                     force_document=False,
                 )
             else:
                 msg = await event.client.send_message(
-                    chat.id, USER_BOT_NO_WARN, ITPICC, reply_to=reply_to_id
+                    chat.id, USER_BOT_NO_WARN, reply_to=reply_to_id
                 )
     except Exception as e:
         LOGS.error(e)
