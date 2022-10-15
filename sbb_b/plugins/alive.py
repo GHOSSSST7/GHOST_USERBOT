@@ -96,7 +96,7 @@ async def amireallyalive(event):
 
 
 temp = """{ALIVE_TEXT}
-{EMOJI} 𝐌𝐄 : {mention}
+{EMOJI}  𝐌𝐄 : {mention}
 {EMOJI} 𝐓𝐈𝐌𝐄 : {TM}
 {EMOJI} 𝐌𝐘 𝐁𝐎𝐓 : {tg_bot}
 {EMOJI} 𝐃𝐕 : @SA3ED_IT."""
