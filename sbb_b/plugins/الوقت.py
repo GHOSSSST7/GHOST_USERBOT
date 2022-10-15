@@ -33,10 +33,10 @@ autophoto_path = os.path.join(os.getcwd(), "sbb_B", "photo_pfp.png")
 digitalpfp = (
     gvarstatus("DIGITAL_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
 )
-RR7PP = Config.TIME_JM or "•"
+RR7PP = Config.TI_EM or "•"
 
 normzltext = "0123456789"
-namerzfont = Config.TI_FN or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+namerzfont = Config.TI_IT or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
 COLLECTION_STRINGS = {
     "batmanpfp_strings": [
