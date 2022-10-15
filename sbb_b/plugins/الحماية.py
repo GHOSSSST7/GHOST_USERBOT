@@ -123,7 +123,7 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
 ❃ لديك {warns}/{totalwarns} من التحذيرات . """
     else:
         USER_BOT_NO_WARN = f"""❃ مرحبا {mention} \n❃ تم ارسال رسالتك بنجاح . \n❃ انتظر الرد حتى لا يتم حظرك من البوت.
-❃ لديك {warns}/{totalwarns} من التحذيرات .. """
+❃ لديك {warns}/{totalwarns} من التحذيرات . """
     addgvar("pmpermit_text", USER_BOT_NO_WARN)
     PM_WARNS[str(chat.id)] += 1
     try:
