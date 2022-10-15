@@ -39,7 +39,6 @@ vlist = [
     "START_TEXT",
     "BOT_START_PIC",
     "NO_OF_ROWS_IN_HELP",
-    "ITPIC",
     "HELP_PIC",
 ]
 
