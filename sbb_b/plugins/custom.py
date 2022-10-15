@@ -203,7 +203,7 @@ async def bad(event):  # sourcery no-metrics  # sourcery skip: low-code-quality
 
 
 @sbb_b.ar_cmd(
-    pattern="custom (pmpermit|pmpic|pmblock|startmsg)$",
+    pattern="وضع (pmpermit|صورة الحماية|pmblock|startmsg)$",
     command=("custom", plugin_category),
     info={
         "header": "To customize your CatUserbot.",
@@ -250,7 +250,7 @@ async def custom_catuserbot(event):
         addgvar("pmblock", text)
     if input_str == "startmsg":
         addgvar("START_TEXT", text)
-    if input_str == "pmpic":
+    if input_str == "صورة الحماية":
         urls = extractor.find_urls(reply.text)
         if not urls:
             return await edit_delete(event, "`the given link is not supported`", 5)
