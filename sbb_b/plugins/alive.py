@@ -24,8 +24,8 @@ from . import mention
 
 plugin_category = "utils"
 
-normzltext = "0123456789"
-namerzfont = Config.TI_IT or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+normzltext = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+namerzfont = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
 @sbb_b.ar_cmd(
     pattern="فحص$",
@@ -57,10 +57,10 @@ async def amireallyalive(event):
     CAT_IMG = gvarstatus("ALIVE_PIC")
     tg_bot = Config.TG_BOT_USERNAME
     TM = time.strftime("%I:%M")
-    for normal in HM:
+    for normal in TM:
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
-                HM = HM.replace(normal, namefont)
+                TM = TM.replace(normal, namefont)
     caption = cat_caption.format(
         ALIVE_TEXT=ALIVE_TEXT,
         ANIME=ANIME,
