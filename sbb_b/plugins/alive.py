@@ -24,9 +24,11 @@ from . import mention
 
 plugin_category = "utils"
 
+normzltext = "0123456789"
+namerzfont = Config.TI_IT or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
 @sbb_b.ar_cmd(
-    pattern="alive$",
+    pattern="فحص$",
     command=("alive", plugin_category),
     info={
         "header": "To check bot's alive status",
@@ -51,8 +53,14 @@ async def amireallyalive(event):
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**✮ MY BOT IS RUNNING SUCCESSFULLY ✮**"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or ""
     CAT_IMG = gvarstatus("ALIVE_PIC")
+    tg_bot = Config.TG_BOT_USERNAME
+    TM = time.strftime("%I:%M")
+    for normal in HM:
+            if normal in normzltext:
+                namefont = namerzfont[normzltext.index(normal)]
+                HM = HM.replace(normal, namefont)
     caption = cat_caption.format(
         ALIVE_TEXT=ALIVE_TEXT,
         ANIME=ANIME,
@@ -64,6 +72,8 @@ async def amireallyalive(event):
         pyver=python_version(),
         dbhealth=check_sgnirts,
         ping=ms,
+        TM=TM,
+        tg_bot=tg_bot,
     )
     if CAT_IMG:
         CAT = list(CAT_IMG.split())
@@ -86,12 +96,10 @@ async def amireallyalive(event):
 
 
 temp = """{ALIVE_TEXT}
-**{EMOJI} Database :** `{dbhealth}`
-**{EMOJI} Telethon Version :** `{telever}`
-**{EMOJI} Catuserbot Version :** `{catver}`
-**{EMOJI} Python Version :** `{pyver}`
-**{EMOJI} Uptime :** `{uptime}`
-**{EMOJI} Master:** {mention}"""
+**{EMOJI} 𝐌𝐄 :** {mention}
+**{EMOJI} 𝐓𝐈𝐌𝐄 :** {TM}
+**{EMOJI} 𝐌𝐘 𝐁𝐎𝐓 :** {tg_bot}
+**{EMOJI} 𝐃𝐕 :  @SA3ED_IT."""
 
 
 def jmthonalive_text():
@@ -102,28 +110,3 @@ def jmthonalive_text():
     cat_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
     cat_caption += f"**{EMOJI} Master:** {mention}\n"
     return cat_caption
-
-
-@sbb_b.ar_cmd(
-    pattern="ialive$",
-    command=("ialive", plugin_category),
-    info={
-        "header": "To check bot's alive status via inline mode",
-        "options": "To show media in this cmd you need to set ALIVE_PIC with media link, get this by replying the media by .tgm",
-        "usage": [
-            "{tr}ialive",
-        ],
-    },
-)
-async def amireallyalive(event):
-    "A kind of showing bot details by your inline bot"
-    reply_to_id = await reply_id(event)
-    results = await event.client.inline_query(Config.TG_BOT_USERNAME, "ialive")
-    await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
-    await event.delete()
-
-
-@sbb_b.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
-async def on_plug_in_callback_query_handler(event):
-    statstext = await jmthonalive(StartTime)
-    await event.answer(statstext, cache_time=0, alert=True)
