@@ -84,7 +84,7 @@ async def variable(var):  # sourcery no-metrics
             os.remove("configs.json")
     elif exe == "set":
         variable = "".join(var.text.split(maxsplit=2)[2:])
-        cat = await edit_or_reply(var, "`انتظر قليلا...`")
+        cat = await edit_or_reply(var, "`Processing...`")
         if not variable:
             return await edit_or_reply(cat, "`.set var <اسم الفار> <القيمه>`")
         value = "".join(variable.split(maxsplit=1)[1:])
