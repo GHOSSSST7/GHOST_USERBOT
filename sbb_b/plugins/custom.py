@@ -21,7 +21,7 @@ vlist = [
     "ALIVE_TEMPLATE",
     "ALIVE_TEXT",
     "TI_FO",
-    "CHANGE_TIME",
+    "TI_TI",
     "DEFAULT_BIO",
     "DEFAULT_NAME",
     "DEFAULT_PIC",
