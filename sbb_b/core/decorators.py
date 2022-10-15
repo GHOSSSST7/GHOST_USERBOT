@@ -20,7 +20,10 @@ def check_owner(func):
             except MessageNotModifiedError:
                 pass
         else:
-            HELP_TEXT = gvarstatus("HELP_TEXT") or "هذه القائمه خاصه فقط لمالك الحساب ."
+            HELP_TEXT = (
+                gvarstatus("HELP_TEXT")
+                or "هذه القائمه خاصه فقط لمالك الحساب ."
+            )
             await c_q.answer(
                 HELP_TEXT,
                 alert=True,
