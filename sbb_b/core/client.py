@@ -105,16 +105,13 @@ class JmthonClient(TelegramClient):
             async def wrapper(check):  # sourcery no-metrics
                 # sourcery skip: low-code-quality
                 if groups_only and not check.is_group:
-                   return await edit_delete(
-                       check, "يستخدم الامر في المجموعات ", 10)
-
+                    return await edit_delete(check, "- يستخدم الامر في المجموعات ", 10)
                 if private_only and not check.is_private:
-                   return await edit_delete(
-                       check, "يستخدم الامر فقط في الخاص ", 10)
+                    return await edit_delete(check, "- يستخدم الامر فقط في الخاص ", 10)
                 try:
                     await func(check)
-                except events.StopPropagation:
-                    raise events.StopPropagation
+                except events.StopPropagation as e:
+                    raise events.StopPropagation from e
                 except KeyboardInterrupt:
                     pass
                 except MessageNotModifiedError:
@@ -176,7 +173,7 @@ class JmthonClient(TelegramClient):
                             ftext, pastetype="s", markdown=False
                         )
                         link = "[هنا](https://t.me/SA3ED_IT)"
-                        text = "**تقرير خطأ سورس ايطاليا**\n\n" + "اذا اردت يمكنك التبليغ"
+                        text = "**تقرير خطأ**\n\n" + "اذا اردت يمكنك التبليغ"
                         text += f"- فقط وجه هذه الرسالة الى {link}.\n"
                         text += "لم يتم تسجيل اي بيانات خاصه ومهمة\n\n"
                         text += f"**تقرير الخطأ : ** [{new['error']}]({pastelink})"
