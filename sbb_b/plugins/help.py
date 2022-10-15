@@ -12,7 +12,7 @@ from ..sql_helper.globals import gvarstatus
 
 ROE = ""
 ROZADM = "من هنا يمكنك ايجاد جميع"
-IQTHONPC = (
+ITPIC = (
     gvarstatus("ALIVE_PICC") or "https://telegra.ph/file/326d5b1db904e2124e720.jpg"
 )
 RAZAN = Config.TG_BOT_USERNAME
@@ -50,11 +50,11 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                 buttons=buttons,
                 link_preview=False,
             )
-            if IQTHONPC and IQTHONPC.endswith((".jpg", ".png", "gif", "mp4")):
-                result = builder.photo(IQTHONPC, buttons=buttons, link_preview=False)
-            elif IQTHONPC:
+            if ITPIC and ITPIC.endswith((".jpg", ".png", "gif", "mp4")):
+                result = builder.photo(ITPIC, buttons=buttons, link_preview=False)
+            elif ITPIC:
                 result = builder.document(
-                    IQTHONPC, title="sbb_b", buttons=buttons, link_preview=False
+                    ITPIC, title="sbb_b", buttons=buttons, link_preview=False
                 )
         await event.answer([result] if result else None)
 
