@@ -180,7 +180,7 @@ async def _(event):
             Button.inline("حالتي", data="R7ALTIE"),
         ],
         [
-            Button.inline("الحاسبة", data="CALCATERE"),
+            Button.inline("", data=""),
             Button.inline("خاص", data="PVIT"),
             Button.inline("الارسال الوهمي", data="SACAMF"),
         ],
