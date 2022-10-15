@@ -11,6 +11,7 @@ dataclasses
 pyminizip
 DateTime
 emoji
+emoji==1.7.0
 fonttools
 geopy
 gitpython
