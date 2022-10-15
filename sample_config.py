@@ -40,7 +40,7 @@ class Config(object):
     VCMODE = bool(VCMODE and (VCMODE.lower() != "false"))
     VC_SESSION = os.environ.get("VC_SESSION", None)
     ALIVE_PIC = os.environ.get(
-        "ALIVE_PIC", "https://telegra.ph/file/e9c27e7dfb0b1835d23ce.mp4"
+        "ALIVE_PIC", ""
     )
     PING_TEXT = os.environ.get("PING_TEXT", None)
     ALIVE_MSG = os.environ.get("ALIVE_MSG", None)
