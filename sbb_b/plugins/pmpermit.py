@@ -142,12 +142,20 @@ Choose an option from below to specify the reason of your message and wait for m
 You have {warns}/{totalwarns} warns until you get blocked by the Catsbb_b.
 
 Don't spam my inbox. say reason and wait until my response.__"""
+             
+            result = builder.article(
 
+                title="sbb_b",
+
+                buttons=buttons,
+
+                link_preview=False,
+           )
             if ITPICC and ITPICC.endswith((".jpg", ".png", "gif", "mp4")):
                 result = builder.photo(ITPICC, buttons=buttons, link_preview=False)
             elif ITPICC:
                 result = builder.document(
-                    ITPICC, title="USER_BOT_NO_WARN", buttons=buttons, link_preview=False
+                    ITPICC, title="sbb_b", buttons=buttons, link_preview=False
                 )
         await event.answer([result] if result else None)
 
