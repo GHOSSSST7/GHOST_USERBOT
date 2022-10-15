@@ -16,7 +16,7 @@ from ..sql_helper import global_collectionjson as sql
 from ..sql_helper import global_list as sqllist
 from ..sql_helper import pmpermit_sql
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
-from . import BOTLOG_CHATID, mention
+from . import mention
 
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
@@ -641,7 +641,7 @@ async def pmpermit_on(event):
 
 
 @sbb_b.ar_cmd(
-    pattern="pmmenu (on|off)$",
+    pattern="pmguard (on|off)$",
     command=("pmmenu", plugin_category),
     info={
         "header": "To turn on or turn off pmmenu.",
