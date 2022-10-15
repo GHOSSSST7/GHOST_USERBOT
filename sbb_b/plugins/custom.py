@@ -20,7 +20,7 @@ vlist = [
     "ALIVE_EMOJI",
     "ALIVE_TEMPLATE",
     "ALIVE_TEXT",
-    "TI_IT",
+    "TI_FO",
     "CHANGE_TIME",
     "DEFAULT_BIO",
     "DEFAULT_NAME",
