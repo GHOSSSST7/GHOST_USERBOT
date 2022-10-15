@@ -466,8 +466,8 @@ async def _(event):
             Button.inline("سليب ميديا", data="IMSLEEPF"),
         ],
         [
-            Button.inline("البنج", data="PINGSMC"),
-            Button.inline("السورس", data="ALICVEINLI"),
+            Button.inline("", data=""),
+            Button.inline("", data=""),
         ],
         [
             Button.inline("سرعة الانترنت", data="ALNTDOS"),
