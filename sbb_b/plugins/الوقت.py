@@ -36,8 +36,8 @@ digitalpfp = (
 RR7PP = Config.TI_EM or "•"
 
 normzltext = "0123456789"
-namerzfont = gvarstatus(f"TI_FO") or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
-namefont = gvarstatus(f"TI_TI")
+namerzfont = Config.TI_FO or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+
 
 COLLECTION_STRINGS = {
     "batmanpfp_strings": [
