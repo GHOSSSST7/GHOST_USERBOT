@@ -270,12 +270,12 @@ async def _(event):
             Button.inline("تيك توك", data="ALIVEFDO"),
         ],
         [
-            Button.inline("انستا", data="INSTAGRAMCMD"),
-            Button.inline("بينترست", data="BENTRSTCMD"),
+            Button.inline("", data=""),
+            Button.inline("", data=""),
         ],
         [
-            Button.inline("نتائج بحث", data="YIOFDD"),
-            Button.inline("تحميل صور", data="PICSERACJ"),
+            Button.inline("", data=""),
+            Button.inline("", data=""),
         ],
         [Button.inline("القائمة الرئيسية", data="MAIN")],
     ]
