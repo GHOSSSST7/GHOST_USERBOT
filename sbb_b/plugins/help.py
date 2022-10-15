@@ -13,7 +13,7 @@ from ..sql_helper.globals import gvarstatus
 ROE = ""
 ROZADM = "من هنا يمكنك ايجاد جميع"
 ITPIC = (
-    gvarstatus("ALIVE_PICC") or "https://telegra.ph/file/326d5b1db904e2124e720.jpg"
+    gvarstatus("HELP_PIC") or "https://telegra.ph/file/326d5b1db904e2124e720.jpg"
 )
 RAZAN = Config.TG_BOT_USERNAME
 
