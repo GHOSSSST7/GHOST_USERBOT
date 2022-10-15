@@ -143,7 +143,7 @@ You have {warns}/{totalwarns} warns until you get blocked by the Catsbb_b.
 
 Don't spam my inbox. say reason and wait until my response.__"""
 
-if ITPICC and ITPICC.endswith((".jpg", ".png", "gif", "mp4")):
+            if ITPICC and ITPICC.endswith((".jpg", ".png", "gif", "mp4")):
                 result = builder.photo(ITPICC, buttons=buttons, link_preview=False)
             elif ITPICC:
                 result = builder.document(
