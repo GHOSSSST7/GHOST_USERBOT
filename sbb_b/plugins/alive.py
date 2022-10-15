@@ -24,8 +24,8 @@ from . import mention
 
 plugin_category = "utils"
 
-normzltext = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
-namerzfont = "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
+normzltext = "0123456789"
+namerzfont = Config.TI_IT or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
 
 @sbb_b.ar_cmd(
     pattern="فحص$",
@@ -96,10 +96,10 @@ async def amireallyalive(event):
 
 
 temp = """{ALIVE_TEXT}
-**{EMOJI} 𝐌𝐄 :** {mention}
-**{EMOJI} 𝐓𝐈𝐌𝐄 :** {TM}
-**{EMOJI} 𝐌𝐘 𝐁𝐎𝐓 :** {tg_bot}
-**{EMOJI} 𝐃𝐕 :  @SA3ED_IT."""
+{EMOJI} 𝐌𝐄 : {mention}
+{EMOJI} 𝐓𝐈𝐌𝐄 : {TM}
+{EMOJI} 𝐌𝐘 𝐁𝐎𝐓 : {tg_bot}
+{EMOJI} 𝐃𝐕 : @SA3ED_IT."""
 
 
 def jmthonalive_text():
