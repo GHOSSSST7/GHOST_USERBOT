@@ -5,7 +5,7 @@ ENV TZ=Africa/Cairo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #clonning repo 
-RUN git clone https://github.com/sa3ed266it/ITALIA_USERBOT /root/sbb_b
+RUN git clone https://github.com/GHOSSSST7/GHOST_USERBOT /root/sbb_b
 #working directory 
 WORKDIR /root/sbb_b
 
