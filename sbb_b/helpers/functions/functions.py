@@ -1,4 +1,3 @@
-import asyncio
 import os
 import zipfile
 from random import choice
@@ -6,12 +5,10 @@ from textwrap import wrap
 from uuid import uuid4
 
 import requests
-from googletrans import Translator
 from PIL import Image, ImageOps
 from telethon import functions, types
 
 from ..utils.extdl import install_pip
-from ..utils.utils import runcmd
 
 try:
     from imdb import IMDb
@@ -99,8 +96,8 @@ async def covidindia(state):
 async def post_to_telegraph(
     page_title,
     html_format_content,
-    auth_name="CatUserbot",
-    auth_url="https://t.me/catuserbot17",
+    auth_name="jmthon",
+    auth_url="https://t.me/jmthon",
 ):
     post_client = TelegraphPoster(use_api=True)
     post_client.create_api_token(auth_name)
@@ -171,15 +168,15 @@ async def clippy(borg, msg, chat_id, reply_to_id):
 
 async def hide_inlinebot(borg, bot_name, text, chat_id, reply_to_id, c_lick=0):
     sticcers = await borg.inline_query(bot_name, f"{text}.")
-    cat = await sticcers[c_lick].click("me", hide_via=True)
-    if cat:
-        await borg.send_file(int(chat_id), cat, reply_to=reply_to_id)
-        await cat.delete()
+    Jmthon = await sticcers[c_lick].click("me", hide_via=True)
+    if Jmthon:
+        await borg.send_file(int(chat_id), Jmthon, reply_to=reply_to_id)
+        await Jmthon.delete()
 
 
 async def make_inline(text, borg, chat_id, reply_to_id):
-    catinput = f"Inline buttons {text}"
-    results = await borg.inline_query(Config.TG_BOT_USERNAME, catinput)
+    Jmthoninput = f"Inline buttons {text}"
+    results = await borg.inline_query(Config.TG_BOT_USERNAME, Jmthoninput)
     await results[0].click(chat_id, reply_to=reply_to_id)
 
 
@@ -213,19 +210,6 @@ async def unzip(downloaded_file_name):
         zip_ref.extractall("./temp")
     downloaded_file_name = os.path.splitext(downloaded_file_name)[0]
     return f"{downloaded_file_name}.gif"
-
-
-# https://github.com/ssut/py-googletrans/issues/234#issuecomment-722379788
-async def getTranslate(text, **kwargs):
-    translator = Translator()
-    result = None
-    for _ in range(10):
-        try:
-            result = translator.translate(text, **kwargs)
-        except Exception:
-            translator = Translator()
-            await asyncio.sleep(0.1)
-    return result
 
 
 def reddit_thumb_link(preview, thumb=None):
@@ -401,7 +385,7 @@ def higlighted_text(
             )
             source_img = Image.alpha_composite(source_img, trans)
             output_text.append(list_text[i])
-        output_img = f"./temp/cat{pic_no}.jpg"
+        output_img = f"./temp/Jmthon{pic_no}.jpg"
         output.append(output_img)
         source_img.save(output_img, "png")
         if album_limit and (album_limit - 1) == pic_no:
@@ -451,7 +435,7 @@ async def waifutxt(text, chat_id, reply_to_id, bot):
         63,
     ]
     sticcers = await bot.inline_query("stickerizerbot", f"#{choice(animus)}{text}")
-    cat = await sticcers[0].click("me", hide_via=True)
-    if cat:
-        await bot.send_file(int(chat_id), cat, reply_to=reply_to_id)
-        await cat.delete()
+    Jmthon = await sticcers[0].click("me", hide_via=True)
+    if Jmthon:
+        await bot.send_file(int(chat_id), Jmthon, reply_to=reply_to_id)
+        await Jmthon.delete()
