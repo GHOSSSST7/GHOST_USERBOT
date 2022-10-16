@@ -104,9 +104,9 @@ async def startupmessage():
         if BOTLOG:
             Config.JMTHONLOGO = await sbb_b.tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://telegra.ph/file/e9c27e7dfb0b1835d23ce.mp4",
+                "https://telegra.ph/file/2f7a289d1facce0a12b34.mp4",
                 caption="تم تشغيل السورس بنجاح ✓",
-                buttons=[(Button.url("المطور", "https://t.me/SA3ED_IT"),)],
+                buttons=[(Button.url("المطور", "https://t.me/MIDO_JR"),)],
             )
     except Exception as e:
         LOGS.error(e)
