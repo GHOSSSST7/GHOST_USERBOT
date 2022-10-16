@@ -13,7 +13,7 @@ from ..sql_helper.globals import gvarstatus
 ROE = ""
 ROZADM = "من هنا يمكنك ايجاد جميع"
 ITPIC = (
-    gvarstatus("HELP_PIC") or "https://telegra.ph/file/326d5b1db904e2124e720.jpg"
+    gvarstatus("HELP_PIC") or "https://telegra.ph/file/52b904e1545c942a93d8b.jpg"
 )
 RAZAN = Config.TG_BOT_USERNAME
 
@@ -27,7 +27,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
         await sbb_b.get_me()
         if query.startswith("الاوامر") and event.query.user_id == sbb_b.uid:
             buttons = [
-                [Button.url("• المطـور •", "https://t.me/SA3ED_IT")],
+                
                 [
                     Button.inline("البوت", data="BOTCMD4"),
                     Button.inline("الجروب", data="admincmd_s"),
@@ -43,6 +43,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                 [
                     Button.inline("اضافات", data="EXTRACMD"),
                     Button.inline("الميوزك", data="MSHKLMSIC"),
+                    [Button.url("• المطـور •", "https://t.me/MIDO_JR")],
                 ],
             ]
             result = builder.article(
@@ -72,7 +73,7 @@ async def repo(event):
 @check_owner
 async def _(event):
     butze = [
-        [Button.url("• المطـور •", "https://t.me/SA3ED_IT")],
+        
         [
             Button.inline("البوت", data="BOTCMD4"),
             Button.inline("الجروب", data="admincmd_s"),
@@ -88,6 +89,7 @@ async def _(event):
         [
             Button.inline("اضافات", data="EXTRACMD"),
             Button.inline("الميوزك", data="MSHKLMSIC"),
+            [Button.url("• المطـور •", "https://t.me/MIDO_JR")],
         ],
     ]
     await event.edit(buttons=butze)
