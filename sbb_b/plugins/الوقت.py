@@ -17,7 +17,7 @@ from ..sql_helper.gavstats import autogroup, del_autogroup, get_autogroup
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import edit_delete, logging, sbb_b
 
-NAME = Config.GROUPNAME or "."
+NAME = Config.GROUPNAME or "|"
 
 DEFAULTUSERBIO = Config.DEFAULT_BIO or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
 DEFAULTUSER = gvarstatus("DEFAULT_NAME") or Config.ALIVE_NAME
@@ -33,7 +33,7 @@ autophoto_path = os.path.join(os.getcwd(), "sbb_B", "photo_pfp.png")
 digitalpfp = (
     gvarstatus("DIGITAL_PIC") or "https://telegra.ph/file/63a826d5e5f0003e006a0.jpg"
 )
-RR7PP = Config.TI_EM or "•"
+RR7PP = Config.TI_EM or "|"
 
 normzltext = "0123456789"
 namerzfont = Config.TI_IT or "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
